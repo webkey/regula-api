@@ -4,47 +4,81 @@
 
 /* btn-def */
 .btn-def {
-  $btn-font-size: 1.4rem;
-  $btn-line-height: 1.8rem;
-  $btn-letter-spacing: 0.2em;
-  $btn-border-width: 0.2rem;
+  $this: &;
+  $btn-height: 5.5rem;
+  $btn-font-size: 1.8rem;
+  $btn-line-height: 2.1rem;
+  $btn-border-width: 0;
   $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height - $btn-border-width * 2) / 2, 1);
-  $btn-space-inner-horizontal: $btn-space-inner-vertical * 2;
+  $btn-space-inner-horizontal: 3.2rem;
 
   display: inline-block;
   vertical-align: top;
   position: relative;
+  overflow: hidden;
   margin: 0;
   padding: #{$btn-space-inner-vertical} #{$btn-space-inner-horizontal};
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
   color: $btn-text-color;
-  text-transform: uppercase;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  border: $btn-border-width solid transparent;
-  border-radius: 5px;
-  background-color: $btn-bg-color;
-  box-shadow: none;
+  border: none;
+  border-radius: 0.8rem;
+  background: none;
+  box-shadow: 0 4px 10px rgba(110, 86, 176, 0.25);
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: color $animation-speed, border-color $animation-speed, background-color $animation-speed;
+  z-index: 1;
 
-  &, & > span {
-    @include font-size($btn-font-size, $btn-line-height);
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    z-index: -1;
+    transition: opacity $animation-speed;
+  }
 
-    letter-spacing: $btn-letter-spacing;
+  &::before {
+    //@include linear-gradient(180deg, #7e3fbb 0%, #a02f8d 100%);
+    background-color: $btn-bg-hover-color;
+  }
+
+  &::after {
+    @include linear-gradient(180deg, #6e56b0 0%, #5a4690 100%);
   }
 
   // Hover
   &:hover {
-    .no-touchevents & {
-      background-color: $btn-bg-hover-color;
+    &::after {
+      opacity: 0;
     }
   }
 
   // Disabled
   &:disabled, &.disabled {
     @include btn-disabled;
+  }
+
+  @at-root {
+    input#{$this} {
+      @include linear-gradient(180deg, #6e56b0 0%, #5a4690 100%);
+      border-radius: 0.8rem;
+
+      // Hover
+      &:hover {
+        .no-touchevents & {
+          background: $btn-bg-hover-color;
+        }
+      }
+    }
   }
 }
 
@@ -52,48 +86,50 @@
 
 /* btn-alt */
 .btn-alt {
-  $btn-font-size: 1.4rem;
-  $btn-line-height: 1.8rem;
-  $btn-letter-spacing: 0.2em;
-  $btn-border-width: 0.2rem;
+  $this: &;
+  $btn-height: 5.5rem;
+  $btn-font-size: 1.8rem;
+  $btn-line-height: 2.1rem;
+  $btn-border-width: 0;
   $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height - $btn-border-width * 2) / 2, 1);
-  $btn-space-inner-horizontal: $btn-space-inner-vertical * 2;
+  $btn-space-inner-horizontal: 3.2rem;
+  $btn-bg-color: #7a839e;
 
   display: inline-block;
   vertical-align: top;
   position: relative;
   margin: 0;
   padding: #{$btn-space-inner-vertical} #{$btn-space-inner-horizontal};
-  color: $btn-bg-color;
-  text-transform: uppercase;
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  color: $btn-text-color;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  border: $btn-border-width solid $btn-bg-color;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: none;
+  border: none;
+  border-radius: 0.8rem;
+  background: $btn-bg-color;
+  box-shadow: 0 4px 10px rgba(110, 86, 176, 0.25);
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: color $animation-speed, border-color $animation-speed, background-color $animation-speed;
-
-  &, & > span {
-    @include font-size($btn-font-size, $btn-line-height);
-
-    letter-spacing: $btn-letter-spacing;
-  }
+  transition: background-color $animation-speed;
 
   // Hover
   &:hover {
     .no-touchevents & {
-      color: $btn-text-color;
-      background-color: $btn-bg-color;
+      background: $btn-bg-hover-color;
     }
   }
 
   // Disabled
   &:disabled, &.disabled {
     @include btn-disabled;
+  }
+
+  @at-root {
+    input#{$this} {
+      border-radius: 0.8rem;
+    }
   }
 }
 

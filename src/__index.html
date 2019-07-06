@@ -1,5 +1,5 @@
 @@include("_tpl_layout_head.html", {
-  "title": "Главная",
+  "title": "Home",
   "pageClass": ""
 })
 
@@ -9,17 +9,96 @@
 
 <!--MAIN-->
 <main class="main" role="main">
-  <div class="layout-page layout-page-spaces">
-    <!--CONTENT-->
-    <section class="section">
-      <div class="section__title">
-        <h2>Заголовок секции</h2>
+  <div class="entry layout-page-spaces">
+    <div class="entry__content">
+      <h1>Regula Document Reader SDK Web Api</h1>
+      <p>Fast and accurate data extraction from identity documents<br> On-premise and cloud integration.</p>
+    </div>
+  </div>
+
+  <div class="content layout-page layout-page-spaces">
+    <div class="d-container">
+      <div class="d-prev">
+        <div class="">
+          <div class="">Original image</div>
+          <div class="">Choose a sample image</div>
+
+        </div>
+        {{previews}}
       </div>
-      <div class="section__holder">
-        <p>Контент секции</p>
+
+      <div class="d-details">
+        {{details}}
       </div>
-    </section>
-    <!--CONTENT end-->
+    </div>
+
+    <div class="follow-mob">
+      <span class="follow-mob__label">Applicable to mobile or web apps</span>
+      <a href="#" class="follow-mob__btn btn-def">Follow mobile SDK page</a>
+    </div>
+
+    <div class="suggest">
+      <div class="suggest__list">
+        <div class="suggest__item">
+          <i class="suggest__icon icon-integration"></i>
+          <h3 class="suggest__title">Integration</h3>
+          <p>Integrate Regula SDK Web and process identity documents on your website. Our technology becomes a part of your own backend.</p>
+        </div>
+        <div class="suggest__item">
+          <i class="suggest__icon icon-security"></i>
+          <h3 class="suggest__title">Security</h3>
+          <p>We don't store customer data. Images are sent to  customer’s server for processing.  All important data stays in your system.</p>
+        </div>
+        <div class="suggest__item">
+          <i class="suggest__icon icon-license"></i>
+          <h3 class="suggest__title">Trial license</h3>
+          <p>To experience all the capacities of Regula SDK you can get our trial license for free.To get a trial licence please contact our sales managers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="volume">
+      <div class="volume__label">We read and verify over <br> <mark>7,200</mark> document types in <mark>77</mark> languages</div>
+      <a href="#" class="btn-def">Contact sales</a>
+    </div>
+
+    <div class="advantages">
+      <div class="advantages__list">
+        <div class="advantages__item">
+          <div class="advantage">
+            <h3 class="advantage__title">Integrate Regula SDK into your own application</h3>
+            <p>Customize your solution to fit your own unique case  of document verification</p>
+          </div>
+        </div>
+        <div class="advantages__item">
+          <div class="advantage">
+            <h3 class="advantage__title">Allow passengers and guests to check in</h3>
+            <p>by simply scanning their passports or ID cards with no need  to manually enter personal data</p>
+          </div>
+        </div>
+        <div class="advantages__item">
+          <div class="advantage">
+            <h3 class="advantage__title">Reduce the risk of identity fraud</h3>
+            <p>Know your customer — read and validate any government-issued document of the world to verify the identity of your clients</p>
+          </div>
+        </div>
+        <div class="advantages__item">
+          <div class="advantage">
+            <h3 class="advantage__title">Verify ID document authenticity</h3>
+            <p>Read personal data from eDocuments (including RFID chip data) and check document authenticity in seconds</p>
+          </div>
+        </div>
+        <div class="advantages__item">
+          <div class="advantage">
+            <h3 class="advantage__title">Automate manual processes</h3>
+            <p>Сreate fast and effortless checkout experiences accepting payments by scanning a customer's credit card</p>
+          </div>
+        </div>
+        <div class="advantages__item advantages__item_has-btn">
+          <a href="https://regulaforensics.com" class="btn-alt advantages__btn" target="_blank">www.regulaforensics.com</a>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 <!--MAIN end-->

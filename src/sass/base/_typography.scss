@@ -3,12 +3,12 @@
 @import "../../libs/include-media/dist/include-media";
 
 // Выделение текста
-body {
-  *::selection {
-    background-color: $base-color;
-    color: lighten(invert($base-color), 30%);
-  }
-}
+//body {
+//  *::selection {
+//    background-color: $base-color;
+//    color: invert($text-color);
+//  }
+//}
 
 // Заголовки
 h1, h2, h3, h4, h5, h6,
@@ -86,6 +86,7 @@ a {
   text-decoration: underline;
   cursor: default;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
 
   &:link {
     cursor: pointer;
@@ -507,10 +508,10 @@ $columns-gap: 2em;
 /* article content */
 .#{$article-content} {
   & > p, & > ul, & > ol,
+  & > h1, & > .h1,
   & > h2, & > h3, & > h4, & > h5, & > h6,
   & > .h2, & > .h3, & > .h4, & > .h5, & > .h6,
   & > hr, & > mark, & > blockquote, & > figure,
-  & > h1, & > .h1, .entry-text,
   & > .layout-text {
     max-width: $layout-text-width;
 

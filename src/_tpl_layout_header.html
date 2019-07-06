@@ -1,21 +1,19 @@
 <header class="header">
   <div class="layout-page layout-page-spaces">
     <div class="header-container">
-      <!--logo-->
       <div class="logo">
-        @@if(context.currentItem === "Главная"){<span>Project Name</span>}
-        @@if(context.currentItem !== "Главная"){<a href="index.html" title="Перейти на главную">Project Name</a>}
-        <img style="display: none;" src="img/logo.svg" alt="Print version logotype">
+        <a href="index.html">Regula</a>
       </div>
-      <!--/logo-->
 
-      <!--navigation-->
-      <div class="nav-wrap">
-        <nav class="nav">
-          @@include("_tpl_nav-constructor.html", { "currentItem": "@@currentItem", "bsKey": "nav" })
-        </nav>
-      </div>
-      <!--/navigation-->
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="current"><a href="#">Interactive documentation</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Regula website</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="btn-contact">Contact sales</a>
     </div>
   </div>
 </header>

@@ -26,7 +26,7 @@ $breakpoints: (
 
 // Fonts style
 // ==========================================================================
-$font-norm: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-norm: 'Lato', sans-serif !default;
 $font-alt: Georgia, serif !default;
 
 // Main font
@@ -34,8 +34,12 @@ $font-alt: Georgia, serif !default;
   font-family: $font-norm;
 }
 
+@mixin font-black {
+  font-weight: 900;
+}
+
 @mixin font-bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @mixin font-italic {
@@ -43,7 +47,7 @@ $font-alt: Georgia, serif !default;
 }
 
 @mixin font-bold-italic {
-  font-weight: bold;
+  font-weight: 700;
   font-style: italic;
 }
 
@@ -66,13 +70,13 @@ $font-alt: Georgia, serif !default;
 // Base
 // ==========================================================================
 
-$font-size: 1.6rem !default;
-$line-height: 2.4rem !default;
+$font-size: 1.4rem !default;
+$line-height: 1.8rem !default;
 $letter-spacing: normal !default;
 
 // ----------------------------------------------------
 $font-size--mob: 1.4rem !default;
-$line-height--mob: 2.0rem !default;
+$line-height--mob: 1.7rem !default;
 
 // Heading h1
 $font-size-h1: 4.2rem !default;
@@ -200,20 +204,21 @@ $bottom-section--mob: round-float($line-height--mob * 1.5, 1) !default;
 // ==========================================================================
 
 // Color of brands
-$base-color: #ee6e73 !default;
+$base-color: #6e56b0 !default;
 $base-color-alt: invert($base-color) !default;
 
 // ----------------------------------------------------
-$bg-color: #fff !default;
-$bg-color-alt: #f3f3f3 !default;
+$bg-color: #e3edf7 !default;
+$bg-color-alt: #fff !default;
+$bg-color-accent: #1f2343 !default;
 
 // ----------------------------------------------------
-$text-color: #262626 !default;
+$text-color: #1c1e1f !default;
 $text-color-muted: #6c757d !default;
 $text-color-light: #ccc !default;
 
 // ----------------------------------------------------
-$title-color: #ee6e73 !default;
+$title-color: #1c1e1f !default;
 
 // ----------------------------------------------------
 $link-color: #007bff !default;
@@ -223,7 +228,7 @@ $focus-color: #0080ff !default;
 $border-color: lightgray !default;
 
 // ----------------------------------------------------
-$mark-color: #fd0cff !default;
+$mark-color: #ff2b51 !default;
 
 // ----------------------------------------------------
 $success-color: #28a745 !default;
@@ -251,9 +256,10 @@ $typography-style-class: typography !default;
 // Минимальная ширина сайта
 $layout-page-min-width: 32rem !default;
 // Максимальная ширина сайта
-$layout-page-max-width: 192rem !default;
+//$layout-page-max-width: 115.2rem !default; // Full width
+$layout-page-max-width: 105.6rem !default;
 // Отступы для всего сайта
-$layout-page-space: 3rem 5rem !default;
+$layout-page-space: 6rem 4.8rem !default;
 
 // ---------------------------------------
 // Максимальная ширина текстового блока
@@ -272,6 +278,7 @@ $grid-space: 2.8rem 3rem !default;
 
 // Header
 // ==========================================================================
+$header-height: 6rem !default;
 
 
 // Footer
@@ -280,19 +287,24 @@ $grid-space: 2.8rem 3rem !default;
 
 // Buttons
 // ==========================================================================
-$btn-height: 5rem !default;
-$btn-bg-color: $base-color !default;
-$btn-bg-hover-color: invert($base-color) !default;
-$btn-text-color: white !default;
+$btn-bg-color-start:  #6e56b0 !default;
+$btn-bg-color-end:  #5a4690 !default;
+$btn-bg-hover-color: #6c667c !default;
+$btn-text-color: #fff !default;
 $btn-disabled-color: #ccc !default;
 
 @mixin btn-disabled() {
   cursor: default !important;
   color: white !important;
   border-color: $btn-disabled-color !important;
-  background-color: $btn-disabled-color !important;
+  background: $btn-disabled-color !important;
   box-shadow: none !important;
   pointer-events: none;
+
+  &::before,
+  &::after {
+    display: none;
+  }
 }
 
 
@@ -412,5 +424,4 @@ $validate-feedback-height: 2.2rem;
 
 // Animation
 // ==========================================================================
-$animation-speed: 0.2s !default;
-$animation-speed-mouseleave: 0.35s !default;
+$animation-speed: 0.35s !default;
