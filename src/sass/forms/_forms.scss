@@ -1,0 +1,161 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../../libs/include-media/dist/include-media";
+
+/* form elements */
+label {
+  display: inline-block;
+  vertical-align: top;
+
+  @include font-size($font-size, $line-height);
+
+  color: $text-color-light;
+  margin-bottom: 0.5em;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent !important;
+
+  mark {
+    background: none;
+    color: $error-color;
+  }
+}
+
+// .form-def:
+// input[type="text"]
+// input[type="password"]
+// input[type="email"]
+// input[type="search"]
+// textarea
+
+.form-def {
+  $form-def: &;
+
+  display: block;
+  padding: $form-input-space-vt $form-input-space-h $form-input-space-vb;
+  width: 100%;
+  height: $form-input-height;
+  background-color: $form-bg-color;
+  box-shadow: none;
+  border: $form-border-width solid $form-border-color;
+  cursor: pointer;
+
+  // Стили для текста
+  @include inputs-font;
+
+  // Вертикальные внешние отступы
+  @include forms-space;
+
+  // Textarea
+  @at-root {
+    textarea#{$form-def} {
+      $lines: 2;
+      $height: round($form-line-height * $lines) + $form-input-space-vt + $form-input-space-vb + round($form-border-width * 2);
+
+      min-height: $height;
+      height: $height;
+      resize: vertical;
+    }
+  }
+
+  // Последний элемент в списке
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Placeholder
+  @include placeholder {
+    color: $form-placeholder-color;
+    transition: $animation-speed opacity;
+  }
+
+
+  // Placeholder hide on focus
+  @include placeholder-focus {
+    opacity: 0;
+  }
+
+
+  // Focus
+  &:focus {
+    cursor: text;
+    border-color: $form-border-color--focus;
+  }
+
+  // Hover
+  &:hover {
+    border-color: $form-border-color--focus;
+  }
+
+  // Focus (js classes)
+  &.focused {
+    @include focused;
+  }
+
+  // Has value (js classes)
+  // Label
+  @at-root label {
+    &.filled {
+      @include filled;
+    }
+  }
+
+  &.filled {
+    @include filled;
+  }
+
+  // Success
+  @at-root label {
+    &.success {
+      @include form-success;
+    }
+  }
+
+  &.success {
+    @include form-success;
+
+    // Placeholder
+    @include placeholder {
+      color: $form-success-color;
+    }
+  }
+
+  // Error
+
+  @at-root label {
+    &.error {
+      @include form-error;
+    }
+  }
+
+  &.error {
+    @include form-error;
+
+    // Placeholder
+    @include placeholder {
+      color: $form-error-color;
+    }
+  }
+
+  // Disabled
+  &[disabled] {
+    cursor: default !important;
+    color: $form-text-color--disabled !important;
+    background-color: $form-bg-color--disabled !important;
+    border-color: $form-border-color--disabled !important;
+    box-shadow: none !important;
+
+    @include placeholder {
+      color: $form-text-color--disabled !important;
+    }
+  }
+}
+
+@import "unit";
+@import "group";
+@import "checkboxes";
+@import "select";
+@import "select2";
+@import "validation";
+@import "captcha";
+
+/* form elements end */

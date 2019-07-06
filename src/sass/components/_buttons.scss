@@ -1,0 +1,100 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../../libs/include-media/dist/include-media";
+
+/* btn-def */
+.btn-def {
+  $btn-font-size: 1.4rem;
+  $btn-line-height: 1.8rem;
+  $btn-letter-spacing: 0.2em;
+  $btn-border-width: 0.2rem;
+  $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height - $btn-border-width * 2) / 2, 1);
+  $btn-space-inner-horizontal: $btn-space-inner-vertical * 2;
+
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0;
+  padding: #{$btn-space-inner-vertical} #{$btn-space-inner-horizontal};
+  color: $btn-text-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: $btn-border-width solid transparent;
+  border-radius: 5px;
+  background-color: $btn-bg-color;
+  box-shadow: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color $animation-speed, border-color $animation-speed, background-color $animation-speed;
+
+  &, & > span {
+    @include font-size($btn-font-size, $btn-line-height);
+
+    letter-spacing: $btn-letter-spacing;
+  }
+
+  // Hover
+  &:hover {
+    .no-touchevents & {
+      background-color: $btn-bg-hover-color;
+    }
+  }
+
+  // Disabled
+  &:disabled, &.disabled {
+    @include btn-disabled;
+  }
+}
+
+/* btn-def end */
+
+/* btn-alt */
+.btn-alt {
+  $btn-font-size: 1.4rem;
+  $btn-line-height: 1.8rem;
+  $btn-letter-spacing: 0.2em;
+  $btn-border-width: 0.2rem;
+  $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height - $btn-border-width * 2) / 2, 1);
+  $btn-space-inner-horizontal: $btn-space-inner-vertical * 2;
+
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0;
+  padding: #{$btn-space-inner-vertical} #{$btn-space-inner-horizontal};
+  color: $btn-bg-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: $btn-border-width solid $btn-bg-color;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color $animation-speed, border-color $animation-speed, background-color $animation-speed;
+
+  &, & > span {
+    @include font-size($btn-font-size, $btn-line-height);
+
+    letter-spacing: $btn-letter-spacing;
+  }
+
+  // Hover
+  &:hover {
+    .no-touchevents & {
+      color: $btn-text-color;
+      background-color: $btn-bg-color;
+    }
+  }
+
+  // Disabled
+  &:disabled, &.disabled {
+    @include btn-disabled;
+  }
+}
+
+/* btn-alt end */
