@@ -19,16 +19,376 @@
   <div class="content layout-page layout-page-spaces">
     <div class="d-container">
       <div class="d-prev">
-        <div class="">
-          <div class="">Original image</div>
-          <div class="">Choose a sample image</div>
+        <div class="d-doc-scan doc-scan doc-scan-js">
+          <h3 class="d-prev__subtitle">Original image</h3>
+          <div class="swiper-container orig-images orig-images-js">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="#" class="orig-images__figure">
+                  <img src="img/scan-orig-01.jpg" alt="image description" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="orig-images__figure">
+                  <img src="img/scan-orig-03.jpg" alt="image description" />
+                </a>
+              </div>
 
+              <div class="swiper-slide">
+                <a href="#" class="orig-images__figure">
+                  <img src="img/temp/img_640_01.jpg" alt="image description" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="orig-images__figure">
+                  <img src="img/temp/img_640_02.jpg" alt="image description" />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#" class="orig-images__figure">
+                  <img src="img/temp/temp-img_320x400_01.jpg" alt="image description" />
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a href="#" class="orig-images__figure">
+                  <img src="img/scan-orig-02.jpg" alt="image description" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <h3 class="d-prev__subtitle">Choose a sample image</h3>
+          <div class="swiper-container sample-images sample-images-js">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" style="background-image:url(img/scan-01.jpg);"></div>
+              <div class="swiper-slide" style="background-image:url(img/scan-03.jpg);"></div>
+
+              <div class="swiper-slide" style="background-image:url(img/temp/img_640_01.jpg);"></div>
+              <div class="swiper-slide" style="background-image:url(img/temp/img_640_02.jpg);"></div>
+              <div class="swiper-slide" style="background-image:url(img/temp/temp-img_320x400_01.jpg);"></div>
+
+              <div class="swiper-slide" style="background-image:url(img/scan-02.jpg);"></div>
+            </div>
+          </div>
         </div>
-        {{previews}}
+
+        <div class="d-agree agree">
+          <div class="agree__item">
+            <label class="form-radiocheck">
+              <input type="checkbox" name="checkbox" checked>
+              <span>Аgree <a href="#">to the rules</a> for the possibility of using your image</span>
+            </label>
+          </div>
+          <div class="agree__item">
+            <label class="form-radiocheck">
+              <input type="checkbox" name="checkbox">
+              <span>Compress image to accelerate processing</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="d-controls controls">
+          <a href="#" class="controls__btn btn-def"><i class="icon-photo"></i><span>Take a picture</span></a>
+          <div class="controls__btn btn-alt">
+            Browse<br>  files
+            <input type="file" name="browse">
+          </div>
+          <a href="#" class="controls__btn btn-alt">URL</a>
+        </div>
+
+        <div class="d-settings settings settings-js">
+          <h3 class="settings__label">Select parameters</h3>
+          <div class="settings__group">
+            <div class="settings__item">
+              <label class="form-switcher">
+                <input type="checkbox" name="checkbox" class="all-param-js">
+                <span>All parameters</span>
+              </label>
+            </div>
+            <hr>
+            <div class="settings__item">
+              <label class="form-switcher">
+                <input type="checkbox" name="checkbox" checked>
+                <span>Do MRZ</span>
+              </label>
+            </div>
+            <div class="settings__item">
+              <label class="form-switcher">
+                <input type="checkbox" name="checkbox">
+                <span>Do Visual Text</span>
+              </label>
+            </div>
+            <div class="settings__item">
+              <label class="form-switcher">
+                <input type="checkbox" name="checkbox">
+                <span>Do Graphic Fields</span>
+              </label>
+            </div>
+            <div class="settings__item">
+              <label class="form-switcher">
+                <input type="checkbox" name="checkbox">
+                <span>Do Barcodes</span>
+              </label>
+            </div>
+            <div class="settings__item">
+              <label class="form-switcher">
+                <input type="checkbox" name="checkbox">
+                <span>Do Compress Images</span>
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="d-details">
-        {{details}}
+        <div class="tabs tabs-js">
+          <div class="tabs-thumbs">
+            <a href="#result" class="tabs-thumb-js current">Result</a>
+            <a href="#request" class="tabs-thumb-js">Request</a>
+            <a href="#response" class="tabs-thumb-js">Response</a>
+          </div>
+
+          <div class="tabs-panels tabs-panels-js">
+            <div class="tabs-panel current" id="result">
+              <div class="sensor">
+                <div class="sensor__list">
+                  <div class="sensor__item">Upload: <strong>0.300s</strong></div>
+                  <div class="sensor__item">Processing: <strong>1.74s</strong></div>
+                  <div class="sensor__item">Parsing result: <strong>0.6s</strong></div>
+                </div>
+              </div>
+
+              <div>
+
+                <table class="table m-simple">
+                  <tbody>
+                    <tr>
+                      <td class="td-label"><div>Document type</div></td>
+                      <td><h2>Australia - ePassport (2009) Travel Document</h2></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Portrait</div></td>
+                      <td><img src="img/scan-02-photo.jpg" alt="Portrait"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Signature</div></td>
+                      <td><img src="img/scan-02-sign.jpg" alt="Signature"></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table m-sticky-head js-data-table">
+                  <thead>
+                    <tr>
+                      <th>Field type</th>
+                      <th class="th-mrz"><span>MRZ</span></th>
+                      <th class="th-barcode"><span>Barcode</span></th>
+                      <th class="th-visual"><span>Visual zone</span></th>
+                      <th class="td-valid">Valid<span class="badge">3</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="td-label"><div>Document Class Code</div></td>
+                      <td>I897794789</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Issuing State Code</div></td>
+                      <td>LVA</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Document №</div></td>
+                      <td>PA9992592</td>
+                      <td>PA9992592</td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr class="row-marked">
+                      <td class="td-label"><div>Date of expire</div></td>
+                      <td>3/4/2017</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Date of issue</div></td>
+                      <td></td>
+                      <td></td>
+                      <td>7.71.511</td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Date of birth</div></td>
+                      <td>12/12/1982</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Personal №</div></td>
+                      <td>12128288882</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Surname</div></td>
+                      <td>PARAUDZINS</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Given names</div></td>
+                      <td>ANDRIS</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Nationality</div></td>
+                      <td>Latvia</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Sex (1062)</div></td>
+                      <td></td>
+                      <td></td>
+                      <td>V</td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Sex</div></td>
+                      <td></td>
+                      <td>M</td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr class="row-marked">
+                      <td class="td-label"><div>Height</div></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Issuing Authority (1062)</div></td>
+                      <td>PMLP RĪGAS 1.NODAĻA</td>
+                      <td></td>
+                      <td>PMLP RĪGAS 1.NODAĻA</td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Surname And Given Names</div></td>
+                      <td>PARAUDZINS ANDRIS</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Nationality Code</div></td>
+                      <td>LVA</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Optional data</div></td>
+                      <td>12128288882</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Issuing State</div></td>
+                      <td>Latvia</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>MRZ Lines</div></td>
+                      <td><div class="u-wrap">I&lt;LVAPA99925920121282&lt;88882&lt;&lt;&lt;8212122M1703043LVA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;8PARAUDZINS&lt;&lt;ANDRIS&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div></td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Check digit of document number</div></td>
+                      <td>0</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Check digit of birth date</div></td>
+                      <td>2</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Check digit of expiry date</div></td>
+                      <td>3</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Final check digit</div></td>
+                      <td>8</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>MRZ strings with correct checksums</div></td>
+                      <td><div class="u-wrap">I&lt;LVAPA99925920121282&lt;88882&lt;&lt;&lt;8212122M1703043LVA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;8PARAUDZINS&lt;&lt;ANDRIS&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div></td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr>
+                      <td class="td-label"><div>Age</div></td>
+                      <td>36</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                    <tr class="row-marked">
+                      <td class="td-label"><div>Months to expire</div></td>
+                      <td>0</td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-valid"></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+
+            <div class="tabs-panel" id="request">
+              {{Request}}
+            </div>
+
+            <div class="tabs-panel" id="response">
+              {{Response}}
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
 

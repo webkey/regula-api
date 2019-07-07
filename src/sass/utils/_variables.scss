@@ -70,13 +70,13 @@ $font-alt: Georgia, serif !default;
 // Base
 // ==========================================================================
 
-$font-size: 1.4rem !default;
-$line-height: 1.8rem !default;
+$font-size: 1.6rem !default;
+$line-height: 2.6rem !default;
 $letter-spacing: normal !default;
 
 // ----------------------------------------------------
 $font-size--mob: 1.4rem !default;
-$line-height--mob: 1.7rem !default;
+$line-height--mob: 1.8rem !default;
 
 // Heading h1
 $font-size-h1: 4.2rem !default;
@@ -203,9 +203,13 @@ $bottom-section--mob: round-float($line-height--mob * 1.5, 1) !default;
 // Colors
 // ==========================================================================
 
-// Color of brands
+// ----------------------------------------------------
 $base-color: #6e56b0 !default;
 $base-color-alt: invert($base-color) !default;
+
+// ----------------------------------------------------
+$highlight-color: #6e56b0 !default
+$highlight-color--hover: #6c667c !default
 
 // ----------------------------------------------------
 $bg-color: #e3edf7 !default;
@@ -214,14 +218,14 @@ $bg-color-accent: #1f2343 !default;
 
 // ----------------------------------------------------
 $text-color: #1c1e1f !default;
-$text-color-muted: #6c757d !default;
+$text-color-muted: #7a839e !default;
 $text-color-light: #ccc !default;
 
 // ----------------------------------------------------
-$title-color: #1c1e1f !default;
+$title-color: #000 !default;
 
 // ----------------------------------------------------
-$link-color: #007bff !default;
+$link-color: #6e56b0 !default;
 $focus-color: #0080ff !default;
 
 // ----------------------------------------------------
@@ -275,6 +279,10 @@ $layout-flood-width: 110rem !default;
 // Внутренние отступы
 $grid-space: 2.8rem 3rem !default;
 
+// ---------------------------------------
+// Внутренние отступы в таблице результатов
+$table-space: 1.2rem 1.9rem 1.2rem 1.9rem;
+
 
 // Header
 // ==========================================================================
@@ -287,6 +295,7 @@ $header-height: 6rem !default;
 
 // Buttons
 // ==========================================================================
+$btn-height:  5.5rem !default;
 $btn-bg-color-start:  #6e56b0 !default;
 $btn-bg-color-end:  #5a4690 !default;
 $btn-bg-hover-color: #6c667c !default;

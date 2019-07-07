@@ -5,7 +5,7 @@
 /* btn-def */
 .btn-def {
   $this: &;
-  $btn-height: 5.5rem;
+  //$btn-height: $btn-height;
   $btn-font-size: 1.8rem;
   $btn-line-height: 2.1rem;
   $btn-border-width: 0;
@@ -73,10 +73,8 @@
       border-radius: 0.8rem;
 
       // Hover
-      &:hover {
-        .no-touchevents & {
-          background: $btn-bg-hover-color;
-        }
+      .no-touchevents &:hover {
+        background: $btn-bg-hover-color;
       }
     }
   }
@@ -87,7 +85,7 @@
 /* btn-alt */
 .btn-alt {
   $this: &;
-  $btn-height: 5.5rem;
+  //$btn-height: $btn-height;
   $btn-font-size: 1.8rem;
   $btn-line-height: 2.1rem;
   $btn-border-width: 0;
@@ -100,8 +98,8 @@
   position: relative;
   margin: 0;
   padding: #{$btn-space-inner-vertical} #{$btn-space-inner-horizontal};
-  font-size: 1.8rem;
-  line-height: 2.1rem;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
   color: $btn-text-color;
   text-decoration: none;
   text-align: center;
@@ -115,10 +113,8 @@
   transition: background-color $animation-speed;
 
   // Hover
-  &:hover {
-    .no-touchevents & {
-      background: $btn-bg-hover-color;
-    }
+  .no-touchevents &:hover {
+    background: $btn-bg-hover-color;
   }
 
   // Disabled
@@ -134,3 +130,15 @@
 }
 
 /* btn-alt end */
+
+/* btn with icon */
+.btn-def,
+.btn-alt {
+  [class*="icon-"] {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1.2rem;
+    height: 2.1rem;
+  }
+}
+/* btn with icon end */
