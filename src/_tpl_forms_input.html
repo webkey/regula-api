@@ -1,4 +1,4 @@
-@@if(context.label){<label for="@@id">@@label <mark>*</mark></label>}
+@@if(context.label){<label for="@@id">@@label</label>}
 <input
     class="form-def field-js"
     id="@@id"
@@ -6,7 +6,6 @@
     @@if(context.type){ type="@@type" }
     @@if(!context.type){ type="text" }
     @@if(context.placeholder){ placeholder="@@placeholder" }
-    @@if(!context.placeholder){ placeholder="Some placeholder" }
     @@if(context.value){ value="@@value" }
     @@if(context.disabled){ disabled}
     required

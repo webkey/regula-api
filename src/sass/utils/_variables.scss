@@ -236,7 +236,7 @@ $mark-color: #ff2b51 !default;
 
 // ----------------------------------------------------
 $success-color: #28a745 !default;
-$error-color: #dc3545 !default;
+$error-color: #FF2B51 !default;
 $info-color: #17a2b8 !default;
 $warning-color: #ffc107 !default;
 $light-color: #f8f9fa !default;
@@ -323,8 +323,8 @@ $btn-disabled-color: #ccc !default;
 // Colors of forms
 $form-text-color: $text-color !default;
 $form-placeholder-color: lighten($form-text-color, 65%) !default;
-$form-bg-color: white !default;
-$form-border-color: lighten($form-text-color, 70%) !default;
+$form-bg-color: #fff !default;
+$form-border-color: #e0e0e0 !default;
 // validation
 $form-error-color: $error-color !default;
 $form-success-color: $success-color !default;
@@ -364,9 +364,9 @@ $form-input-space-vt: floor(($form-input-height - $form-line-height - $form-bord
 // верхний паддинг округляем в нижнюю сторону
 $form-input-space-vb: ceil(($form-input-height - $form-line-height - $form-border-width*2)/2) !default;
 // нижний паддинг округляем в верхнюю сторону
-$form-input-space-h: 18px !default;
-$form-bottom-space: 3rem !default;
-$form-bottom-space--mob: 3rem !default;
+$form-input-space-h: 40px !default;
+$form-bottom-space: 2rem !default;
+$form-bottom-space--mob: 2rem !default;
 
 // Vertical spaces
 @mixin forms-space {

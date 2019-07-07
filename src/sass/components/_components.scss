@@ -125,10 +125,210 @@
 /* tabs vendor */
 
 /* popups */
-.popups {
+.popup-def {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: #fff;
+  z-index: 9999;
+
+  $translate: 100%, 0;
+
+  transform: translate($translate);
+  transform: translate3d($translate, 0);
+
+  // Общий блок меню скрывать без задержки, с анимацией
+  transition: {
+    property: opacity, visibility, transform;
+    duration: $animation-speed;
+  };
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    $translate: 0, 0;
+
+    transform: translate($translate);
+    transform: translate3d($translate, 0);
+  }
+}
+
+.popup-def__frame {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.popup-def__holder {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  max-width: 75.6rem;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.popup-def__align {
+  width: 100%;
+  padding-top: 7rem;
+  padding-bottom: 7.6rem;
+}
+
+.popup-def__title {
+  @include font-bold;
+  font-size: 2.4rem;
+  line-height: 3.8rem;
+  margin-bottom: 2rem;
 }
 
 /* popups end */
+
+/* popup close btn */
+.popup-def-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 2rem;
+  top: 0;
+  height: 4.2rem;
+  width: 4.2rem;
+  color: #000;
+  transition: color $animation-speed;
+
+  svg {
+    display: block;
+    height: 1.6rem;
+    width: 1.6rem;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
+  }
+}
+/* popup close btn end */
+
+/* popup overlay */
+.popup-def-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(black, 0.35);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+
+  // transition
+  will-change: opacity;
+  transition: opacity $animation-speed;
+
+  &.is-open {
+    opacity: 1;
+  }
+}
+/* popup overlay end */
+
+/* c-form */
+.c-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: $bottom-section;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-form__title {
+  flex-grow: 0;
+  $width: 25rem;
+  flex-basis: $width;
+  max-width: $width;
+  padding-right: 3rem;
+  font-size: 1.8rem;
+  line-height: 2.9rem;
+  color: #333;
+}
+
+.c-form__form {
+  flex-grow: 0;
+  $width: 42.5rem;
+  flex-basis: $width;
+  max-width: $width;
+}
+
+.c-form__fields {
+  margin-bottom: 5.4rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-form__message {
+  .form-unit + & {
+    margin-top: 3.2rem;
+  }
+}
+
+.c-form__footer {
+  text-align: right;
+}
+
+.c-form__submit {
+  width: 25.2rem;
+  max-width: 100%;
+}
+
+/* c-form end */
+
+/* support */
+.support {
+  column-count: 2;
+  column-gap: 2em;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.support__item {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  & > strong {
+    display: block;
+    margin: 0 0 0.4rem;
+    @include font-bold;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* support end */
 
 /* ==================================== */
 /* ============== HEADER ============== */
@@ -152,6 +352,13 @@
   position: relative;
   height: $header-height;
 }
+
+/* back */
+.back {
+  display: none;
+}
+
+/* back end */
 
 /* logo */
 .logo {
@@ -183,9 +390,39 @@
 
 /* logo end */
 
+/* nav open */
+.nav-open {
+  display: none;
+  line-height: 2.2rem;
+  color: #fff;
+  transition: color $animation-speed;
+
+  @include media('<tab') {
+    display: block;
+  }
+
+  svg {
+    display: block;
+    height: 2.2rem;
+    width: 2.9rem;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
+  }
+}
+
+/* nav open end */
+
 /* ==================================== */
 /* ============ NAVIGATION ============ */
 /* ==================================== */
+
 .nav {
   position: relative;
 }
@@ -591,6 +828,10 @@ $tabs-radius: 0.6rem;
 
     &:first-child {
       width: 20rem;
+
+      @include media('<lap') {
+        width: 15rem;
+      }
     }
   }
 
@@ -748,7 +989,7 @@ $tabs-radius: 0.6rem;
   display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 991px) {
   .container .table {
     width: calc(100% + 50px);
     margin: 0 -25px;

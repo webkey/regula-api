@@ -46,17 +46,25 @@
   <header class="header">
     <div class="layout-page layout-page-spaces">
       <div class="header-container">
+        <a href="#" class="back back-js">
+        <svg width="14" height="22" viewBox="0 0 14 22" xmlns="http://www.w3.org/2000/svg"><path d="M13.206 3.60308L5.85075 11.0636L13.3731 18.4393C14.209 19.2023 14.209 20.5588 13.3731 21.4065C12.9552 21.8304 12.4537 22 11.8687 22C11.2836 22 10.7821 21.8304 10.3642 21.4065L3.00895 13.946L0 10.9788L2.92537 8.09634L10.2806 0.635838C11.0328 -0.211946 12.3701 -0.211946 13.206 0.635838C14.0418 1.39884 14.0418 2.7553 13.206 3.60308Z"/></svg>
+
+      </a>
         <div class="logo">
           <a href="index.html">Regula</a>
         </div>
         <nav class="nav">
           <ul class="nav__list">
             <li class="current"><a href="#">Interactive documentation</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="#" class="popup-support-open-js">Support</a></li>
             <li><a href="#">Regula website</a></li>
           </ul>
         </nav>
-        <a href="#" class="btn-contact">Contact sales</a>
+        <a href="#" class="btn-contact popup-contacts-open-js">Contact sales</a>
+        <a href="#" class="nav-open nav-open-js">
+        <svg width="29" height="22" viewBox="0 0 29 22" xmlns="http://www.w3.org/2000/svg"><path d="M2 18C0.89543 18 0 18.8954 0 20C0 21.1046 0.89543 22 2 22V18ZM18.5 22C19.6046 22 20.5 21.1046 20.5 20C20.5 18.8954 19.6046 18 18.5 18V22ZM2 9C0.89543 9 0 9.89543 0 11C0 12.1046 0.89543 13 2 13V9ZM22.625 13C23.7296 13 24.625 12.1046 24.625 11C24.625 9.89543 23.7296 9 22.625 9V13ZM2 0C0.89543 0 0 0.89543 0 2C0 3.10457 0.89543 4 2 4V0ZM26.75 4C27.8546 4 28.75 3.10457 28.75 2C28.75 0.89543 27.8546 0 26.75 0V4ZM2 22H18.5V18H2V22ZM2 13H22.625V9H2V13ZM2 4H26.75V0H2V4Z"></path></svg>
+
+      </a>
       </div>
     </div>
   </header>
@@ -104,23 +112,23 @@ include("_tpl_forms_textarea.html", {
       <h2>Input</h2>
       <form action="#" class="form-validate-js">
         <!--=== Default ===-->
-        <label for="inputDefault">Default: <mark>*</mark></label>
-        <input class="form-def field-js" id="inputDefault" name="inputDefault" type="text" placeholder="Some placeholder" required />
+        <label for="inputDefault">Default:</label>
+        <input class="form-def field-js" id="inputDefault" name="inputDefault" type="text" required />
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== Disabled ===-->
-        <label for="inputDisabled">Disabled: <mark>*</mark></label>
-        <input class="form-def field-js" id="inputDisabled" name="inputDisabled" type="text" placeholder="Some placeholder" disabled required />
+        <label for="inputDisabled">Disabled:</label>
+        <input class="form-def field-js" id="inputDisabled" name="inputDisabled" type="text" disabled required />
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== Value ===-->
-        <label for="inputValue">Has value: <mark>*</mark></label>
-        <input class="form-def field-js" id="inputValue" name="inputValue" type="text" placeholder="Some placeholder" value="Has value" required />
+        <label for="inputValue">Has value:</label>
+        <input class="form-def field-js" id="inputValue" name="inputValue" type="text" value="Has value" required />
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== Value and Disabled ===-->
-        <label for="inputValueDisabled">Has value and disabled: <mark>*</mark></label>
-        <input class="form-def field-js" id="inputValueDisabled" name="inputValueDisabled" type="text" placeholder="Some placeholder" value="Has value" disabled required />
+        <label for="inputValueDisabled">Has value and disabled:</label>
+        <input class="form-def field-js" id="inputValueDisabled" name="inputValueDisabled" type="text" value="Has value" disabled required />
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== === ===--><br>
@@ -131,23 +139,23 @@ include("_tpl_forms_textarea.html", {
       <h2>Textarea</h2>
       <form action="#" class="form-validate-js">
         <!--=== Default ===-->
-        <label for="textareaDefault">Default: <mark>*</mark></label>
-        <textarea class="form-def" id="textareaDefault" name="textareaDefault" placeholder="Some placeholder" required></textarea>
+        <label for="textareaDefault">Default:</label>
+        <textarea class="form-def" id="textareaDefault" name="textareaDefault" required></textarea>
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== Disabled ===-->
-        <label for="textareaDisabled">Disabled: <mark>*</mark></label>
-        <textarea class="form-def" id="textareaDisabled" name="textareaDisabled" placeholder="Some placeholder" disabled required></textarea>
+        <label for="textareaDisabled">Disabled:</label>
+        <textarea class="form-def" id="textareaDisabled" name="textareaDisabled" disabled required></textarea>
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== Value ===-->
-        <label for="textareaValue">Has value: <mark>*</mark></label>
-        <textarea class="form-def" id="textareaValue" name="textareaValue" placeholder="Some placeholder" required>Has value</textarea>
+        <label for="textareaValue">Has value:</label>
+        <textarea class="form-def" id="textareaValue" name="textareaValue" required>Has value</textarea>
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== Value and Disabled ===-->
-        <label for="textareaValueDisabled">Has value and disabled: <mark>*</mark></label>
-        <textarea class="form-def" id="textareaValueDisabled" name="textareaValueDisabled" placeholder="Some placeholder" disabled required>Has value</textarea>
+        <label for="textareaValueDisabled">Has value and disabled:</label>
+        <textarea class="form-def" id="textareaValueDisabled" name="textareaValueDisabled" disabled required>Has value</textarea>
         <span class="error-feedback">Error feedback</span>
         <span class="success-feedback">Success feedback</span>
         <!--=== === ===--><br>
@@ -509,8 +517,8 @@ include("_tpl_forms_textarea.html", {
 &lt;/div&gt;</pre>
       <form action="#" class="form-validate-js">
         <div class="form-unit">
-          <label for="unitInputDefault">Input: <mark>*</mark></label>
-          <input class="form-def field-js" id="unitInputDefault" name="unitInputDefault" type="text" placeholder="Some placeholder" required />
+          <label for="unitInputDefault">Input:</label>
+          <input class="form-def field-js" id="unitInputDefault" name="unitInputDefault" type="text" required />
           <span class="error-feedback">Error feedback</span>
           <span class="success-feedback">Success feedback</span>
         </div>
@@ -576,28 +584,28 @@ include("_tpl_forms_textarea.html", {
       <form action="#" class="form-validate-js">
         <div class="form-group">
           <div class="form-group__item">
-            <label for="inputGroupFirst">First: <mark>*</mark></label>
-            <input class="form-def field-js" id="inputGroupFirst" name="inputGroupFirst" type="text" placeholder="Some placeholder" required />
+            <label for="inputGroupFirst">First:</label>
+            <input class="form-def field-js" id="inputGroupFirst" name="inputGroupFirst" type="text" required />
             <span class="error-feedback">Error feedback</span>
             <span class="success-feedback">Success feedback</span>
           </div>
           <div class="form-group__item">
-            <label for="inputGroupTwo">Two: <mark>*</mark></label>
-            <input class="form-def field-js" id="inputGroupTwo" name="inputGroupTwo" type="text" placeholder="Some placeholder" required />
+            <label for="inputGroupTwo">Two:</label>
+            <input class="form-def field-js" id="inputGroupTwo" name="inputGroupTwo" type="text" required />
             <span class="error-feedback">Error feedback</span>
             <span class="success-feedback">Success feedback</span>
           </div>
         </div>
         <div class="form-group">
           <div class="form-group__item">
-            <label for="inputGroupThree">Three: <mark>*</mark></label>
-            <input class="form-def field-js" id="inputGroupThree" name="inputGroupThree" type="text" placeholder="Some placeholder" required />
+            <label for="inputGroupThree">Three:</label>
+            <input class="form-def field-js" id="inputGroupThree" name="inputGroupThree" type="text" required />
             <span class="error-feedback">Error feedback</span>
             <span class="success-feedback">Success feedback</span>
           </div>
           <div class="form-group__item">
-            <label for="inputGroupFour">Four: <mark>*</mark></label>
-            <input class="form-def field-js" id="inputGroupFour" name="inputGroupFour" type="text" placeholder="Some placeholder" required />
+            <label for="inputGroupFour">Four:</label>
+            <input class="form-def field-js" id="inputGroupFour" name="inputGroupFour" type="text" required />
             <span class="error-feedback">Error feedback</span>
             <span class="success-feedback">Success feedback</span>
           </div>
@@ -611,13 +619,13 @@ include("_tpl_forms_textarea.html", {
       <form action="#" method="post" class="form-validate-js">
         <div class="form-group">
           <div class="form-group__item">
-            <label for="uf-name">Name: <mark>*</mark></label>
+            <label for="uf-name">Name:</label>
             <input class="form-def field-js" id="uf-name" name="uf-name" type="text" placeholder="Your name" required />
             <span class="error-feedback">Please enter your name, please</span>
             <span class="success-feedback">Success feedback</span>
           </div>
           <div class="form-group__item">
-            <label for="uf-email">Email: <mark>*</mark></label>
+            <label for="uf-email">Email:</label>
             <input class="form-def field-js" id="uf-email" name="uf-email" type="email" placeholder="Your email" required />
             <span class="error-feedback">Please enter a valid email address</span>
             <span class="success-feedback">Success feedback</span>
@@ -643,8 +651,200 @@ include("_tpl_forms_textarea.html", {
       <div class="copyright">&copy; 1992-2019 Regula. All rights reserved.</div>
     </div>
   </footer>
+  <div class="popup-def popup-contacts-js" data-swc-prevent-remove>
+    <div class="popup-def__frame">
+      <div class="popup-def__holder layout-page-spaces">
+        <div class="popup-def__align">
+          <div class="c-form">
+            <div class="c-form__title">Our team will be happy to help with your enquiries</div>
+            <form action="#" method="post" class="c-form__form form-validate-js">
+              <div class="c-form__fields">
+                <div class="form-unit">
+                  <label for="cfName">What is your name?</label>
+                  <input class="form-def field-js" id="cfName" name="cfName" type="text" required />
+                  <span class="error-feedback">Error feedback</span>
+                  <span class="success-feedback">Success feedback</span>
+                </div>
+                <div class="form-unit">
+                  <label for="cfEmail">What is your e-mail address?</label>
+                  <input class="form-def field-js" id="cfEmail" name="cfEmail" type="email" required />
+                  <span class="error-feedback">Error feedback</span>
+                  <span class="success-feedback">Success feedback</span>
+                </div>
+                <div class="form-unit c-form__message">
+                  <label for="cfMessage">Please specify your scenarios, applications, and technical requirements</label>
+                  <textarea class="form-def" id="cfMessage" name="cfMessage" required></textarea>
+                  <span class="error-feedback">Error feedback</span>
+                  <span class="success-feedback">Success feedback</span>
+                </div>
+              </div>
+              <div class="c-form__footer">
+                <button class="btn-def c-form__submit">SUBMIT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="popup-def-close popup-def-close-js">
+    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M10.0684 8.07678L15.4221 2.67179C16.0304 2.05758 16.0304 1.07486 15.4221 0.522073C14.8137 -0.0921305 13.8403 -0.0921305 13.2928 0.522073L7.93916 5.92706L2.58555 0.460653C1.97719 -0.153551 1.0038 -0.153551 0.456274 0.460653C-0.152091 1.07486 -0.152091 2.05758 0.456274 2.61036L5.80989 8.01536L0.456274 13.4203C-0.152091 14.0345 -0.152091 15.0173 0.456274 15.5701C0.760456 15.8772 1.12548 16 1.55133 16C1.97719 16 2.34221 15.8772 2.64639 15.5701L8 10.1651L13.3536 15.5701C13.6578 15.8772 14.0228 16 14.4487 16C14.8745 16 15.2395 15.8772 15.5437 15.5701C16.1521 14.9559 16.1521 13.9731 15.5437 13.4203L10.0684 8.07678Z"></path></svg>
+  </a>
+  </div>
+  <div class="popup-def-overlay popup-contacts-overlay-js"></div>
+  <div class="popup-def popup-support-js" data-swc-prevent-remove>
+    <div class="popup-def__frame">
+      <div class="popup-def__holder layout-page-spaces">
+        <div class="popup-def__align">
+          <div class="popup-def__title">230 countries and territories</div>
+          <div class="support">
+            <div class="support__item">
+              <strong>EU</strong>
+              <p>Passports of all participating countries, visas, driver's license, medical insurance, insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Andorra</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Georgia</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Georgia</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>USA</strong>
+              <p>Passports of all participating countries, visas, driver's license, medical insurance, insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Andorra</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Georgia</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Georgia</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>
+                Passport, driver's license, medical insurance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="popup-def-close popup-def-close-js">
+    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M10.0684 8.07678L15.4221 2.67179C16.0304 2.05758 16.0304 1.07486 15.4221 0.522073C14.8137 -0.0921305 13.8403 -0.0921305 13.2928 0.522073L7.93916 5.92706L2.58555 0.460653C1.97719 -0.153551 1.0038 -0.153551 0.456274 0.460653C-0.152091 1.07486 -0.152091 2.05758 0.456274 2.61036L5.80989 8.01536L0.456274 13.4203C-0.152091 14.0345 -0.152091 15.0173 0.456274 15.5701C0.760456 15.8772 1.12548 16 1.55133 16C1.97719 16 2.34221 15.8772 2.64639 15.5701L8 10.1651L13.3536 15.5701C13.6578 15.8772 14.0228 16 14.4487 16C14.8745 16 15.2395 15.8772 15.5437 15.5701C16.1521 14.9559 16.1521 13.9731 15.5437 13.4203L10.0684 8.07678Z"></path></svg>
+  </a>
+  </div>
+  <div class="popup-def-overlay popup-support-overlay-js"></div>
+  <div class="popup-def popup-link-js" data-swc-prevent-remove>
+    <div class="popup-def__frame">
+      <div class="popup-def__holder layout-page-spaces">
+        <div class="popup-def__align">
+          <div class="c-form">
+            <div class="c-form__title">Use the link search to add your document.</div>
+            <form action="#" method="post" class="c-form__form form-validate-js">
+              <div class="c-form__fields">
+                <div class="form-unit">
+                  <label for="cfLink">Enter your link</label>
+                  <input class="form-def field-js" id="cfLink" name="cfLink" type="text" required />
+                  <span class="error-feedback">Error feedback</span>
+                  <span class="success-feedback">Success feedback</span>
+                </div>
+              </div>
+              <div class="c-form__footer">
+                <button class="btn-def c-form__submit">SEARCH</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="popup-def-close popup-def-close-js">
+    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M10.0684 8.07678L15.4221 2.67179C16.0304 2.05758 16.0304 1.07486 15.4221 0.522073C14.8137 -0.0921305 13.8403 -0.0921305 13.2928 0.522073L7.93916 5.92706L2.58555 0.460653C1.97719 -0.153551 1.0038 -0.153551 0.456274 0.460653C-0.152091 1.07486 -0.152091 2.05758 0.456274 2.61036L5.80989 8.01536L0.456274 13.4203C-0.152091 14.0345 -0.152091 15.0173 0.456274 15.5701C0.760456 15.8772 1.12548 16 1.55133 16C1.97719 16 2.34221 15.8772 2.64639 15.5701L8 10.1651L13.3536 15.5701C13.6578 15.8772 14.0228 16 14.4487 16C14.8745 16 15.2395 15.8772 15.5437 15.5701C16.1521 14.9559 16.1521 13.9731 15.5437 13.4203L10.0684 8.07678Z"></path></svg>
+  </a>
+  </div>
+  <div class="popup-def-overlay popup-link-overlay-js"></div>
   <script src="js/jquery.min.js"></script>
-  <script src="js/libs.min.js"></script>
+  <script src="js/libs.min.js?rev=@@hash"></script>
+  <script src="js/form-validation.js?rev=@@hash"></script>
   <script src="js/common.js?rev=@@hash"></script>
 </body>
 

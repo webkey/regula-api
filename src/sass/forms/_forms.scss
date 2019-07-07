@@ -6,11 +6,11 @@
 label {
   display: inline-block;
   vertical-align: top;
-
-  @include font-size($font-size, $line-height);
-
-  color: $text-color-light;
   margin-bottom: 0.5em;
+  padding: 0 4rem;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: $text-color;
   user-select: none;
   -webkit-tap-highlight-color: transparent !important;
 
@@ -48,7 +48,7 @@ label {
   // Textarea
   @at-root {
     textarea#{$form-def} {
-      $lines: 2;
+      $lines: 5;
       $height: round($form-line-height * $lines) + $form-input-space-vt + $form-input-space-vb + round($form-border-width * 2);
 
       min-height: $height;
@@ -87,45 +87,44 @@ label {
   }
 
   // Focus (js classes)
-  &.focused {
-    @include focused;
-  }
+  //&.focused {
+  //  @include focused;
+  //}
 
   // Has value (js classes)
   // Label
-  @at-root label {
-    &.filled {
-      @include filled;
-    }
-  }
+  //@at-root label {
+  //  &.filled {
+  //    @include filled;
+  //  }
+  //}
 
-  &.filled {
-    @include filled;
-  }
+  //&.filled {
+  //  @include filled;
+  //}
 
   // Success
-  @at-root label {
-    &.success {
-      @include form-success;
-    }
-  }
+  //@at-root label {
+  //  &.success {
+  //    @include form-success;
+  //  }
+  //}
 
-  &.success {
-    @include form-success;
-
-    // Placeholder
-    @include placeholder {
-      color: $form-success-color;
-    }
-  }
+  //&.success {
+  //  @include form-success;
+  //
+  //  // Placeholder
+  //  @include placeholder {
+  //    color: $form-success-color;
+  //  }
+  //}
 
   // Error
-
-  @at-root label {
-    &.error {
-      @include form-error;
-    }
-  }
+  //@at-root label {
+  //  &.error {
+  //    @include form-error;
+  //  }
+  //}
 
   &.error {
     @include form-error;
