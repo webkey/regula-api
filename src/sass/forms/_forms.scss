@@ -27,7 +27,7 @@ label {
 // input[type="search"]
 // textarea
 
-.form-def {
+.form-def, .form-def_alt {
   $form-def: &;
 
   display: block;
@@ -38,6 +38,7 @@ label {
   box-shadow: none;
   border: $form-border-width solid $form-border-color;
   cursor: pointer;
+  transition: border-color $animation-speed, color $animation-speed;
 
   // Стили для текста
   @include inputs-font;
@@ -47,13 +48,15 @@ label {
 
   // Textarea
   @at-root {
-    textarea#{$form-def} {
-      $lines: 5;
-      $height: round($form-line-height * $lines) + $form-input-space-vt + $form-input-space-vb + round($form-border-width * 2);
+    textarea {
+      &.form-def, &.form-def_alt {
+        $lines: 5;
+        $height: round($form-line-height * $lines) + $form-input-space-vt + $form-input-space-vb + round($form-border-width * 2);
 
-      min-height: $height;
-      height: $height;
-      resize: vertical;
+        min-height: $height;
+        height: $height;
+        resize: vertical;
+      }
     }
   }
 
@@ -73,7 +76,6 @@ label {
   @include placeholder-focus {
     opacity: 0;
   }
-
 
   // Focus
   &:focus {
@@ -147,6 +149,38 @@ label {
       color: $form-text-color--disabled !important;
     }
   }
+}
+
+// Alternative fields
+.label_alt {
+  color: #fff;
+}
+
+.form-def_alt {
+  border-color: rgba(#fff, 0.2);
+  background-color: #3e4159;
+  color: #fff;
+
+  @include placeholder {
+    color: rgba(#3e4159, 0.3);
+  }
+
+  &:focus, &:hover {
+    border-color: rgba(#fff, 0.5);
+  }
+
+  //&.error {
+  //  color: $base-color-alt;
+  //  border-color: rgba($base-color-alt, 0.3);
+  //
+  //  @include placeholder {
+  //    color: rgba($base-color-alt, 0.3);
+  //  }
+  //}
+  //
+  //& ~ .error-feedback {
+  //  color: $base-color-alt;
+  //}
 }
 
 @import "unit";

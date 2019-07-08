@@ -634,6 +634,31 @@ function tabs() {
  * !Toggle Popups
  */
 function togglePopups() {
+  var $html = $('html');
+
+  // Navigation popup
+  var $openNav = $('.nav-open-js');
+  var $popupNav = $('.popup-nav-js');
+  var $overlayNav = $('.popup-nav-overlay-js');
+
+  if ($openNav.length) {
+    $openNav.switchClass({
+      switchClassTo: $popupNav.add($overlayNav),
+      removeEl: $('.popup-nav-close-js'),
+      cssScrollFixed: true,
+      removeOutsideClick: true,
+      modifiers: {
+        activeClass: 'is-open'
+      },
+      afterAdd: function () {
+        $html.add($popupNav).add($overlayNav).addClass('open-only-mob');
+      },
+      afterRemove: function () {
+        $html.add($popupNav).add($overlayNav).removeClass('open-only-mob');
+      }
+    });
+  }
+
   // Contacts popup
   var $openContacts = $('.popup-contacts-open-js');
   var $popupContacts = $('.popup-contacts-js');
@@ -661,11 +686,11 @@ function togglePopups() {
     });
   }
 
-  // Support popup
-  var $openSupport = $('.popup-support-open-js');
+  // Distribute popup
+  var $openSupport = $('.popup-dist-open-js');
   if ($openSupport.length) {
     $openSupport.switchClass({
-      switchClassTo: $('.popup-support-js').add('.popup-support-overlay-js'),
+      switchClassTo: $('.popup-dist-js').add('.popup-dist-overlay-js'),
       removeEl: $('.popup-def-close-js'),
       cssScrollFixed: true,
       removeOutsideClick: true,
@@ -704,6 +729,91 @@ function togglePopups() {
 }
 
 /**
+ * !Accept rules
+ */
+function saveAgree(val) {
+  if(typeof val !== 'undefined'){
+    window.localStorage.setItem('rules', val);
+    return val;
+  }
+  return window.localStorage.getItem('rules');
+}
+
+function acceptRules() {
+  var $html = $('html');
+
+  var $agreeCheck = $('.agree-check-js');
+
+  toggleAgree($agreeCheck);
+
+  $agreeCheck.on('change', function () {
+    var $thisCh = $(this);
+    toggleAgree($thisCh);
+  });
+
+  function toggleAgree(el) {
+    if (el.prop('checked')) {
+      saveAgree(true);
+    } else {
+      localStorage.removeItem('rules');
+    }
+  }
+
+  var $rulesPopupOpen = $('.popup-rules-open-js'),
+      $rulesPopup = $('.popup-rules-js'),
+      $curOpen;
+
+  if ($rulesPopupOpen.length) {
+    $rulesPopupOpen.on('click', function (e) {
+      if(!saveAgree()){
+        e.stopPropagation();
+        e.preventDefault();
+
+        $curOpen = $(this);
+
+        $rulesPopup.addClass('is-open');
+        $html.addClass('css-scroll-fixed');
+      }
+    });
+  }
+
+  var $rulesPopupClose = $('.popup-rules-close-js');
+
+  if ($rulesPopupClose.length) {
+    $rulesPopupClose.on('click', function (e) {
+      closeRulesPopup();
+
+      e.preventDefault();
+    });
+  }
+
+  var $rulesPopupAgree = $('.js-popup-rules-agree');
+
+  if($rulesPopupAgree.length){
+    $rulesPopupAgree.on('click', function(e) {
+      saveAgree(true);
+      $agreeCheck.prop('checked', true);
+
+      closeRulesPopup();
+      e.preventDefault();
+
+      setTimeout(function () {
+        if ($curOpen.has(':file').length) {
+          $curOpen.find(':file').trigger('click');
+        } else {
+          $curOpen.trigger('click');
+        }
+      }, 100)
+    });
+  }
+
+  function closeRulesPopup() {
+    $rulesPopup.removeClass('is-open');
+    $html.removeClass('css-scroll-fixed');
+  }
+}
+
+/**
  * =========== !ready document ===========
  */
 
@@ -715,5 +825,6 @@ $(document).ready(function () {
   checkSettings();
   tabs();
   togglePopups();
+  acceptRules();
   objectFitImages(); // object-fit-images initial
 });

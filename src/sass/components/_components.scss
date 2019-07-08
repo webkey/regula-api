@@ -122,9 +122,10 @@
     transform: translate(150%, 0);
   }
 }
+
 /* tabs vendor */
 
-/* popups */
+/* popup def */
 .popup-def {
   position: fixed;
   right: 0;
@@ -138,11 +139,9 @@
   z-index: 9999;
 
   $translate: 100%, 0;
-
   transform: translate($translate);
   transform: translate3d($translate, 0);
 
-  // Общий блок меню скрывать без задержки, с анимацией
   transition: {
     property: opacity, visibility, transform;
     duration: $animation-speed;
@@ -164,6 +163,7 @@
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .popup-def__holder {
@@ -188,10 +188,9 @@
   margin-bottom: 2rem;
 }
 
-/* popups end */
-
-/* popup close btn */
-.popup-def-close {
+.popup-def-close,
+.popup-nav-close,
+.popup-rules__close {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,6 +201,8 @@
   width: 4.2rem;
   color: #000;
   transition: color $animation-speed;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   svg {
     display: block;
@@ -218,7 +219,8 @@
     color: $highlight-color--hover;
   }
 }
-/* popup close btn end */
+
+/* popup def end */
 
 /* popup overlay */
 .popup-def-overlay {
@@ -236,11 +238,198 @@
   will-change: opacity;
   transition: opacity $animation-speed;
 
-  &.is-open {
+  &:not(.open-only-mob).is-open {
     opacity: 1;
   }
+
+  &.open-only-mob.is-open {
+    @include media('<tab') {
+      opacity: 1;
+    }
+  }
 }
+
 /* popup overlay end */
+
+/* popup nav */
+.popup-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: $bg-color-accent;
+  z-index: 9999;
+
+  $translate: 100%, 0;
+  transform: translate($translate);
+  transform: translate3d($translate, 0);
+
+  transition: {
+    property: opacity, visibility, transform;
+    duration: $animation-speed;
+  };
+
+  &:not(.open-only-mob).is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    $translate: 0, 0;
+
+    transform: translate($translate);
+    transform: translate3d($translate, 0);
+  }
+
+  &.open-only-mob.is-open {
+    @include media('<tab') {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+
+      $translate: 0, 0;
+
+      transform: translate($translate);
+      transform: translate3d($translate, 0);
+    }
+  }
+}
+
+.popup-nav__frame {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.popup-nav__top {
+  padding-top: 9.4rem;
+  padding-bottom: 5rem;
+}
+
+.popup-nav__bottom {
+  background-color: #3e4159;
+  padding-top: 5.5rem;
+  padding-bottom: 7.3rem;
+}
+
+.nav-alt {
+  max-width: 75.6rem;
+  margin: 0 auto;
+
+  @include media('<tab') {
+    max-width: 42.5rem;
+  }
+}
+
+.nav-alt__list {
+  @include font-bold;
+  font-size: 3.0rem;
+  line-height: 3.6rem;
+  color: #fff;
+
+  li {
+    margin-bottom: 3.4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+    transition: color $animation-speed;
+
+    .no-touchevents &:hover {
+      color: $highlight-color--hover;
+    }
+  }
+}
+
+.popup-nav-close {
+  color: #fff;
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
+  }
+}
+
+/* popup nav end */
+
+/* popup rules */
+.popup-rules {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9998;
+  display: flex;
+  background-color: rgba(#000, 0.3);
+
+  opacity: 0;
+  pointer-events: none;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.15s;
+  }
+}
+
+.popup-rules__content {
+  position: relative;
+  width: 55.8rem;
+  padding: 10.8rem 6.6rem 5.8rem;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  transform: translate(0, 100%);
+
+  .is-open & {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: transform 0.15s;
+  }
+}
+
+.popup-rules__text {
+  //@include font-bold;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  margin-bottom: 6rem;
+  color: #333;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+    transition: box-shadow $animation-speed;
+    box-shadow: 0 2px 0 $highlight-color;
+
+    .no-touchevents &:hover {
+      box-shadow: 0 2px 0 transparent;
+    }
+  }
+}
+
+.popup-rules__btn {
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.popup-rules__close {
+  top: 2rem;
+  right: 3rem;
+}
+/* popup rules end */
 
 /* c-form */
 .c-form {
@@ -251,6 +440,12 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @include media('<tab') {
+    display: block;
+    max-width: 42.5rem;
+    margin: 0 auto;
   }
 }
 
@@ -263,6 +458,15 @@
   font-size: 1.8rem;
   line-height: 2.9rem;
   color: #333;
+
+  @include media('<tab') {
+    margin-bottom: 6rem;
+  }
+
+  // In popup nav
+  .popup-nav & {
+    color: #fff;
+  }
 }
 
 .c-form__form {
@@ -270,6 +474,10 @@
   $width: 42.5rem;
   flex-basis: $width;
   max-width: $width;
+
+  @include media('<tab') {
+    max-width: none;
+  }
 }
 
 .c-form__fields {
@@ -293,6 +501,10 @@
 .c-form__submit {
   width: 25.2rem;
   max-width: 100%;
+
+  @include media('<tab') {
+    width: 100%;
+  }
 }
 
 /* c-form end */
@@ -356,6 +568,32 @@
 /* back */
 .back {
   display: none;
+  color: #fff;
+  text-decoration: none;
+  transition: color $animation-speed, opacity $animation-speed;
+
+  opacity: 0;
+  pointer-events: none;
+
+  @include media('<tab') {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  svg {
+    display: block;
+    height: 2.2rem;
+    width: 2.9rem;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
+  }
 }
 
 /* back end */
@@ -370,6 +608,13 @@
   background-size: contain;
   text-indent: -9999px;
   z-index: 5;
+
+  @include media('<tab') {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   &::before {
     content: "";
@@ -390,84 +635,7 @@
 
 /* logo end */
 
-/* nav open */
-.nav-open {
-  display: none;
-  line-height: 2.2rem;
-  color: #fff;
-  transition: color $animation-speed;
-
-  @include media('<tab') {
-    display: block;
-  }
-
-  svg {
-    display: block;
-    height: 2.2rem;
-    width: 2.9rem;
-
-    path {
-      fill: currentColor;
-    }
-  }
-
-  // Hover
-  .no-touchevents &:hover {
-    color: $highlight-color--hover;
-  }
-}
-
-/* nav open end */
-
-/* ==================================== */
-/* ============ NAVIGATION ============ */
-/* ==================================== */
-
-.nav {
-  position: relative;
-}
-
-.nav__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  @include font-bold;
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  text-transform: uppercase;
-  color: #fff;
-
-  li {
-    position: relative;
-  }
-
-  a, li > span {
-    display: block;
-    color: white;
-    opacity: 0.5;
-    text-decoration: none;
-    transition: opacity $animation-speed;
-  }
-
-  & > li {
-    margin: 0 2.5rem;
-  }
-
-  // hover
-  a:hover {
-    opacity: 1;
-  }
-
-  // current
-  li.current > a,
-  li.current > span {
-    opacity: 1;
-  }
-}
-
+/* contacts sale */
 .btn-contact {
   position: relative;
   overflow: hidden;
@@ -515,6 +683,110 @@
     }
   }
 }
+
+/* contacts sale end */
+
+/* nav open */
+.nav-open {
+  display: none;
+  line-height: 2.2rem;
+  color: #fff;
+  transition: color $animation-speed;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  @include media('<tab') {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .btn-contact + & {
+    margin-left: 2rem;
+  }
+
+  svg {
+    display: block;
+    height: 2.2rem;
+    width: 2.9rem;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  // Hover
+  .no-touchevents &:hover {
+    color: $highlight-color--hover;
+  }
+}
+
+/* nav open end */
+
+/* header group */
+.header-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+
+  & > * {
+    flex-shrink: 0;
+  }
+}
+
+/* header group end */
+
+/* navigation */
+.nav {
+  position: relative;
+
+  @include media('<tab') {
+    display: none;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include font-bold;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  text-transform: uppercase;
+  color: #fff;
+
+  li {
+    position: relative;
+  }
+
+  a, li > span {
+    display: block;
+    color: white;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: opacity $animation-speed;
+  }
+
+  & > li {
+    margin: 0 2.5rem;
+  }
+
+  // hover
+  a:hover {
+    opacity: 1;
+  }
+
+  // current
+  li.current > a,
+  li.current > span {
+    opacity: 1;
+  }
+}
+
+/* navigation end */
 
 /* ==================================== */
 /* ============= FOOTER =============== */
@@ -1190,12 +1462,18 @@ $tabs-radius: 0.6rem;
     margin-bottom: 0;
   }
 
-  mark {
+  mark, a {
+    text-decoration: none;
     background: none;
     @include font-bold;
     color: $base-color;
     //text-decoration: underline;
     box-shadow: inset 0 -2px 0 currentColor;
+    transition: box-shadow $animation-speed;
+  }
+
+  .no-touchevents & a:hover {
+    box-shadow: inset 0 -2px 0 transparent;
   }
 }
 

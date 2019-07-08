@@ -8,14 +8,14 @@ html {
   // Блокировать скролла
   &.css-scroll-fixed:not(.open-only-mob) {
     @include scroll-blocked;
-}
+  }
 
   // Не блокировать скролл, если есть класс open-only-mob
   &.css-scroll-fixed.open-only-mob {
     @include media("<tab") {
       @include scroll-blocked;
+    }
   }
-}
 }
 
 body {
@@ -33,7 +33,7 @@ body {
 @if nth($layout-page-space, 2) != 0 {
   .layout-page-spaces {
     @include padding-horizontal(nth($layout-page-space, 2));
-}
+  }
 }
 
 // Выравнивание сайта и его максимальная ширина
@@ -49,7 +49,7 @@ body {
 @if nth($layout-text-space, 2) != 0 {
   .layout-text-spaces {
     @include padding-horizontal(nth($layout-text-space, 2));
-}
+  }
 }
 
 // Выравнивание текстовых элементов и их максимальная ширина
