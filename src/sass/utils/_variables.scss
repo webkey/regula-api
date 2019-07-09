@@ -264,7 +264,8 @@ $layout-page-min-width: 32rem !default;
 $layout-page-max-width: 105.6rem !default;
 // Отступы для всего сайта
 $layout-page-space: 6rem 4.8rem !default;
-$layout-page-space-net: 6rem 4.8rem !default;
+$layout-page-space--tab: 4rem 3rem !default;
+$layout-page-space--mob: 3rem 2rem !default;
 
 // ---------------------------------------
 // Максимальная ширина текстового блока
@@ -288,6 +289,7 @@ $table-space: 1.2rem 1.9rem 1.2rem 1.9rem;
 // Header
 // ==========================================================================
 $header-height: 6rem !default;
+$header-height--mob: 4.8rem !default;
 
 
 // Footer

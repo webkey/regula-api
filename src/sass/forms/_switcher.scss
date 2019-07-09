@@ -95,7 +95,7 @@ $checkbox-check-color-active: #fff;
   }
 
   // hover
-  &:hover {
+  .no-touchevents &:hover {
     input[type="checkbox"] {
       & ~ span {
         //color: $highlight-color--hover;
@@ -142,7 +142,7 @@ $checkbox-check-color-active: #fff;
         }
       }
 
-      &:hover {
+      .no-touchevents &:hover {
         & ~ span {
           &::before {
             background-color: $highlight-color--hover;

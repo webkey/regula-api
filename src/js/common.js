@@ -178,6 +178,10 @@ function sliderPhotos() {
           991: {
             slidesPerView: 'auto',
             spaceBetween: 40
+          },
+          639: {
+            slidesPerView: 'auto',
+            spaceBetween: 10
           }
         }
       });

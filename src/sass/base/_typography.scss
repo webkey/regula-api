@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6,
   padding: 0;
   @include font-bold;
   color: $title-color;
+
+  @include media("<mob") {
+    margin-bottom: $bottom-space--mob;
+  }
 }
 
 h1, .h1 {
@@ -50,6 +54,10 @@ h6, .h6 {
 p {
   padding: 0;
   margin: 0 0 $bottom-space;
+
+  @include media("<mob") {
+    margin-bottom: $bottom-space--mob;
+  }
 }
 
 hr {
@@ -59,6 +67,10 @@ hr {
   background: none;
   border-bottom: 1px solid $border-color;
   margin-bottom: $bottom-space;
+
+  @include media("<mob") {
+    margin-bottom: $bottom-space--mob;
+  }
 }
 
 a {
