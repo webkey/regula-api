@@ -155,28 +155,20 @@ function buildMobileTable(data) {
  * !Slider document photos
  */
 function sliderPhotos() {
-  var $docScan = $('.doc-scan-js');
-  if($docScan.length){
-    $docScan.each(function () {
-      var $container = $(this),
-          $orig = $container.find('.orig-images-js'),
-          $sample = $container.find('.sample-images-js'),
-          $pagination = $orig.find('.swiper-pagination'),
-          origSlider, sampleSlider;
+  var $sampleImages = $('.sample-doc-slider-js');
 
-      origSlider = new Swiper ($orig, {
+  if($sampleImages.length){
+    $sampleImages.each(function () {
+      var $thisSlider = $(this),
+          $pagination = $thisSlider.find('.swiper-pagination');
+
+      var sampleSlider = new Swiper ($thisSlider, {
         init: false,
-        // centeredSlides: true,
-        // slideToClickedSlide: true,
-        spaceBetween: 20,
-        loop: true,
-        loopedSlides: 3, //looped slides should be the same
-        allowTouchMove: false,
-        // preloadImages: false,
-        // parallax: true,
-        // thumbs: {
-        //   swiper: sampleSlider,
-        // },
+        centeredSlides: true,
+        spaceBetween: 9,
+        slidesPerView: 3,
+        slideToClickedSlide: true,
+        loop: false,
         pagination: {
           el: $pagination,
           type: 'bullets',
@@ -185,31 +177,16 @@ function sliderPhotos() {
         breakpoints: {
           991: {
             slidesPerView: 'auto',
-            allowTouchMove: true
+            spaceBetween: 40
           }
         }
       });
 
-      sampleSlider = new Swiper ($sample, {
-        centeredSlides: true,
-        spaceBetween: 9,
-        slidesPerView: 3,
-        slideToClickedSlide: true,
-        // allowTouchMove: false,
-        loop: true,
-        loopedSlides: 3, //looped slides should be the same
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        controller: {
-          control: origSlider
-        },
+      sampleSlider.on('init', function() {
+        $thisSlider.addClass('is-loaded');
       });
 
-      origSlider.on('init', function() {
-        $container.addClass('is-loaded');
-      });
-
-      origSlider.init();
+      sampleSlider.init();
     });
   }
 }

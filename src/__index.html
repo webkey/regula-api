@@ -9,7 +9,7 @@
 
 <!--MAIN-->
 <main class="main" role="main">
-  <div class="entry layout-page-spaces">
+  <div class="entry layout-page-spaces hide-after-result">
     <div class="entry__content">
       <h1>Regula Document Reader SDK Web Api</h1>
       <p>Fast and accurate data extraction from identity documents<br> On-premise and cloud integration.</p>
@@ -19,86 +19,64 @@
   <div class="content layout-page layout-page-spaces">
     <div class="d-container">
       <div class="d-prev">
-        <div class="d-doc-scan doc-scan doc-scan-js">
-          <h3 class="d-prev__subtitle">Original image</h3>
-          <div class="swiper-container orig-images orig-images-js">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a href="#" class="orig-images__figure">
-                  <img src="img/scan-orig-01.jpg" alt="image description" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#" class="orig-images__figure">
-                  <img src="img/scan-orig-03.jpg" alt="image description" />
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a href="#" class="orig-images__figure">
-                  <img src="img/temp/img_640_01.jpg" alt="image description" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#" class="orig-images__figure">
-                  <img src="img/temp/img_640_02.jpg" alt="image description" />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#" class="orig-images__figure">
-                  <img src="img/temp/temp-img_320x400_01.jpg" alt="image description" />
-                </a>
-              </div>
-
-              <div class="swiper-slide">
-                <a href="#" class="orig-images__figure">
-                  <img src="img/scan-orig-02.jpg" alt="image description" />
-                </a>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-          <h3 class="d-prev__subtitle">Choose a sample image</h3>
-          <div class="swiper-container sample-images sample-images-js">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" style="background-image:url(img/scan-01.jpg);"></div>
-              <div class="swiper-slide" style="background-image:url(img/scan-03.jpg);"></div>
-
-              <div class="swiper-slide" style="background-image:url(img/temp/img_640_01.jpg);"></div>
-              <div class="swiper-slide" style="background-image:url(img/temp/img_640_02.jpg);"></div>
-              <div class="swiper-slide" style="background-image:url(img/temp/temp-img_320x400_01.jpg);"></div>
-
-              <div class="swiper-slide" style="background-image:url(img/scan-02.jpg);"></div>
+        <div class="d-orig-images show-after-result">
+          <h3 class="d-orig-images__title">Original image</h3>
+          <div class="orig-images orig-images-js">
+            <div class="orig-images__figure">
+              <img id="orig-image" src="img/scan-orig-01.jpg" alt="image description" />
             </div>
           </div>
         </div>
 
-        <div class="d-agree agree">
-          <div class="agree__item">
-            <label class="form-radiocheck">
-              <input type="checkbox" name="checkbox" class="agree-check-js">
-              <span>Аgree <a href="#" target="_blank">to the rules</a> for the possibility of using your image</span>
-            </label>
+        <div class="d-get-doc hide-after-result">
+          <div class="d-sample-doc">
+            <h3 class="d-sample-doc__title">Choose a sample image</h3>
+            <div class="d-sample-doc__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
+            <div class="swiper-container sample-doc sample-doc-slider-js" id="sample-doc">
+              <div class="swiper-wrapper">
+                <a href="#" class="swiper-slide sample-doc__item active" style="background-image:url(img/scan-orig-01.jpg);"></a>
+                <a href="#" class="swiper-slide sample-doc__item" style="background-image:url(img/scan-orig-03.jpg);"></a>
+
+                <a href="#" class="swiper-slide sample-doc__item" style="background-image:url(img/temp/img_640_01.jpg);"></a>
+                <a href="#" class="swiper-slide sample-doc__item" style="background-image:url(img/temp/img_640_02.jpg);"></a>
+                <a href="#" class="swiper-slide sample-doc__item" style="background-image:url(img/temp/img_320_01.jpg);"></a>
+
+                <a href="#" class="swiper-slide sample-doc__item" style="background-image:url(img/scan-orig-02.jpg);"></a>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
-          <div class="agree__item">
-            <label class="form-radiocheck">
-              <input type="checkbox" name="checkbox">
-              <span>Compress image to accelerate processing</span>
-            </label>
+
+          <div class="d-agree agree">
+            <div class="agree__item">
+              <label class="form-radiocheck">
+                <input type="checkbox" name="checkbox" class="agree-check-js" checked>
+                <span>Аgree <a href="#" target="_blank">to the rules</a> for the possibility of using your image</span>
+              </label>
+            </div>
+            <div class="agree__item">
+              <label class="form-radiocheck">
+                <input type="checkbox" name="checkbox">
+                <span>Compress image to accelerate processing</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="d-controls controls">
+            <div class="controls__item">
+              <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
+            </div>
+            <div class="controls__item">
+              <span class="controls__btn btn-alt popup-rules-open-js">
+              Browse<br> files
+              <input type="file" name="browse">
+            </span>
+              <a href="#" class="controls__btn btn-alt popup-link-open-js">URL</a>
+            </div>
           </div>
         </div>
 
-        <div class="d-controls controls">
-          <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
-          <span class="controls__btn btn-alt popup-rules-open-js">
-            Browse<br> files
-            <input type="file" name="browse">
-          </span>
-          <a href="#" class="controls__btn btn-alt popup-link-open-js">URL</a>
-        </div>
-
-        <div class="d-settings settings settings-js">
+        <div class="d-settings settings settings-js show-after-result">
           <h3 class="settings__label">Select parameters</h3>
           <div class="settings__group">
             <div class="settings__item">
@@ -160,19 +138,19 @@
                 </div>
               </div>
 
-              <div>
+              <div class="table-container">
                 <table class="table m-simple">
                   <tbody>
                     <tr>
-                      <td class="td-label"><div>Document type</div></td>
+                      <td class="td-label">Document type</td>
                       <td><h2>Australia - ePassport (2009) Travel Document</h2></td>
                     </tr>
                     <tr>
-                      <td class="td-label"><div>Portrait</div></td>
+                      <td class="td-label">Portrait</td>
                       <td><img src="img/scan-02-photo.jpg" alt="Portrait"></td>
                     </tr>
                     <tr>
-                      <td class="td-label"><div>Signature</div></td>
+                      <td class="td-label">Signature</td>
                       <td><img src="img/scan-02-sign.jpg" alt="Signature"></td>
                     </tr>
                   </tbody>
@@ -391,12 +369,12 @@
       </div>
     </div>
 
-    <div class="follow-mob">
+    <div class="follow-mob hide-after-result">
       <span class="follow-mob__label">Applicable to mobile or web apps</span>
       <a href="#" class="follow-mob__btn btn-def">Follow mobile SDK page</a>
     </div>
 
-    <div class="suggest">
+    <div class="suggest hide-after-result">
       <div class="suggest__list">
         <div class="suggest__item">
           <i class="suggest__icon icon-integration"></i>
@@ -416,12 +394,12 @@
       </div>
     </div>
 
-    <div class="volume">
+    <div class="volume hide-after-result">
       <div class="volume__label">We read and verify over<br> <a href="#" class="popup-dist-open-js">7,200</a> document types in <a href="#" class="popup-dist-open-js">77</a> languages</div>
       <a href="#" class="btn-def popup-contacts-open-js">Contact sales</a>
     </div>
 
-    <div class="advantages">
+    <div class="advantages hide-after-result">
       <div class="advantages__list">
         <div class="advantages__item">
           <div class="advantage">
