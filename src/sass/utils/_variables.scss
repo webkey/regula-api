@@ -262,7 +262,7 @@ $typography-style-class: typography !default;
 $layout-page-min-width: 32rem !default;
 // Максимальная ширина сайта
 //$layout-page-max-width: 115.2rem !default; // Full width
-$layout-page-max-width: 105.6rem !default;
+$layout-page-max-width: 106rem !default;
 // Отступы для всего сайта
 $layout-page-space: 6rem 4.8rem !default;
 $layout-page-space--tab: 4rem 3rem !default;
@@ -287,7 +287,7 @@ $grid-space: 2.8rem 3rem !default;
 
 // ---------------------------------------
 // Внутренние отступы в таблице результатов
-$table-space: 1.2rem 1.9rem 1.2rem 1.9rem;
+$table-space: 1.1rem 1.9rem 1.2rem 1.9rem;
 
 
 // Header
@@ -371,8 +371,8 @@ $form-input-space-vt: floor(($form-input-height - $form-line-height - $form-bord
 // верхний паддинг округляем в нижнюю сторону
 $form-input-space-vb: ceil(($form-input-height - $form-line-height - $form-border-width*2)/2) !default;
 // нижний паддинг округляем в верхнюю сторону
-$form-input-space-h: 40px !default;
-$form-bottom-space: 2rem !default;
+$form-input-space-h: 24px !default;
+$form-bottom-space: 2.8rem !default;
 $form-bottom-space--mob: 2rem !default;
 
 // Vertical spaces

@@ -68,38 +68,40 @@
   <div class="popup-def__frame">
     <div class="popup-def__holder">
       <div class="popup-def__content layout-page-spaces" data-swc-prevent-remove>
-        <div class="c-form">
-          <div class="c-form__title">Our team will be happy to help with your enquiries</div>
-          <form action="#" method="post" class="c-form__form form-validate-js">
-            <div class="c-form__fields">
-              <div class="form-unit">
-                @@include("_tpl_forms_input.html", {
-                "label": "What is your name?",
-                "id": "cfName",
-                "type": "text"
-                })
-                @@include("_tpl_forms_valid.html")
+        <div class="popup-def__align">
+          <div class="c-form">
+            <div class="c-form__title">Our team will be happy to help with your enquiries</div>
+            <form action="#" method="post" class="c-form__form form-validate-js">
+              <div class="c-form__fields">
+                <div class="form-unit">
+                  @@include("_tpl_forms_input.html", {
+                  "label": "What is your name?",
+                  "id": "cfName",
+                  "type": "text"
+                  })
+                  @@include("_tpl_forms_valid.html")
+                </div>
+                <div class="form-unit">
+                  @@include("_tpl_forms_input.html", {
+                  "label": "What is your e-mail address?",
+                  "id": "cfEmail",
+                  "type": "email"
+                  })
+                  @@include("_tpl_forms_valid.html")
+                </div>
+                <div class="form-unit c-form__message">
+                  @@include("_tpl_forms_textarea.html", {
+                  "label": "Please specify your scenarios, applications, and technical requirements",
+                  "id": "cfMessage"
+                  })
+                  @@include("_tpl_forms_valid.html")
+                </div>
               </div>
-              <div class="form-unit">
-                @@include("_tpl_forms_input.html", {
-                "label": "What is your e-mail address?",
-                "id": "cfEmail",
-                "type": "email"
-                })
-                @@include("_tpl_forms_valid.html")
+              <div class="c-form__footer">
+                <button class="btn-def c-form__submit">SUBMIT</button>
               </div>
-              <div class="form-unit c-form__message">
-                @@include("_tpl_forms_textarea.html", {
-                "label": "Please specify your scenarios, applications, and technical requirements",
-                "id": "cfMessage"
-                })
-                @@include("_tpl_forms_valid.html")
-              </div>
-            </div>
-            <div class="c-form__footer">
-              <button class="btn-def c-form__submit">SUBMIT</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
 
         <a href="#" class="popup-def-close popup-def-close-js" title="Close popup">
@@ -114,96 +116,66 @@
   <div class="popup-def__frame">
     <div class="popup-def__holder">
       <div class="popup-def__content layout-page-spaces" data-swc-prevent-remove>
-        <div class="popup-def__title">230 countries and territories</div>
-        <div class="support">
-          <div class="support__item">
-            <strong>EU</strong>
-            <p>Passports of all participating countries, visas, driver's license, medical insurance, insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Andorra</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Belarus</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Georgia</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Belarus</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Georgia</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Belarus</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
+        <div class="popup-def__align">
+          <div class="popup-def__title">230 countries and territories</div>
+          <div class="support">
+            <div class="support__item">
+              <strong>EU</strong>
+              <p>Passports of all participating countries, visas, driver's license, medical insurance, insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Andorra</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Georgia</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
 
-          <div class="support__item">
-            <strong>USA</strong>
-            <p>Passports of all participating countries, visas, driver's license, medical insurance, insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Andorra</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Belarus</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Georgia</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Belarus</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Georgia</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Belarus</strong>
-            <p>Passport, driver's license, medical insurance</p>
-          </div>
-          <div class="support__item">
-            <strong>Switherland</strong>
-            <p>Passport, driver's license, medical insurance</p>
+            <div class="support__item">
+              <strong>USA</strong>
+              <p>Passports of all participating countries, visas, driver's license, medical insurance, insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Andorra</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Georgia</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Belarus</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
+            <div class="support__item">
+              <strong>Switherland</strong>
+              <p>Passport, driver's license, medical insurance</p>
+            </div>
           </div>
         </div>
 
@@ -219,23 +191,25 @@
   <div class="popup-def__frame">
     <div class="popup-def__holder">
       <div class="popup-def__content layout-page-spaces" data-swc-prevent-remove>
-        <div class="c-form">
-          <div class="c-form__title">Use the link search to add your document.</div>
-          <form action="#" method="post" class="c-form__form form-validate-js">
-            <div class="c-form__fields">
-              <div class="form-unit">
-                @@include("_tpl_forms_input.html", {
-                "label": "Enter your link",
-                "id": "cfLink",
-                "type": "text"
-                })
-                @@include("_tpl_forms_valid.html")
+        <div class="popup-def__align">
+          <div class="c-form">
+            <div class="c-form__title">Use the link search to add your document.</div>
+            <form action="#" method="post" class="c-form__form form-validate-js">
+              <div class="c-form__fields">
+                <div class="form-unit">
+                  @@include("_tpl_forms_input.html", {
+                  "label": "Enter your link",
+                  "id": "cfLink",
+                  "type": "text"
+                  })
+                  @@include("_tpl_forms_valid.html")
+                </div>
               </div>
-            </div>
-            <div class="c-form__footer">
-              <button class="btn-def c-form__submit">SEARCH</button>
-            </div>
-          </form>
+              <div class="c-form__footer">
+                <button class="btn-def c-form__submit">SEARCH</button>
+              </div>
+            </form>
+          </div>
         </div>
 
         <a href="#" class="popup-def-close popup-def-close-js" title="Close popup">

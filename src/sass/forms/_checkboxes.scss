@@ -13,7 +13,7 @@ $checkbox-color: #d8d8d8;
   vertical-align: top;
   margin-bottom: 0;
   font-size: 1.6rem;
-  line-height: 2rem;
+  line-height: 1.9rem;
   color: $text-color;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -79,7 +79,7 @@ $checkbox-color: #d8d8d8;
 
     &::before {
       left: 0;
-      top: -0.2rem;
+      top: -1px;
       border: 1px solid $checkbox-color;
       width: $checkbox-size;
       height: $checkbox-size;
@@ -107,7 +107,7 @@ $checkbox-color: #d8d8d8;
         opacity: 0;
         left: 0;
         //top: 50%;
-        top: -0.2rem;
+        top: -1px;
         height: nth($checkbox-check-size, 1);
         width: nth($checkbox-check-size, 2);
         margin: 0.8rem #{round-float(($checkbox-size - nth($checkbox-check-size, 2)) / 2, 1)};

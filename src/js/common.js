@@ -183,30 +183,19 @@ function sliderPhotos() {
  */
 function checkSettings() {
 
-  $(':checkbox').on('change', function () {
+  $('.all-param-js:checkbox').on('change', function () {
     checkParam.call(this);
   });
 
   function checkParam() {
     var $ch = $(this);
     var $container = $ch.closest('.settings-js');
-    var $chAll = $container.find(':checkbox').not('.all-param-js');
-
-    if ($ch.hasClass('all-param-js')) {
-      $chAll.not(':disabled').prop('checked', $ch.prop('checked'));
-
-      return;
-    }
-
-    $container.find('.all-param-js').not(':disabled').prop('checked', $chAll.length === $chAll.filter(':checked').length);
+    $container.find(':checked').not('.all-param-js').not(':disabled').prop('checked', false);
   }
 
   // Проверить не отмечен ли пункт "Все параметры".
   // Еclи да, то запустить функцию для этого чекбокса.
-  checkParam.call($('.all-param-js:checked', $('.settings-js')));
-
-  // Запустить функцию для остальных чекбоксов.
-  checkParam.call($(':checkbox:not(.all-param-js)', $('.settings-js')));
+  checkParam.call($('.all-param-js:checked'));
 }
 
 /**

@@ -6,6 +6,7 @@
 .form-unit {
   position: relative;
   margin-bottom: $form-bottom-space;
+  line-height: 1;
 
   .form-def, .form-def_alt, .form-radiocheck, .form-switcher, .select2 {
     margin-bottom: 0;
