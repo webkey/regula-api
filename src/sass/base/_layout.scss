@@ -30,6 +30,12 @@ body {
   @include media("<mob") {
     @include font-size($font-size--mob, $line-height--mob);
   }
+
+  .show-results & {
+    @include media("<tab") {
+      overflow: hidden;
+    }
+  }
 }
 
 // Отступы по бокам страницы

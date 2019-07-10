@@ -23,23 +23,6 @@ function placeholderInit() {
   $('[placeholder]').placeholder();
 }
 
-/**
- * !Initial custom select for cross-browser styling
- * */
-function customSelect(select) {
-  $.each(select, function () {
-    var $thisSelect = $(this);
-    // var placeholder = $thisSelect.attr('data-placeholder') || '';
-    $thisSelect.select2({
-      language: "ru",
-      width: '100%',
-      containerCssClass: 'cselect-head',
-      dropdownCssClass: 'cselect-drop'
-      // , placeholder: placeholder
-    });
-  })
-}
-
 document.addEventListener("DOMContentLoaded", function(){
   /**
    * !Sticky table
@@ -127,7 +110,7 @@ function buildMobileTable(data) {
       if(tblInd){
         var table = document.createElement('table');
         var itemClass = tblInd === 1 ? ' m-active' : '';
-        table.className = 'table m-simple' + itemClass;
+        table.className = 'table' + itemClass;
         table.innerHTML = '<tbody>' + tbl.data.map(function(row) {
           var rowClass = row.isMarked ? 'row-marked' : '';
           return '<tr class="'+rowClass+'"><td class="td-label">'+row.label+'</td><td>'+row.value+'</td></tr>';
@@ -219,7 +202,7 @@ function checkSettings() {
   }
 
   // Проверить не отмечен ли пункт "Все параметры".
-  // Елси да, то запустить функцию для этого чекбокса.
+  // Еclи да, то запустить функцию для этого чекбокса.
   checkParam.call($('.all-param-js:checked', $('.settings-js')));
 
   // Запустить функцию для остальных чекбоксов.
@@ -647,7 +630,7 @@ function togglePopups() {
 
   if ($openContacts.length) {
     $openContacts.switchClass({
-      switchClassTo: $popupContacts.add('.popup-contacts-overlay-js'),
+      switchClassTo: $popupContacts,
       removeEl: $('.popup-def-close-js'),
       cssScrollFixed: true,
       removeOutsideClick: true,
@@ -660,23 +643,38 @@ function togglePopups() {
         }, 60);
       },
       afterRemove: function () {
+        $html.add($popupContacts).addClass('is-animation-hide');
+
         setTimeout(function () {
           $contactsFirstInput.blur();
         }, 60);
+
+        setTimeout(function () {
+          $html.add($popupContacts).removeClass('is-animation-hide');
+        }, 400);
       }
     });
   }
 
   // Distribute popup
-  var $openSupport = $('.popup-dist-open-js');
-  if ($openSupport.length) {
-    $openSupport.switchClass({
-      switchClassTo: $('.popup-dist-js').add('.popup-dist-overlay-js'),
+  var $openDist = $('.popup-dist-open-js');
+  var $popupDist = $('.popup-dist-js');
+
+  if ($openDist.length) {
+    $openDist.switchClass({
+      switchClassTo: $popupDist,
       removeEl: $('.popup-def-close-js'),
       cssScrollFixed: true,
       removeOutsideClick: true,
       modifiers: {
         activeClass: 'is-open'
+      },
+      afterRemove: function () {
+        $html.add($popupDist).addClass('is-animation-hide');
+
+        setTimeout(function () {
+          $html.add($popupDist).removeClass('is-animation-hide');
+        }, 400);
       }
     });
   }
@@ -688,7 +686,7 @@ function togglePopups() {
 
   if ($openLink.length) {
     $openLink.switchClass({
-      switchClassTo: $popupLink.add('.popup-link-overlay-js'),
+      switchClassTo: $popupLink,
       removeEl: $('.popup-def-close-js'),
       cssScrollFixed: true,
       removeOutsideClick: true,
@@ -701,9 +699,15 @@ function togglePopups() {
         }, 60);
       },
       afterRemove: function () {
+        $html.add($popupLink).addClass('is-animation-hide');
+
         setTimeout(function () {
           $linkFirstInput.blur();
         }, 60);
+
+        setTimeout(function () {
+          $html.add($popupLink).removeClass('is-animation-hide');
+        }, 400);
       }
     });
   }
@@ -756,6 +760,25 @@ function acceptRules() {
         $html.addClass('css-scroll-fixed');
       }
     });
+
+    // Close popup by ESC
+    $html.keyup(function (e) {
+      if ($rulesPopup.hasClass('is-open') && e.keyCode === 27) {
+        closeRulesPopup();
+      }
+    });
+
+    // Close popup by OVERLAY
+    $html.on('click', function (e) {
+      if ($(e.target).closest('.popup-rules__content').length) {
+        return;
+      }
+
+      if ($rulesPopup.hasClass('is-open')) {
+        closeRulesPopup();
+      }
+    });
+
   }
 
   var $rulesPopupClose = $('.popup-rules-close-js');
@@ -801,7 +824,6 @@ function acceptRules() {
 $(document).ready(function () {
   addTouchClasses();
   placeholderInit();
-  customSelect($('select.cselect'));
   sliderPhotos();
   checkSettings();
   tabs();

@@ -215,6 +215,7 @@ $highlight-color--hover: #6c667c !default
 $bg-color: #e3edf7 !default;
 $bg-color-alt: #fff !default;
 $bg-color-accent: #1f2343 !default;
+$bg-color-results: #f5f6fa !default;
 
 // ----------------------------------------------------
 $text-color: #1c1e1f !default;
@@ -266,6 +267,9 @@ $layout-page-max-width: 105.6rem !default;
 $layout-page-space: 6rem 4.8rem !default;
 $layout-page-space--tab: 4rem 3rem !default;
 $layout-page-space--mob: 3rem 2rem !default;
+
+// ---------------------------------------
+$layout-popup-width: 105.6rem !default;
 
 // ---------------------------------------
 // Максимальная ширина текстового блока

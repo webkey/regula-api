@@ -3,6 +3,15 @@ $(document).ready(function () {
   var $sampleDoc = $('a', $('#sample-doc'));
 
   /**
+   * На маленьких девайсах, ниже 640px
+   * После отображения результатов нужно
+   * прокрутить страницу до таблици результатов
+   */
+  function goToResult(value) {
+    $('.doc-lad').scrollTop(value);
+  }
+
+  /**
    * Показать резултаты
    * Для этого нужно добавить класс show-results на элементы html
    */
@@ -25,6 +34,16 @@ $(document).ready(function () {
 
     setTimeout(function () {
       $html.addClass('show-results');
+
+      /**
+       * !!!
+       * На маленьких девайсах, ниже 640px
+       * После отображения результатов нужно
+       * прокрутить страницу до таблици результатов
+       */
+      if (window.innerWidth < 640) {
+        goToResult($('.d-details').position().top - 20);
+      }
     }, 500);
 
     setTimeout(function () {

@@ -16,10 +16,10 @@
     </div>
   </div>
 
-  <div class="content layout-page layout-page-spaces">
+  <div class="doc-lad layout-page layout-page-spaces">
     <div class="d-container">
       <div class="d-prev">
-        <div class="d-orig-images show-after-result">
+        <div class="d-orig-images">
           <h3 class="d-orig-images__title">Original image</h3>
           <div class="orig-images orig-images-js">
             <div class="orig-images__figure">
@@ -78,7 +78,7 @@
           </div>
         </div>
 
-        <div class="d-settings settings settings-js show-after-result">
+        <div class="d-settings settings settings-js">
           <h3 class="settings__label">Select parameters</h3>
           <div class="settings__group">
             <div class="settings__item">
@@ -96,13 +96,13 @@
             </div>
             <div class="settings__item">
               <label class="form-switcher">
-                <input type="checkbox" name="checkbox">
+                <input type="checkbox" name="checkbox" checked disabled>
                 <span>Do Visual Text</span>
               </label>
             </div>
             <div class="settings__item">
               <label class="form-switcher">
-                <input type="checkbox" name="checkbox">
+                <input type="checkbox" name="checkbox" disabled>
                 <span>Do Graphic Fields</span>
               </label>
             </div>
@@ -143,7 +143,7 @@
               <div class="table-container">
                 <table class="table m-simple">
                   <tbody>
-                    <tr>
+                    <tr class="m-simple__title">
                       <td class="td-label">Document type</td>
                       <td><h2>Australia - ePassport (2009) Travel Document</h2></td>
                     </tr>
@@ -369,8 +369,17 @@
 
 
       </div>
-    </div>
 
+      <!--Footer copy-->
+      <div class="footer">
+        <div class="layout-page layout-page-spaces">
+          <div class="copyright">© 1992-2019 Regula. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content layout-page layout-page-spaces">
     <div class="follow-mob hide-after-result">
       <span class="follow-mob__label">Applicable to mobile or web apps</span>
       <a href="#" class="follow-mob__btn btn-def">Follow mobile SDK page</a>
