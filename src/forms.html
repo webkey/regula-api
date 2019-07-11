@@ -45,6 +45,7 @@
   </noscript>
   <!--[if lte IE 9]>
 <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
+  <!--HEADER-->
   <header class="header">
     <div class="layout-page layout-page-spaces">
       <div class="header-container">
@@ -73,6 +74,7 @@
       </div>
     </div>
   </header>
+  <!--HEADER end-->
   <main class="main" role="main">
     <div class="layout-text layout-page-spaces">
       <h1>Forms</h1>
@@ -517,11 +519,13 @@ include("_tpl_forms_textarea.html", {
       <br><br>
     </div>
   </main>
+  <!--FOOTER-->
   <footer class="footer">
     <div class="layout-page layout-page-spaces">
       <div class="copyright">&copy; 1992-2019 Regula. All rights reserved.</div>
     </div>
   </footer>
+  <!--FOOTER end-->
   <div class="popup-nav popup-nav-js" data-swc-prevent-remove>
     <div class="popup-nav__frame">
       <div class="popup-nav__top layout-page-spaces">
@@ -539,20 +543,20 @@ include("_tpl_forms_textarea.html", {
           <form action="#" method="post" class="c-form__form form-validate-js">
             <div class="c-form__fields">
               <div class="form-unit">
-                <label for="cfName" class="label_alt">What is your name?</label>
-                <input class="form-def_alt" id="cfName" name="cfName" type="text" required />
+                <label for="ncfName" class="label_alt">What is your name?</label>
+                <input class="form-def_alt" id="ncfName" name="ncfName" type="text" required />
                 <span class="error-feedback">Error feedback</span>
                 <span class="success-feedback">Success feedback</span>
               </div>
               <div class="form-unit">
-                <label for="cfEmail" class="label_alt">What is your e-mail address?</label>
-                <input class="form-def_alt" id="cfEmail" name="cfEmail" type="email" required />
+                <label for="ncfEmail" class="label_alt">What is your e-mail address?</label>
+                <input class="form-def_alt" id="ncfEmail" name="ncfEmail" type="email" required />
                 <span class="error-feedback">Error feedback</span>
                 <span class="success-feedback">Success feedback</span>
               </div>
               <div class="form-unit c-form__message">
-                <label for="cfMessage" class="label_alt">Please specify your scenarios, applications, and technical requirements</label>
-                <textarea class="form-def_alt" id="cfMessage" name="cfMessage" required></textarea>
+                <label for="ncfMessage" class="label_alt">Please specify your scenarios, applications, and technical requirements</label>
+                <textarea class="form-def_alt" id="ncfMessage" name="ncfMessage" required></textarea>
                 <span class="error-feedback">Error feedback</span>
                 <span class="success-feedback">Success feedback</span>
               </div>
