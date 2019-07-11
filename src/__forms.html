@@ -306,77 +306,6 @@ include("_tpl_forms_textarea.html", {
     <br><br>
     <hr>
 
-    <!--=== SELECT 2 ===-->
-    <h3>Select 2</h3>
-    <pre>include("_tpl_forms_select.html", {
-  "label": "Label:",
-  "id": "id",
-  "disabled": "",
-  "selected": "", // В значении указать value нужного опшина
-  "arrow": "true"
-})</pre>
-    <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
-&lt;select class="form-def has-arrow" id="id" name="id" required&gt;
-  &lt;!--Important! The first element must have a value of ""--&gt;
-  {{options}}
-&lt;/select&gt;
-&lt;div class="select-arrow"&gt;@include("includes/svg/icon-angle.svg")&lt;/div&gt;</pre>
-    <form action="#" class="form-validate-js">
-      <!--=== Default ===-->
-      @@include("_tpl_forms_select2.html", {
-      "label": "Default:",
-      "id": "select2Default"
-      })
-      @@include("_tpl_forms_valid.html")
-
-      <!--=== Disabled ===-->
-      @@include("_tpl_forms_select2.html", {
-      "label": "Disabled:",
-      "id": "select2Disabled",
-      "disabled": "true"
-      })
-      @@include("_tpl_forms_valid.html")
-
-      <!--=== Default with placeholder ===-->
-      @@include("_tpl_forms_select2.html", {
-      "label": "Default with placeholder:",
-      "id": "select2DefaultWithPlaceholder",
-      "placeholder": "- Placeholder -"
-      })
-      @@include("_tpl_forms_valid.html")
-
-      <!--=== Disabled with placeholder ===-->
-      @@include("_tpl_forms_select2.html", {
-      "label": "Disabled with placeholder:",
-      "id": "select2DisabledWithPlaceholder",
-      "placeholder": "- Placeholder -",
-      "disabled": "true"
-      })
-      @@include("_tpl_forms_valid.html")
-
-      <!--=== Selected ===-->
-      @@include("_tpl_forms_select2.html", {
-      "label": "Selected:",
-      "id": "select2Selected",
-      "selected": "1"
-      })
-      @@include("_tpl_forms_valid.html")
-
-      <!--=== Selected and Disabled ===-->
-      @@include("_tpl_forms_select2.html", {
-      "label": "Selected and Disabled:",
-      "id": "select2SelectedDisabled",
-      "disabled": "true",
-      "selected": "1"
-      })
-      @@include("_tpl_forms_valid.html")
-
-      <!--=== === ===--><br>
-      <button class="btn-def">VALIDATE</button>
-    </form>
-    <br><br>
-    <hr>
-
 
     <!--=== FORM UNIT ===-->
     <h2>Form unit</h2>
@@ -474,9 +403,6 @@ include("_tpl_forms_textarea.html", {
       <button class="btn-def">VALIDATE</button>
     </form>
     <br><br>
-
-    <hr>
-    @@include("_tpl_forms_user-form.html", { "title": "Обратная связь" })
     <br><br>
   </div>
 </main>

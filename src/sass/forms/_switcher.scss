@@ -6,6 +6,10 @@
 $checkbox-size: 2.8rem 4.6rem;
 $checkbox-inside: 0.2rem 0.2rem;
 $checkbox-border-width: 0.1rem;
+//----------- mob -------------
+$checkbox-size--mob: 2.4rem 3.8rem;
+$checkbox-inside--mob: 0.1rem 0.1rem;
+$checkbox-border-width--mob: 0.1rem;
 
 // ===
 $checkbox-border-color: rgba(#000, 0.2);
@@ -17,6 +21,8 @@ $checkbox-bg-color-active: $base-color;
 $checkbox-check-size: 2.4rem 2.4rem;
 $checkbox-check-color: #fff;
 $checkbox-check-color-active: #fff;
+//----------- mob -------------
+$checkbox-check-size--mob: 2.0rem 2.0rem;
 
 .form-switcher {
   display: inline-block;
@@ -31,6 +37,10 @@ $checkbox-check-color-active: #fff;
 
   @include media("<tab") {
     font-size: 1.8rem;
+  }
+
+  @include media("<mob") {
+    font-size: 2.0rem;
   }
 
   // hide default inputs
@@ -51,6 +61,10 @@ $checkbox-check-color-active: #fff;
     //padding: 0 0 0 #{nth($checkbox-size, 2) + 1.5};
     padding: 0 #{nth($checkbox-size, 2) + 1.5} 0 0;
     cursor: pointer;
+
+    @include media("<mob") {
+      padding: 0 #{nth($checkbox-size--mob, 2) + 1.5} 0 0;
+    }
 
     &::before, &::after {
       content: "";
@@ -77,6 +91,14 @@ $checkbox-check-color-active: #fff;
       background-color: $checkbox-bg-color;
       border: $checkbox-border-width solid $checkbox-border-color;
       border-radius: nth($checkbox-size, 1);
+
+      @include media("<mob") {
+        height: nth($checkbox-size--mob, 1);
+        width: nth($checkbox-size--mob, 2);
+        margin-top: -#{round-float(nth($checkbox-size--mob, 1) / 2, 1)};
+        border-width: $checkbox-border-width--mob;
+        border-radius: nth($checkbox-size--mob, 1);
+      }
     }
 
     &::after {
@@ -95,6 +117,22 @@ $checkbox-check-color-active: #fff;
 
       transform: translate($translate) scale($scale);
       transform: translate3d($translate, 0) scale3d($scale, 1);
+
+      @include media("<mob") {
+        right: $checkbox-border-width--mob + nth($checkbox-inside--mob, 2);
+        height: nth($checkbox-check-size--mob, 1);
+        width: nth($checkbox-check-size--mob, 2);
+        margin-top: -#{round-float(nth($checkbox-check-size--mob, 1) / 2, 1)};
+        background-color: $checkbox-check-color;
+        border-radius: nth($checkbox-check-size--mob, 1);
+
+        $space--mob: nth($checkbox-size--mob, 2) - $checkbox-border-width--mob * 2 - nth($checkbox-inside--mob, 2) * 2 - nth($checkbox-check-size--mob, 2);
+        $translate--mob: -#{$space--mob}, 0;
+        $scale--mob: 1, 1;
+
+        transform: translate($translate--mob) scale($scale--mob);
+        transform: translate3d($translate--mob, 0) scale3d($scale--mob, 1);
+      }
     }
   }
 
@@ -137,7 +175,6 @@ $checkbox-check-color-active: #fff;
         &::after {
           background-color: $checkbox-check-color-active;
 
-          $space: nth($checkbox-size, 2) - $checkbox-border-width * 2 - nth($checkbox-inside, 2) * 2 - nth($checkbox-check-size, 2);
           $translate: 0, 0;
           $scale: 1, 1;
 

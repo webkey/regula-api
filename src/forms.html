@@ -406,123 +406,6 @@ include("_tpl_forms_textarea.html", {
       </form>
       <br><br>
       <hr>
-      <!--=== SELECT 2 ===-->
-      <h3>Select 2</h3>
-      <pre>include("_tpl_forms_select.html", {
-  "label": "Label:",
-  "id": "id",
-  "disabled": "",
-  "selected": "", // В значении указать value нужного опшина
-  "arrow": "true"
-})</pre>
-      <pre>&lt;label for="id"&gt;Label: &lt;mark&gt;*&lt;/mark&gt;&lt;/label&gt;
-&lt;select class="form-def has-arrow" id="id" name="id" required&gt;
-  &lt;!--Important! The first element must have a value of ""--&gt;
-  {{options}}
-&lt;/select&gt;
-&lt;div class="select-arrow"&gt;@include("includes/svg/icon-angle.svg")&lt;/div&gt;</pre>
-      <form action="#" class="form-validate-js">
-        <!--=== Default ===-->
-        <label for="select2Default">Default: <mark>*</mark></label>
-        <select class="cselect field-js" id="select2Default" name="select2Default" required>
-          <!--Important! The first element must have a value of ""-->
-          <option value="">- Choose option -</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-          <option value="6">Option 6</option>
-          <option value="7">Option 7</option>
-          <option value="8">Option 8</option>
-        </select>
-        <span class="error-feedback">Error feedback</span>
-        <span class="success-feedback">Success feedback</span>
-        <!--=== Disabled ===-->
-        <label for="select2Disabled">Disabled: <mark>*</mark></label>
-        <select class="cselect field-js" id="select2Disabled" name="select2Disabled" disabled required>
-          <!--Important! The first element must have a value of ""-->
-          <option value="">- Choose option -</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-          <option value="6">Option 6</option>
-          <option value="7">Option 7</option>
-          <option value="8">Option 8</option>
-        </select>
-        <span class="error-feedback">Error feedback</span>
-        <span class="success-feedback">Success feedback</span>
-        <!--=== Default with placeholder ===-->
-        <label for="select2DefaultWithPlaceholder">Default with placeholder: <mark>*</mark></label>
-        <select class="cselect field-js" id="select2DefaultWithPlaceholder" name="select2DefaultWithPlaceholder" data-placeholder="- Placeholder -" required>
-          <!--Important! The first element must have a value of ""-->
-          <option value="">- Choose option -</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-          <option value="6">Option 6</option>
-          <option value="7">Option 7</option>
-          <option value="8">Option 8</option>
-        </select>
-        <span class="error-feedback">Error feedback</span>
-        <span class="success-feedback">Success feedback</span>
-        <!--=== Disabled with placeholder ===-->
-        <label for="select2DisabledWithPlaceholder">Disabled with placeholder: <mark>*</mark></label>
-        <select class="cselect field-js" id="select2DisabledWithPlaceholder" name="select2DisabledWithPlaceholder" data-placeholder="- Placeholder -" disabled required>
-          <!--Important! The first element must have a value of ""-->
-          <option value="">- Choose option -</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-          <option value="6">Option 6</option>
-          <option value="7">Option 7</option>
-          <option value="8">Option 8</option>
-        </select>
-        <span class="error-feedback">Error feedback</span>
-        <span class="success-feedback">Success feedback</span>
-        <!--=== Selected ===-->
-        <label for="select2Selected">Selected: <mark>*</mark></label>
-        <select class="cselect field-js" id="select2Selected" name="select2Selected" required>
-          <!--Important! The first element must have a value of ""-->
-          <option value="">- Choose option -</option>
-          <option value="1" selected>Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-          <option value="6">Option 6</option>
-          <option value="7">Option 7</option>
-          <option value="8">Option 8</option>
-        </select>
-        <span class="error-feedback">Error feedback</span>
-        <span class="success-feedback">Success feedback</span>
-        <!--=== Selected and Disabled ===-->
-        <label for="select2SelectedDisabled">Selected and Disabled: <mark>*</mark></label>
-        <select class="cselect field-js" id="select2SelectedDisabled" name="select2SelectedDisabled" disabled required>
-          <!--Important! The first element must have a value of ""-->
-          <option value="">- Choose option -</option>
-          <option value="1" selected>Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3 we have to add a lot of text for testing to make sure the correctness of cutting this text</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-          <option value="6">Option 6</option>
-          <option value="7">Option 7</option>
-          <option value="8">Option 8</option>
-        </select>
-        <span class="error-feedback">Error feedback</span>
-        <span class="success-feedback">Success feedback</span>
-        <!--=== === ===--><br>
-        <button class="btn-def">VALIDATE</button>
-      </form>
-      <br><br>
-      <hr>
       <!--=== FORM UNIT ===-->
       <h2>Form unit</h2>
       <p>Котейнер объединяющий элементы относящиеся к одному <strong>полю ввода</strong>, <strong>селекту</strong>, или <strong>переключателю</strong>.<br>
@@ -631,35 +514,6 @@ include("_tpl_forms_textarea.html", {
         <button class="btn-def">VALIDATE</button>
       </form>
       <br><br>
-      <hr>
-      <h2>Обратная связь</h2>
-      <form action="#" method="post" class="form-validate-js">
-        <div class="form-group">
-          <div class="form-group__item">
-            <label for="uf-name">Name:</label>
-            <input class="form-def" id="uf-name" name="uf-name" type="text" placeholder="Your name" required />
-            <span class="error-feedback">Please enter your name, please</span>
-            <span class="success-feedback">Success feedback</span>
-          </div>
-          <div class="form-group__item">
-            <label for="uf-email">Email:</label>
-            <input class="form-def" id="uf-email" name="uf-email" type="email" placeholder="Your email" required />
-            <span class="error-feedback">Please enter a valid email address</span>
-            <span class="success-feedback">Success feedback</span>
-          </div>
-        </div>
-        <div class="form-unit captcha">
-          <label for="form-captcha">Security Check: <mark>*</mark></label>
-          <div class="captcha-ctrl">
-            <img class="captcha-ctrl__img" src="img/captcha.jpg" alt="captcha" />
-            <div class="captcha-ctrl__refresh"><a href="#"><span>Try another text</span></a></div>
-          </div>
-          <input class="form-def" id="form-captcha" name="form-captcha" type="text" placeholder="Enter code" required />
-          <span class="error-feedback">Enter text in this image</span>
-          <span class="success-feedback">The verification was successful!</span>
-        </div>
-        <button class="btn-def">Send</button>
-      </form>
       <br><br>
     </div>
   </main>
@@ -668,7 +522,7 @@ include("_tpl_forms_textarea.html", {
       <div class="copyright">&copy; 1992-2019 Regula. All rights reserved.</div>
     </div>
   </footer>
-  <div class="popup-nav popup-nav-js is-open" data-swc-prevent-remove>
+  <div class="popup-nav popup-nav-js" data-swc-prevent-remove>
     <div class="popup-nav__frame">
       <div class="popup-nav__top layout-page-spaces">
         <div class="nav-alt">

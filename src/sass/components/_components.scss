@@ -323,6 +323,10 @@
     @include media('<tab') {
       margin: 0 0 4.5rem;
     }
+
+    @include media('<mob') {
+      margin: 0 0 2.8rem;
+    }
   }
 
   .c-form__fields {
@@ -331,13 +335,17 @@
     }
 
     @include media('<mob') {
-      margin: 0 0 5rem;
+      margin: 0 0 4rem;
     }
   }
 
   label {
     @include media('<tab') {
       padding: 0 2rem;
+    }
+
+    @include media('<mob') {
+      padding: 0 1.4rem;
     }
   }
 
@@ -363,12 +371,22 @@
 .popup-nav__top {
   padding-top: 9.4rem;
   padding-bottom: 5.4rem;
+
+  @include media("<mob") {
+    padding-top: 6.8rem;
+    padding-bottom: 2.8rem;
+  }
 }
 
 .popup-nav__bottom {
   background-color: #3e4159;
   padding-top: 5.5rem;
   padding-bottom: 7.3rem;
+
+  @include media("<mob") {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
 }
 
 .nav-alt {
@@ -386,8 +404,17 @@
   line-height: 3.6rem;
   color: #fff;
 
+  @include media("<mob") {
+    font-size: 2.2rem;
+    line-height: 1.51;
+  }
+
   li {
     margin-bottom: 3.8rem;
+
+    @include media("<mob") {
+      margin-bottom: 2.5rem;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -407,6 +434,11 @@
 
 .popup-nav-close {
   color: #fff;
+
+  @include media("<mob") {
+    right: 0.5rem;
+    top: 0.3rem;
+  }
 
   // Hover
   .no-touchevents &:hover {
@@ -533,7 +565,7 @@
   display: inline-block;
   vertical-align: middle;
   width: 55.8rem;
-  max-width: calc(100% - 8px);
+  max-width: calc(100% - 12px);
   margin: 0;
   padding: 10.8rem 6.6rem 7.9rem;
   text-align: left;
@@ -883,6 +915,11 @@
     height: 2.2rem;
     width: 2.9rem;
 
+    @include media("<mob") {
+      height: 2rem;
+      width: 1.4rem;
+    }
+
     path {
       fill: currentColor;
     }
@@ -1015,6 +1052,10 @@
     @include media("<tab") {
       margin-left: 1.9rem;
     }
+
+    @include media("<mob") {
+      margin: 0 -0.8rem 0 0;
+    }
   }
 
   svg {
@@ -1128,6 +1169,11 @@
   line-height: 1.6rem;
   color: #fff;
 
+  @include media("<mob") {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
   .show-results & {
     @include media("<tab") {
       display: none;
@@ -1181,7 +1227,7 @@
   }
 
   @include media("<mob") {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
     font-size: 1.4rem;
     text-align: left;
   }
@@ -1202,6 +1248,7 @@
     @include media("<mob") {
       font-size: 2.4rem;
       line-height: 2.9rem;
+      margin-bottom: 1.1rem;
     }
   }
 
@@ -1278,6 +1325,10 @@
         display: block;
       }
     }
+
+    @include media("<mob") {
+      background-color: #fff;
+    }
   }
 }
 /* doc-lad end */
@@ -1292,6 +1343,10 @@
     padding-top: 5.9rem;
     display: block;
     margin-bottom: 0;
+  }
+
+  @include media("<mob") {
+    padding-top: 3rem;
   }
 
   .show-results & {
@@ -1482,6 +1537,11 @@ $orig-img-height: 6.6rem;
   font-size: 1.4rem;
   line-height: 1.6rem;
 
+  @include media("<mob") {
+    font-size: 1.8rem;
+    line-height: 2.0rem;
+  }
+
   input[type="file"] {
     position: absolute;
     top: 0;
@@ -1496,6 +1556,12 @@ $orig-img-height: 6.6rem;
     width: 19px;
     height: 16px;
   }
+
+  br {
+    @include media("<mob") {
+      display: none;
+    }
+  }
 }
 /* controls end */
 
@@ -1509,6 +1575,11 @@ $orig-img-height: 6.6rem;
 
     @include media("<tab") {
       margin-bottom: 2.3rem;
+    }
+
+    @include media("<mob") {
+      border-color: #dde3ec;
+      margin-bottom: 2.6rem;
     }
   }
 }
@@ -1527,6 +1598,10 @@ $orig-img-height: 6.6rem;
     color: $text-color-muted;
     margin-bottom: 2.1rem;
   }
+
+  @include media("<mob") {
+    margin-bottom: 1.6rem;
+  }
 }
 
 .settings__item {
@@ -1534,6 +1609,10 @@ $orig-img-height: 6.6rem;
 
   @include media("<tab") {
     margin-bottom: 2.5rem;
+  }
+
+  @include media("<mob") {
+    margin-bottom: 2rem;
   }
 
   &:last-child {
@@ -1584,8 +1663,18 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<mob") {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    float: none;
+    margin-bottom: 0;
     padding-left: #{nth($layout-page-space--mob, 2)};
     padding-right: #{nth($layout-page-space--mob, 2)};
+    border-bottom: 1px solid rgba(#d7dfe8, 0.8);
+
+    &::after {
+      content: none;
+    }
   }
 
   a {
@@ -1604,11 +1693,16 @@ $tabs-radius: 0.6rem;
     border-radius: $tabs-radius;
     box-shadow: 0 9px 18px rgba(22, 31, 45, 0.0);
 
-    transition: color $animation-speed;
+    transition: color $animation-speed, box-shadow $animation-speed;
 
     @include media("<mob") {
+      width: auto;
+      padding: 0.8rem 0;
       font-size: 1.6rem;
-      line-height: 1.61;
+      line-height: 2.6rem;
+      color: rgba($text-color, 0.5);
+      box-shadow: inset 0 -3px 0 transparent;
+      border-radius: 0;
     }
 
     &.current {
@@ -1617,6 +1711,12 @@ $tabs-radius: 0.6rem;
       box-shadow: 0 9px 18px rgba(22, 31, 45, 0.05);
       cursor: default;
       pointer-events: none;
+
+      @include media("<mob") {
+        color: $text-color;
+        box-shadow: inset 0 -3px 0 $base-color;
+        background: none;
+      }
     }
 
     .no-touchevents &:hover {
@@ -1639,6 +1739,10 @@ $tabs-radius: 0.6rem;
   @include media("<tab") {
     box-shadow: none;
   }
+
+  @include media("<mob") {
+    border-radius: 0;
+  }
 }
 
 /* tabs end */
@@ -1660,8 +1764,8 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<mob") {
-    padding-left: #{nth($layout-page-space--mob, 2)};
-    padding-right: #{nth($layout-page-space--mob, 2)};
+    padding: 3.3rem #{nth($layout-page-space--mob, 2)};
+    margin-bottom: 0;
   }
 }
 
@@ -1689,7 +1793,7 @@ $tabs-radius: 0.6rem;
 
   @include media("<mob") {
     float: none;
-    margin: 0;
+    margin: 0 0 0.2rem;
   }
 }
 /* sensor end */
@@ -1712,7 +1816,6 @@ $tabs-radius: 0.6rem;
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  border-radius: $tabs-radius;
 
   td, th {
     vertical-align: top;
@@ -1839,6 +1942,7 @@ $tabs-radius: 0.6rem;
       &:first-child {
         @include font-bold;
         color: $text-color-muted;
+        border-top: 0;
       }
 
       h2 {
@@ -1851,6 +1955,36 @@ $tabs-radius: 0.6rem;
 
       img {
         border-radius: 8px;
+      }
+    }
+
+    &.m-simple_title {
+      &, tbody, tr, td {
+        @include media("<mob") {
+          display: block;
+          width: auto;
+        }
+      }
+
+      td {
+        @include media("<mob") {
+          padding: 0 #{nth($layout-page-space--mob, 2)} 1.6rem;
+        }
+
+        &.td-label {
+          @include media("<mob") {
+            border: none;
+            padding-bottom: 0.6rem;
+          }
+        }
+
+        h2 {
+          @include media("<mob") {
+            font-size: 2.0rem;
+            line-height: 2.4rem;
+            color: $text-color;
+          }
+        }
       }
     }
   }
@@ -2000,21 +2134,35 @@ $tabs-radius: 0.6rem;
   @include media("<tab") {
     margin-bottom: 3.4rem;
   }
+
+  @include media("<mob") {
+    margin-bottom: 4.2rem;
+  }
 }
 
 .follow-mob__label {
   display: inline-block;
   vertical-align: middle;
+  margin: 1rem 2.5rem;
   @include font-bold;
   font-size: 1.8rem;
   line-height: 2.1rem;
-  margin: 1rem 2.5rem;
+
+  @include media("<mob") {
+    display: block;
+    margin: 0 0 2rem;
+    text-align: left;
+  }
 }
 
 .follow-mob__btn {
   display: inline-block;
   vertical-align: middle;
   margin: 0 2.5rem;
+
+  @include media("<mob") {
+    margin: 0;
+  }
 }
 
 /* follow-mob end */
@@ -2029,6 +2177,11 @@ $tabs-radius: 0.6rem;
     padding: 0;
     margin-bottom: 7.4rem;
   }
+
+  @include media("<mob") {
+    padding: 0;
+    margin-bottom: 5.4rem;
+  }
 }
 
 .suggest__list {
@@ -2039,6 +2192,11 @@ $tabs-radius: 0.6rem;
   @include media("<tab") {
     display: block;
     margin: 0 0 -3.9rem;
+  }
+
+  @include media("<mob") {
+    display: block;
+    margin: 0 0 -3.3rem;
   }
 }
 
@@ -2064,6 +2222,7 @@ $tabs-radius: 0.6rem;
   @include media("<mob") {
     padding-left: 3rem;
     font-size: 1.4rem;
+    padding-bottom: 3.3rem;
   }
 }
 
@@ -2101,6 +2260,7 @@ $tabs-radius: 0.6rem;
   @include media("<mob") {
     font-size: 1.8rem;
     line-height: 1.6;
+    margin-bottom: 0.1em;
   }
 }
 
@@ -2142,10 +2302,9 @@ $tabs-radius: 0.6rem;
 
   @include media("<mob") {
     font-size: 2.0rem;
-    line-height: 1.51;
-    padding: 5rem 3.1rem;
-    margin-left: -#{nth($layout-page-space--mob, 2)};
-    margin-right: -#{nth($layout-page-space--mob, 2)};
+    line-height: 3.02rem;
+    padding: 5rem 3.1rem 6.1rem;
+    margin: 0 -#{nth($layout-page-space--mob, 2)} 6rem;
   }
 
   &:last-child {
@@ -2158,6 +2317,10 @@ $tabs-radius: 0.6rem;
 
   @include media("<tab") {
     margin-bottom: 2.8rem;
+  }
+
+  @include media("<mob") {
+    margin-bottom: 4rem;
   }
 
   &:last-child {
@@ -2175,6 +2338,10 @@ $tabs-radius: 0.6rem;
 
     @include media("<tab") {
       font-size: 3.2rem;
+    }
+
+    @include media("<mob") {
+      font-size: 2.4rem;
     }
   }
 
@@ -2222,7 +2389,7 @@ $tabs-radius: 0.6rem;
   @include media("<mob") {
     padding-left: 3rem;
     font-size: 1.4rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 }
 
@@ -2241,6 +2408,7 @@ $tabs-radius: 0.6rem;
   @include media("<mob") {
     font-size: 1.8rem;
     line-height: 2.2rem;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -2279,6 +2447,11 @@ $tabs-radius: 0.6rem;
     display: block;
     margin: 0 0 -3.9rem;
   }
+
+  @include media("<mob") {
+    display: block;
+    margin: 0 0 -3.5rem;
+  }
 }
 
 .advantages__item {
@@ -2298,11 +2471,20 @@ $tabs-radius: 0.6rem;
     max-width: none;
     padding: 0 0 3.9rem;
   }
+
+  @include media("<mob") {
+    max-width: none;
+    padding: 0 0 3.5rem;
+  }
 }
 
 .advantages__item_has-btn {
   @include media("<tab") {
     margin-top: 1.6rem;
+  }
+
+  @include media("<tab") {
+    margin-top: -0.1rem;
   }
 }
 
@@ -2314,6 +2496,13 @@ $tabs-radius: 0.6rem;
 
   @include media("<tab") {
     margin: auto;
+  }
+
+  @include media("<mob") {
+    display: block;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -2378,7 +2567,7 @@ $tabs-radius: 0.6rem;
   @include media("<mob") {
     padding-right: 0;
     max-width: none;
-    margin-bottom: 5.5rem;
+    margin-bottom: 5.8rem;
   }
 
   &:last-child {
@@ -2398,6 +2587,10 @@ $tabs-radius: 0.6rem;
     line-height: 2.0rem;
     color: $text-color-muted;
     margin-bottom: 2.4rem;
+  }
+
+  @include media("<mob") {
+    margin-bottom: 1.6rem;
   }
 }
 
@@ -2453,6 +2646,8 @@ $tabs-radius: 0.6rem;
 
   @include media("<mob") {
     font-size: 1.4rem;
+    text-align: left;
+    margin-bottom: 1.7rem;
   }
 }
 
