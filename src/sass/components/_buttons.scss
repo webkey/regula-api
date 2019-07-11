@@ -11,6 +11,12 @@
   $btn-border-width: 0;
   $btn-space-inner-vertical: round-float(($btn-height - $btn-line-height - $btn-border-width * 2) / 2, 1);
   $btn-space-inner-horizontal: 3.2rem;
+  // ------------- mob ---------------
+  $btn-font-size--mob: 1.8rem;
+  $btn-line-height--mob: 2.1rem;
+  $btn-border-width--mob: 0;
+  $btn-space-inner-vertical--mob: round-float(($btn-height--mob - $btn-line-height--mob - $btn-border-width--mob * 2) / 2, 1);
+  $btn-space-inner-horizontal--mob: 3.2rem;
 
   display: inline-block;
   vertical-align: top;
@@ -31,6 +37,12 @@
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
+
+  @include media("<mob") {
+    padding: #{$btn-space-inner-vertical--mob} #{$btn-space-inner-horizontal--mob};
+    font-size: $btn-font-size--mob;
+    line-height: $btn-line-height--mob;
+  }
 
   &::before,
   &::after {

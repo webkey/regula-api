@@ -13,12 +13,17 @@ $form-group-gap-half: round-float($form-group-gap / 2, 1);
   align-items: flex-end;
   margin: 0 -#{$form-group-gap-half} $form-bottom-space;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   @include media("<mob") {
     display: block;
+  }
+
+  @include media($form-media--mob) {
+    display: block;
+    margin-bottom: $form-bottom-space--mob;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

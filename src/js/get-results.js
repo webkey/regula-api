@@ -61,6 +61,12 @@ $(document).ready(function () {
      * 4) Скрываем прелоадер
      */
 
+    e.preventDefault();
+
+    if (!$html.hasClass('show-results')) {
+      return;
+    }
+
     $html.addClass('show-preloader');
 
     setTimeout(function () {
@@ -70,7 +76,5 @@ $(document).ready(function () {
     setTimeout(function () {
       $html.removeClass('show-preloader');
     }, 1500);
-
-    e.preventDefault();
   })
 });

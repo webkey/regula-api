@@ -15,6 +15,11 @@ label {
   user-select: none;
   -webkit-tap-highlight-color: transparent !important;
 
+  @include media($form-media--mob) {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
   mark {
     background: none;
     color: $error-color;
@@ -28,13 +33,12 @@ label {
 // input[type="search"]
 // textarea
 
-.form-def, .form-def_alt {
-  $form-def: &;
-
+.form-def,
+.form-def_alt {
   display: block;
-  padding: $form-input-space-vt $form-input-space-h $form-input-space-vb;
   width: 100%;
   height: $form-input-height;
+  padding: $form-input-space-vt $form-input-space-h $form-input-space-vb;
   background-color: $form-bg-color;
   box-shadow: none;
   border: $form-border-width solid $form-border-color;
@@ -50,7 +54,12 @@ label {
 
   // Для мобильных
   @include media($form-media--mob) {
-    @include inputs-font;
+    height: $form-input-height--mob;
+    padding: $form-input-space-vt--mob $form-input-space-h--mob $form-input-space-vb--mob;
+    border-width: $form-border-width--mob;
+
+    @include inputs-font--mob;
+    @include forms-space--mob;
   }
 
   // Textarea
@@ -65,7 +74,7 @@ label {
         resize: vertical;
 
         @include media($form-media--mob) {
-          $lines: 5;
+          $lines: 3;
           $height: round($form-line-height--mob * $lines) + $form-input-space-vt--mob + $form-input-space-vb--mob + round($form-border-width--mob * 2);
 
           min-height: $height;

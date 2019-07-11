@@ -154,6 +154,7 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () {
   return gulp.src([
     'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
     , 'src/libs/jquery-validation/dist/jquery.validate.min.js' // валидация форм
+    , 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for non-support browsers
     , 'src/libs/swiper/dist/js/swiper.min.js' // swiper slider
   ])
       .pipe(concat('libs.js'))

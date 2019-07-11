@@ -9,7 +9,7 @@
   line-height: 1;
 
   @include media($form-media--mob) {
-    margin-bottom: $form-media--mob;
+    margin-bottom: $form-bottom-space--mob;
   }
 
   .form-def, .form-def_alt, .form-radiocheck, .form-switcher, .select2 {

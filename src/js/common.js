@@ -182,15 +182,24 @@ function sliderPhotos() {
  * !Check settings
  */
 function checkSettings() {
+  var $set = $('.settings-js');
 
-  $('.all-param-js:checkbox').on('change', function () {
+  $(':checkbox', $set).on('change', function () {
     checkParam.call(this);
   });
 
   function checkParam() {
     var $ch = $(this);
-    var $container = $ch.closest('.settings-js');
-    $container.find(':checked').not('.all-param-js').not(':disabled').prop('checked', false);
+    var $container = $ch.closest($set);
+    var $chAll = $container.find(':checkbox').not('.all-param-js');
+
+    if ($ch.hasClass('all-param-js')) {
+      $chAll.not(':disabled').filter(':checked').prop('checked', false);
+
+      return;
+    }
+
+    $container.find('.all-param-js').not(':disabled').prop('checked', false);
   }
 
   // Проверить не отмечен ли пункт "Все параметры".

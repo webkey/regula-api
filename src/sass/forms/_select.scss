@@ -4,15 +4,20 @@
 
 // Select
 select {
-  .#{$article-content} &, .select & {
+  .#{$article-content} &,
+  .select & {
     display: block;
     width: 100%;
   }
 }
 
-.#{$article-content}, .select, .#{$article-content} .select {
+.#{$article-content},
+.select,
+.#{$article-content} .select {
   select {
-    @include selectSelection;
+    @include select-selection;
+
+    @include selects-font;
 
     display: block;
     position: relative;
@@ -21,10 +26,10 @@ select {
     cursor: pointer;
     white-space: nowrap;
 
-    // Стили для текста полей ввода прописываем отдельно через миксин,
-    // чтобы была возможность добавить медиа развилки через тот же миксин
-    & {
-      @include selects-font;
+    @include media($form-media--mob) {
+      @include select-selection--mob;
+
+      @include selects-font--mob;
     }
   }
 }
@@ -35,6 +40,10 @@ select {
 
 .#{$article-content} select, .select {
   @include forms-space;
+
+  @include media($form-media--mob) {
+    @include forms-space--mob;
+  }
 
   &:last-child {
     margin-bottom: 0;

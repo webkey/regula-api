@@ -29,6 +29,10 @@ $checkbox-check-color-active: #fff;
   outline: none;
   -webkit-tap-highlight-color: transparent;
 
+  @include media("<tab") {
+    font-size: 1.8rem;
+  }
+
   // hide default inputs
   input[type="checkbox"] {
     position: absolute;
