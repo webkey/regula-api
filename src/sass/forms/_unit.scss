@@ -8,6 +8,10 @@
   margin-bottom: $form-bottom-space;
   line-height: 1;
 
+  @include media($form-media--mob) {
+    margin-bottom: $form-media--mob;
+  }
+
   .form-def, .form-def_alt, .form-radiocheck, .form-switcher, .select2 {
     margin-bottom: 0;
   }

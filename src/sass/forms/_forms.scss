@@ -38,6 +38,7 @@ label {
   background-color: $form-bg-color;
   box-shadow: none;
   border: $form-border-width solid $form-border-color;
+  border-radius: 0;
   cursor: pointer;
   transition: border-color $animation-speed, color $animation-speed;
 
@@ -46,6 +47,11 @@ label {
 
   // Вертикальные внешние отступы
   @include forms-space;
+
+  // Для мобильных
+  @include media($form-media--mob) {
+    @include inputs-font;
+  }
 
   // Textarea
   @at-root {
@@ -57,6 +63,14 @@ label {
         min-height: $height;
         height: $height;
         resize: vertical;
+
+        @include media($form-media--mob) {
+          $lines: 5;
+          $height: round($form-line-height--mob * $lines) + $form-input-space-vt--mob + $form-input-space-vb--mob + round($form-border-width--mob * 2);
+
+          min-height: $height;
+          height: $height;
+        }
       }
     }
   }
@@ -189,8 +203,6 @@ label {
 @import "checkboxes";
 @import "switcher";
 @import "select";
-@import "select2";
 @import "validation";
-@import "captcha";
 
 /* form elements end */
