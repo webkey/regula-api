@@ -706,7 +706,32 @@
                 </div>
               </div>
               <div class="tabs-panel" id="request">
-                {{Request}}
+                <div class="tabs-panel__space">
+                  <div class="tabs-panel__title">Embed code:</div>
+                  <pre class="s-code"><code>[
+  {
+    "year" : 2013,
+    "title" : "Turn It Down, Or Else!",
+    "info" : {
+      "directors" : [ "Alice Smith", "Bob Jones"],
+      "release_date" : "2013-01-18T00:00:00Z",
+      "rating" : 6.2,
+      "genres" : ["Comedy", "Drama"],
+      "image_url" : "http://ia.media-imdb.com/images/N/O9ERWAU7FS797AJ7LU8HN09AMUP908RLlo5JF90EWR7LJKQ7@@._V1_SX400_.jpg",
+      "plot" : "A rock band plays their music at high volumes, annoying the neighbors.",
+      "actors" : ["David Matthewman", "Jonathan G. Neff"]
+    }
+  },
+  {
+    "year": 2015,
+    "title": "The Big New Movie",
+    "info": {
+      "plot": "Nothing happens at all.",
+      "rating": 0
+    }
+  }
+                ]</code></pre>
+                </div>
               </div>
               <div class="tabs-panel" id="response">
                 {{Response}}
@@ -835,6 +860,9 @@
             <div class="c-form__footer">
               <button class="btn-def c-form__submit">SUBMIT</button>
             </div>
+            <div class="form-alert">
+              <div class="form-alert__text">Ура!!! Запрос ушёл по адресу!!!</div>
+            </div>
           </form>
         </div>
       </div>
@@ -876,6 +904,9 @@
                 </div>
                 <div class="c-form__footer">
                   <button class="btn-def c-form__submit">SUBMIT</button>
+                </div>
+                <div class="form-alert">
+                  <div class="form-alert__text">Ура!!! Запрос ушёл по адресу!!!</div>
                 </div>
               </form>
             </div>
@@ -1018,8 +1049,8 @@
   </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/libs.min.js?rev=@@hash"></script>
-  <script src="js/form-validation.js?rev=@@hash"></script>
   <script src="js/common.js?rev=@@hash"></script>
+  <script src="js/form-validation.js?rev=@@hash"></script>
   <!-- For example, test. Remove after programming -->
   <script src="js/get-results.js?rev=@@hash"></script>
 </body>

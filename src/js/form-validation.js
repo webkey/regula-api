@@ -1,7 +1,17 @@
 $(document).ready(function () {
   $.validator.setDefaults({
-    submitHandler: function() {
-      alert('Форма находится в тестовом режиме. См. form-validation.js.  Чтобы закрыть окно, нажмите ОК.');
+    submitHandler: function (element) {
+      // alert('Форма находится в тестовом режиме. См. form-validation.js.  Чтобы закрыть окно, нажмите ОК.');
+
+      $(element).addClass('alert-show');
+
+      // Если нужно, чтобы алертом накрыло и форму, котора в меню на мобиле, то класс добавить и на нее
+      $('.popup-nav').find('form').addClass('alert-show');
+
+      setTimeout(function () {
+        $.switchClass.remove(true);
+      }, 1000);
+
       return false;
     }
   });

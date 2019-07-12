@@ -281,7 +281,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  background-color: $bg-color-accent;
+  background-color: #3e4159;
   z-index: 9999;
 
   $translate: 100%, 0;
@@ -359,6 +359,11 @@
       height: $height;
     }
   }
+
+  .form-alert {
+    background-color: rgba(#3e4159, 0.8);
+    color: white;
+  }
 }
 
 .popup-nav__frame {
@@ -371,6 +376,7 @@
 .popup-nav__top {
   padding-top: 9.4rem;
   padding-bottom: 5.4rem;
+  background-color: $bg-color-accent;
 
   @include media("<mob") {
     padding-top: 6.8rem;
@@ -677,6 +683,7 @@
 }
 
 .c-form__form {
+  position: relative;
   flex-grow: 0;
   $width: 42.5rem;
   flex-basis: $width;
@@ -719,6 +726,41 @@
 
   @include media('<tab') {
     width: 100%;
+  }
+}
+
+.form-alert {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -1rem;
+  top: -1rem;
+  height: calc(100% + 2rem);
+  width: calc(100% + 2rem);
+  padding: 2rem;
+  z-index: 5;
+  border-radius: 1rem;
+  background-color: rgba(white, 0.8);
+  color: $text-color;
+  transition: opacity $animation-speed;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+
+  @include media("<mob") {
+    padding: 1.5rem;
+  }
+
+  .alert-show & {
+    opacity: 1;
+  }
+
+  .form-alert__text {
+    @include font-bold;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    text-align: center;
   }
 }
 
@@ -1725,7 +1767,7 @@ $tabs-radius: 0.6rem;
     }
 
     &.current {
-      background-color: $bg-color-results;
+      background-color: white;
       color: $text-color;
       box-shadow: 0 9px 18px rgba(22, 31, 45, 0.05);
       cursor: default;
@@ -1735,6 +1777,10 @@ $tabs-radius: 0.6rem;
         color: $text-color;
         box-shadow: inset 0 -3px 0 $base-color;
         background: none;
+      }
+
+      &:first-child {
+        background-color: $bg-color-results;
       }
     }
 
@@ -1751,7 +1797,8 @@ $tabs-radius: 0.6rem;
   //overflow: hidden; // Может поломать макет на некоторых браузерах
   min-height: 10rem;
   z-index: 2;
-  background-color: $bg-color-results;
+  //background-color: $bg-color-results;
+  background-color: white;
   border-radius: $tabs-radius;
   box-shadow: 0 9px 18px rgba(22, 31, 45, 0.05);
 
@@ -1764,17 +1811,49 @@ $tabs-radius: 0.6rem;
   }
 }
 
+.tabs-panel__space {
+  padding: 2.4rem 1.9rem;
+}
+
+.tabs-panel__title {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: $text-color-muted;
+  margin-bottom: 2rem;
+}
+
 /* tabs end */
+
+/* s-code */
+.s-code {
+  padding: 0;
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+
+  code {
+    display: block;
+    //background: $bg-color-results;
+    padding: 0.5em;
+    margin: 0;
+    color: $text-color;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+/* s-code end */
 
 /* sensor */
 .sensor {
   overflow: hidden;
   margin-bottom: -0.4rem;
   padding: 2.6rem #{nth($table-space, 2)} 0;
+  background-color: $bg-color-results;
 
   @include media("<tab") {
-    padding: 1.5rem #{nth($layout-page-space, 2)} 0;
-    margin-bottom: 3.3rem;
+    padding: 1.5rem #{nth($layout-page-space, 2)} 3.3rem;
+    margin-bottom: 0;
   }
 
   @include media("<tab-s") {
