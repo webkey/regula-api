@@ -79,6 +79,7 @@ function getResultsData() {
     [].forEach.call(heads, function(head, ind) {
       result.push({
         label: head.innerHTML,
+        class: head.getAttribute('class'),
         data: []
       });
       if(head.className.indexOf('td-valid') !== -1) {
@@ -93,6 +94,7 @@ function getResultsData() {
           result[tdi].data.push({
             label: label,
             value: td.innerHTML,
+            class: td.getAttribute('class'),
             isMarked: row.className.indexOf('row-marked') !== -1
           });
           if(row.className.indexOf('row-marked') !== -1 && validIndex !== -1){
@@ -113,12 +115,16 @@ function buildMobileTable(data) {
   all.className = 'mobile-tables';
   if(data){
     var wrapTabs = document.createElement('div');
+    var wrapTabsInner = document.createElement('div');
     wrapTabs.className = 'table-tabs';
-    wrapTabs.innerHTML = data.map(function(tbl, tblInd) {
+    wrapTabsInner.className = 'table-tabs__inner';
+    wrapTabsInner.innerHTML = data.map(function(tbl, tblInd) {
       if(!tblInd) { return ''; }
       var itemClass = tblInd === 1 ? ' m-active' : '';
-      return '<div class="table-tabs__item'+itemClass+'">'+tbl.label+'</div>';
+      var copyClass = tbl.class || "";
+      return '<div class="table-tabs__item'+itemClass+' '+copyClass+'">'+tbl.label+'</div>';
     }).join('');
+    wrapTabs.appendChild(wrapTabsInner);
     all.appendChild(wrapTabs);
 
     data.forEach(function(tbl, tblInd) {
