@@ -3243,7 +3243,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   color: currentColor;
 }
 
-.orig-images__figure img {
+.orig-images__figure > img {
   display: block;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -3251,6 +3251,28 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   max-width: 100%;
   border-radius: 1.2rem;
   box-shadow: 0 0.4rem 1rem rgba(110, 86, 176, 0.25);
+}
+
+.orig-images__figure .scan-frames {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.orig-images__figure .scan-frames > img {
+  display: block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .sample-doc {
@@ -3636,7 +3658,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   float: left;
   width: 100%;
   position: relative;
-  overflow: hidden;
   min-height: 10rem;
   z-index: 2;
   background-color: #f5f6fa;
@@ -4583,9 +4604,9 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
     display: none;
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-    max-width: 50%;
+    -ms-flex-preferred-size: 30.4rem;
+        flex-basis: 30.4rem;
+    max-width: 30.4rem;
     margin: 0;
     padding-right: 2.4rem;
   }
@@ -4607,7 +4628,8 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 @media (max-width: 639px) {
   .d-orig-images {
     padding-right: 0;
-    max-width: none;
+    width: 30.4rem;
+    max-width: 100%;
     margin-bottom: 5.8rem;
   }
 }
@@ -4709,11 +4731,10 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 @media (max-width: 991px) {
   .d-settings {
     display: none;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-    max-width: 50%;
     margin: 0;
     padding-left: 2.4rem;
   }
@@ -4734,6 +4755,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 @media (max-width: 639px) {
   .d-settings {
     padding-left: 0;
+    width: auto;
     max-width: none;
   }
 }

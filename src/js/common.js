@@ -17,6 +17,21 @@ function addTouchClasses() {
 }
 
 /**
+ * !Resize only width
+ * */
+var resizeByWidth = true;
+
+var prevWidth = -1;
+$(window).on('debouncedresize', function () {
+  var currentWidth = $('body').outerWidth();
+  resizeByWidth = prevWidth !== currentWidth;
+  if (resizeByWidth) {
+    $(window).trigger('debouncedresizeByWidth');
+    prevWidth = currentWidth;
+  }
+});
+
+/**
  * !Add placeholder for old browsers
  * */
 function placeholderInit() {
@@ -165,6 +180,13 @@ function sliderPhotos() {
           639: {
             slidesPerView: 'auto',
             spaceBetween: 10
+          }
+        },
+        on: {
+          resize: function () {
+            if (window.innerWidth <= 992) {
+              sampleSlider.slides.css('width', '');
+            }
           }
         }
       });

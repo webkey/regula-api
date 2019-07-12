@@ -1389,13 +1389,31 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   text-decoration: none;
   color: currentColor;
 
-  img {
+  & > img {
     display: block;
     flex-shrink: 0;
     max-height: 100%;
     max-width: 100%;
     border-radius: 1.2rem;
     box-shadow: 0 0.4rem 1rem rgba($base-color, 0.25);
+  }
+
+  .scan-frames {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    & > img {
+      display: block;
+      flex-shrink: 0;
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 }
 
@@ -1729,7 +1747,7 @@ $tabs-radius: 0.6rem;
   float: left;
   width: 100%;
   position: relative;
-  overflow: hidden; // Может поламать макет на некоторых браузерах
+  //overflow: hidden; // Может поломать макет на некоторых браузерах
   min-height: 10rem;
   z-index: 2;
   background-color: $bg-color-results;
@@ -2546,7 +2564,8 @@ $tabs-radius: 0.6rem;
   @include media("<tab") {
     display: none;
     flex-shrink: 0;
-    $width: 50%;
+    //$width: 50%;
+    $width: 30.4rem;
     flex-basis: $width;
     max-width: $width;
     margin: 0;
@@ -2566,7 +2585,9 @@ $tabs-radius: 0.6rem;
 
   @include media("<mob") {
     padding-right: 0;
-    max-width: none;
+    $width: 30.4rem;
+    width: $width;
+    max-width: 100%;
     margin-bottom: 5.8rem;
   }
 
@@ -2654,10 +2675,11 @@ $tabs-radius: 0.6rem;
 .d-settings {
   @include media("<tab") {
     display: none;
+    flex-grow: 1;
     flex-shrink: 0;
-    $width: 50%;
-    flex-basis: $width;
-    max-width: $width;
+    //$width: 50%;
+    //flex-basis: $width;
+    //max-width: $width;
     margin: 0;
     padding-left: #{round-float(nth($layout-page-space, 2) / 2, 1)};
   }
@@ -2674,6 +2696,7 @@ $tabs-radius: 0.6rem;
 
   @include media("<mob") {
     padding-left: 0;
+    width: auto;
     max-width: none;
   }
 }

@@ -20,8 +20,10 @@ $(document).ready(function () {
 
     var src = $thisDoc.css('background-image');
     src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
+    var frames = $thisDoc.attr('data-frames') || "./img/empty.png";
 
     $('#orig-image').attr('src', src);
+    $('#scan-frames').attr('src', frames);
     $sampleDoc.removeClass('active');
     $thisDoc.addClass('active');
 
