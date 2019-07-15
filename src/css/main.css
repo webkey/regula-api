@@ -3679,6 +3679,8 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   .tabs-thumbs a.current {
     color: #1c1e1f;
     box-shadow: inset 0 -3px 0 #6e56b0;
+  }
+  .tabs-thumbs a.current, .tabs-thumbs a.current:first-child {
     background: none;
   }
 }
@@ -3699,7 +3701,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   z-index: 2;
   background-color: white;
   border-radius: 0.6rem;
-  box-shadow: 0 9px 18px rgba(22, 31, 45, 0.05);
+  box-shadow: 0 10px 9px rgba(22, 31, 45, 0.05);
 }
 
 @media (max-width: 991px) {
@@ -4222,7 +4224,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   box-shadow: inset 0 -3px 0 #6e56b0;
 }
 
-.table-tabs__item.m-active:nth-child(8) {
+.table-tabs__item.m-active.td-valid {
   box-shadow: inset 0 -3px 0 #fc3d60;
 }
 

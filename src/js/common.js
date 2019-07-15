@@ -38,32 +38,35 @@ function placeholderInit() {
   $('[placeholder]').placeholder();
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-  /**
-   * !Sticky table
-   */
-  setTimeout(function () {
-    var stickyTable = document.querySelector('.table.m-sticky-head');
-    if(stickyTable){
-      var cloneTable = document.createElement('table');
-      cloneTable.className = 'table m-sticky';
-      cloneTable.appendChild( stickyTable.querySelector('thead').cloneNode(true) );
-      stickyTable.insertAdjacentElement('beforebegin', cloneTable);
-      cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
-      window.addEventListener('resize', function () {
-        cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
-      });
-      syncTableWidth(stickyTable, cloneTable);
-      window.addEventListener('resize', syncTableWidth.bind(null, stickyTable, cloneTable));
-    }
 
-    var resultsData = getResultsData();
-    var jsDataTable = document.querySelector('.js-data-table');
-    if(jsDataTable) {
-      jsDataTable.insertAdjacentElement('afterend', buildMobileTable(resultsData));
-    }
-  }, 50)
-});
+// document.addEventListener("DOMContentLoaded", function(){
+// //   /**
+// //    * !Sticky table
+// //    */
+// //   var stickyTable = document.querySelector('.table.m-sticky-head');
+// //   if(stickyTable){
+// //
+// //     var cloneTable = document.createElement('table');
+// //     cloneTable.className = 'table m-sticky';
+// //     cloneTable.appendChild( stickyTable.querySelector('thead').cloneNode(true) );
+// //
+// //     stickyTable.insertAdjacentElement('beforebegin', cloneTable);
+// //
+// //     cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+// //     window.addEventListener('resize', function () {
+// //       cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+// //     });
+// //
+// //     syncTableWidth(stickyTable, cloneTable);
+// //     window.addEventListener('resize', syncTableWidth.bind(null, stickyTable, cloneTable));
+// //   }
+// //
+// //   var resultsData = getResultsData();
+// //   var jsDataTable = document.querySelector('.js-data-table');
+// //   if(jsDataTable) {
+// //     jsDataTable.insertAdjacentElement('afterend', buildMobileTable(resultsData));
+// //   }
+// // });
 
 function syncTableWidth(donor, acceptor) {
   var donorTh = donor.querySelectorAll('thead > tr:first-child > th');
