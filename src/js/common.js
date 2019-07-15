@@ -42,22 +42,27 @@ document.addEventListener("DOMContentLoaded", function(){
   /**
    * !Sticky table
    */
-  var stickyTable = document.querySelector('.table.m-sticky-head');
-  if(stickyTable){
-    var cloneTable = document.createElement('table');
-    cloneTable.className = 'table m-sticky';
-    cloneTable.appendChild( stickyTable.querySelector('thead').cloneNode(true) );
-    stickyTable.insertAdjacentElement('beforebegin', cloneTable);
-    cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
-    syncTableWidth(stickyTable, cloneTable);
-    window.addEventListener('resize', syncTableWidth.bind(null, stickyTable, cloneTable));
-  }
+  setTimeout(function () {
+    var stickyTable = document.querySelector('.table.m-sticky-head');
+    if(stickyTable){
+      var cloneTable = document.createElement('table');
+      cloneTable.className = 'table m-sticky';
+      cloneTable.appendChild( stickyTable.querySelector('thead').cloneNode(true) );
+      stickyTable.insertAdjacentElement('beforebegin', cloneTable);
+      cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+      window.addEventListener('resize', function () {
+        cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+      });
+      syncTableWidth(stickyTable, cloneTable);
+      window.addEventListener('resize', syncTableWidth.bind(null, stickyTable, cloneTable));
+    }
 
-  var resultsData = getResultsData();
-  var jsDataTable = document.querySelector('.js-data-table');
-  if(jsDataTable) {
-    jsDataTable.insertAdjacentElement('afterend', buildMobileTable(resultsData));
-  }
+    var resultsData = getResultsData();
+    var jsDataTable = document.querySelector('.js-data-table');
+    if(jsDataTable) {
+      jsDataTable.insertAdjacentElement('afterend', buildMobileTable(resultsData));
+    }
+  }, 50)
 });
 
 function syncTableWidth(donor, acceptor) {

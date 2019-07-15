@@ -1840,6 +1840,10 @@ $tabs-radius: 0.6rem;
     color: $text-color;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
   }
 }
 /* s-code end */
@@ -1991,6 +1995,10 @@ $tabs-radius: 0.6rem;
       &:nth-child(#{$i + 1}) > span {
         box-shadow: 0 2px 0 nth($colors, $i);
       }
+    }
+
+    &.td-valid > span:not(.badge) {
+      box-shadow: 0 2px 0 $mark-color;
     }
   }
 
@@ -2198,20 +2206,24 @@ $tabs-radius: 0.6rem;
   box-shadow: inset 0 -1px 0 rgba(#d7dfe8, 0.8);
   height: 5rem;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  .touchevents &,
+  &:hover {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
 }
 
 .table-tabs__inner {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  height: 7rem;
+  height: 5rem;
   width: 100%;
   padding: 0 #{nth($layout-page-space--mob, 2)};
   font-size: 1.4rem;
   color: #000;
-  overflow-y: hidden;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 
   .touchevents & {
     height: 5rem;

@@ -3742,6 +3742,10 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   color: #1c1e1f;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
 }
 
 /* s-code end */
@@ -3932,6 +3936,10 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 
 .table th:nth-child(8) > span {
   box-shadow: 0 2px 0 #6e56b0;
+}
+
+.table th.td-valid > span:not(.badge) {
+  box-shadow: 0 2px 0 #ff2b51;
 }
 
 .table td {
@@ -4132,6 +4140,12 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   box-shadow: inset 0 -1px 0 rgba(215, 223, 232, 0.8);
   height: 5rem;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.touchevents .table-tabs, .table-tabs:hover {
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .table-tabs__inner {
@@ -4141,14 +4155,11 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
       align-items: flex-start;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  height: 7rem;
+  height: 5rem;
   width: 100%;
   padding: 0 2rem;
   font-size: 1.4rem;
   color: #000;
-  overflow-y: hidden;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .touchevents .table-tabs__inner {
