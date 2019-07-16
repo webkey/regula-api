@@ -3,11 +3,11 @@
 @import "../../libs/include-media/dist/include-media";
 
 /* helper classes */
-//.u-wrap {
-//  overflow-wrap: break-word;
-//  word-break: break-all;
-//  word-break: break-word;
-//}
+.u-wrap {
+  overflow-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+}
 
 /* ==================================== */
 /* ======= NON CONTENT ELEMENTS ======= */
@@ -805,9 +805,9 @@
 
 /* preloader */
 .preloader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
   position: fixed;
   left: 0;
   top: 0;
@@ -822,14 +822,39 @@
 
   .show-preloader & {
     @include media("<tab") {
-      display: flex;
+      display: block;
+    }
+  }
+
+  .tabs-panel & {
+    display: none;
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+    margin-top: 2rem;
+
+    .show-preloader & {
+      @include media(">=tab") {
+        display: block;
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      @include ratio(1, 1)
     }
   }
 
   .spin {
     display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
     height: $spin-size;
     width: $spin-size;
+    margin: -#{round($spin-size / 2)} 0 0 -#{round($spin-size / 2)};
     -webkit-animation: spin-1 3s linear infinite;
     animation: spin-1 3s linear infinite;
   }
@@ -1908,6 +1933,16 @@ $tabs-radius: 0.6rem;
 .table-container {
   background-color: #fff;
 
+  @include media(">=tab") {
+    .show-preloader & {
+      overflow: hidden;
+      opacity: 0;
+      height: 0;
+      pointer-events: none;
+      transform: translate(150%, 0);
+    }
+  }
+
   @include media("<tab") {
     padding-bottom: 8rem;
   }
@@ -2013,9 +2048,9 @@ $tabs-radius: 0.6rem;
     background-color: #fff;
     border-top: 1px solid #f2f3f5;
 
-    overflow-wrap: break-word;
-    word-break: break-all;
-    word-break: break-word;
+    //overflow-wrap: break-word;
+    //word-break: break-all;
+    //word-break: break-word;
   }
 
   tbody {
@@ -2168,13 +2203,13 @@ $tabs-radius: 0.6rem;
 
 .badge {
   position: absolute;
-  min-width: 16px;
-  height: 16px;
-  margin: -5px 0 0 1px;
+  min-width: 14px;
+  height: 14px;
+  margin: -4px 0 0 0;
   padding: 0 3px;
   @include font-bold;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 10px;
+  line-height: 14px;
   color: #fff;
   text-align: center;
   background: $mark-color;
