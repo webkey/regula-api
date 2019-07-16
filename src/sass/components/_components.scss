@@ -832,7 +832,7 @@
     left: auto;
     top: auto;
     height: auto;
-    margin-top: 2rem;
+    //margin-top: 2rem;
 
     .show-preloader & {
       @include media(">=tab") {
@@ -1842,6 +1842,16 @@ $tabs-radius: 0.6rem;
 
 .tabs-panel__space {
   padding: 2.4rem 1.9rem;
+
+  @include media(">=tab") {
+    .show-preloader & {
+      overflow: hidden;
+      opacity: 0;
+      height: 0;
+      pointer-events: none;
+      transform: translate(150%, 0);
+    }
+  }
 }
 
 .tabs-panel__title {
