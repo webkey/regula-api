@@ -1773,6 +1773,10 @@ $tabs-radius: 0.6rem;
       cursor: default;
       pointer-events: none;
 
+      &:first-child {
+        background-color: $bg-color-results;
+      }
+
       @include media("<mob") {
         color: $text-color;
         box-shadow: inset 0 -3px 0 $base-color;
@@ -1780,10 +1784,6 @@ $tabs-radius: 0.6rem;
         &, &:first-child {
           background: none;
         }
-      }
-
-      &:first-child {
-        background-color: $bg-color-results;
       }
     }
 

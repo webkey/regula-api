@@ -3675,6 +3675,10 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   pointer-events: none;
 }
 
+.tabs-thumbs a.current:first-child {
+  background-color: #f5f6fa;
+}
+
 @media (max-width: 639px) {
   .tabs-thumbs a.current {
     color: #1c1e1f;
@@ -3683,10 +3687,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   .tabs-thumbs a.current, .tabs-thumbs a.current:first-child {
     background: none;
   }
-}
-
-.tabs-thumbs a.current:first-child {
-  background-color: #f5f6fa;
 }
 
 .no-touchevents .tabs-thumbs a:hover {

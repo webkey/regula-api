@@ -39,34 +39,34 @@ function placeholderInit() {
 }
 
 
-// document.addEventListener("DOMContentLoaded", function(){
-// //   /**
-// //    * !Sticky table
-// //    */
-// //   var stickyTable = document.querySelector('.table.m-sticky-head');
-// //   if(stickyTable){
-// //
-// //     var cloneTable = document.createElement('table');
-// //     cloneTable.className = 'table m-sticky';
-// //     cloneTable.appendChild( stickyTable.querySelector('thead').cloneNode(true) );
-// //
-// //     stickyTable.insertAdjacentElement('beforebegin', cloneTable);
-// //
-// //     cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
-// //     window.addEventListener('resize', function () {
-// //       cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
-// //     });
-// //
-// //     syncTableWidth(stickyTable, cloneTable);
-// //     window.addEventListener('resize', syncTableWidth.bind(null, stickyTable, cloneTable));
-// //   }
-// //
-// //   var resultsData = getResultsData();
-// //   var jsDataTable = document.querySelector('.js-data-table');
-// //   if(jsDataTable) {
-// //     jsDataTable.insertAdjacentElement('afterend', buildMobileTable(resultsData));
-// //   }
-// // });
+document.addEventListener("DOMContentLoaded", function(){
+  /**
+   * !Sticky table
+   */
+  var stickyTable = document.querySelector('.table.m-sticky-head');
+  if(stickyTable){
+
+    var cloneTable = document.createElement('table');
+    cloneTable.className = 'table m-sticky';
+    cloneTable.appendChild( stickyTable.querySelector('thead').cloneNode(true) );
+
+    stickyTable.insertAdjacentElement('beforebegin', cloneTable);
+
+    cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+    window.addEventListener('resize', function () {
+      cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+    });
+
+    syncTableWidth(stickyTable, cloneTable);
+    window.addEventListener('resize', syncTableWidth.bind(null, stickyTable, cloneTable));
+  }
+
+  var resultsData = getResultsData();
+  var jsDataTable = document.querySelector('.js-data-table');
+  if(jsDataTable) {
+    jsDataTable.insertAdjacentElement('afterend', buildMobileTable(resultsData));
+  }
+});
 
 function syncTableWidth(donor, acceptor) {
   var donorTh = donor.querySelectorAll('thead > tr:first-child > th');
@@ -98,6 +98,11 @@ function getResultsData() {
     [].forEach.call(rows, function(row, ind) {
       var label = row.querySelector('.td-label').innerHTML;
       [].forEach.call(row.querySelectorAll('td'), function(td, tdi) {
+        var innerEl = td.querySelector('div.u-wrap');
+        if (innerEl && innerEl.textContent === "") {
+          return;
+        }
+
         if(tdi && td.innerHTML) {
           result[tdi].data.push({
             label: label,
@@ -132,6 +137,7 @@ function buildMobileTable(data) {
       var copyClass = tbl.class || "";
       return '<div class="table-tabs__item'+itemClass+' '+copyClass+'">'+tbl.label+'</div>';
     }).join('');
+
     wrapTabs.appendChild(wrapTabsInner);
     all.appendChild(wrapTabs);
 
