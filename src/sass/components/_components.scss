@@ -1845,11 +1845,12 @@ $tabs-radius: 0.6rem;
 
   @include media(">=tab") {
     .show-preloader & {
+      position: absolute;
       overflow: hidden;
       opacity: 0;
       height: 0;
       pointer-events: none;
-      transform: translate(150%, 0);
+      //transform: translate(150%, 0);
     }
   }
 }
