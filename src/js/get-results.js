@@ -48,9 +48,9 @@ $(document).ready(function () {
       }
     }, 500);
 
-    // setTimeout(function () {
-    //   $html.removeClass('show-preloader');
-    // }, 1500);
+    setTimeout(function () {
+      $html.removeClass('show-preloader');
+    }, 1500);
 
     e.preventDefault();
   });

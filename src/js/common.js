@@ -127,6 +127,9 @@ function buildMobileTable(data) {
   var all = document.createElement('div');
   all.className = 'mobile-tables';
   if(data){
+    data = data.filter(function (col, index) {
+      return !index || col.data.length;
+    });
     var wrapTabs = document.createElement('div');
     var wrapTabsInner = document.createElement('div');
     wrapTabs.className = 'table-tabs';
@@ -714,6 +717,29 @@ function togglePopups() {
 
         setTimeout(function () {
           $html.add($popupDist).removeClass('is-animation-hide');
+        }, 400);
+      }
+    });
+  }
+
+  // Langs popup
+  var $openLangs = $('.popup-langs-open-js');
+  var $popupLangs = $('.popup-langs-js');
+
+  if ($openLangs.length) {
+    $openLangs.switchClass({
+      switchClassTo: $popupLangs,
+      removeEl: $('.popup-langs-close-js'),
+      cssScrollFixed: true,
+      removeOutsideClick: true,
+      modifiers: {
+        activeClass: 'is-open'
+      },
+      afterRemove: function () {
+        $html.add($popupLangs).addClass('is-animation-hide');
+
+        setTimeout(function () {
+          $html.add($popupLangs).removeClass('is-animation-hide');
         }, 400);
       }
     });

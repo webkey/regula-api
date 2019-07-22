@@ -2629,6 +2629,27 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   }
 }
 
+.preloader::after {
+  content: "Loading...";
+  display: none;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -80px;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  text-align: center;
+  color: #333;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+@media (max-width: 991px) {
+  .preloader::after {
+    display: block;
+  }
+}
+
 .tabs-panel .preloader {
   display: none;
   position: relative;
@@ -3333,7 +3354,8 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 }
 
 .sample-doc {
-  height: 6.6rem;
+  height: 8.3rem;
+  padding-bottom: 1.7rem;
 }
 
 @media (max-width: 991px) {
@@ -3362,16 +3384,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
-}
-
-.sample-doc .swiper-pagination {
-  display: none;
-}
-
-@media (max-width: 991px) {
-  .sample-doc .swiper-pagination {
-    display: block;
-  }
 }
 
 .sample-doc__item {
@@ -3887,6 +3899,10 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   table-layout: fixed;
 }
 
+.table thead tr {
+  background: #f5f6fa;
+}
+
 .table td, .table th {
   vertical-align: top;
 }
@@ -4103,7 +4119,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 }
 
 .table .td-valid {
-  text-align: right;
   width: 4rem;
   white-space: nowrap;
   box-sizing: content-box;
@@ -4114,7 +4129,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   display: block;
   width: 12px;
   height: 12px;
-  margin: 0 0 0 auto;
+  margin: 2px 0 0;
   border-radius: 50%;
   background: #ecebed;
 }
@@ -4128,7 +4143,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   display: block;
   width: 12px;
   height: 12px;
-  margin: 0 0 0 auto;
+  margin: 2px 0 0;
   border-radius: 50%;
   background: #ff2b51;
 }

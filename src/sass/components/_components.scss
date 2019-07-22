@@ -826,6 +826,25 @@
     }
   }
 
+  &::after {
+    content: "Loading...";
+    display: none;
+    position: absolute;
+    margin-top: $spin-size - 10;
+    margin-left: -80px;
+    left: 50%;
+    top: 50%;
+    width: 160px;
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+
+    @include media("<tab") {
+      display: block;
+    }
+  }
+
   .tabs-panel & {
     display: none;
     position: relative;
@@ -1486,10 +1505,9 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 }
 
 // sample documents
-$orig-img-height: 6.6rem;
-
 .sample-doc {
-  height: $orig-img-height;
+  height: 6.6rem + 1.7rem;
+  padding-bottom: 1.7rem;
 
   @include media("<tab") {
     height: auto;
@@ -1513,13 +1531,13 @@ $orig-img-height: 6.6rem;
     overflow: hidden;
   }
 
-  .swiper-pagination {
-    display: none;
-
-    @include media("<tab") {
-      display: block;
-    }
-  }
+  //.swiper-pagination {
+  //  display: none;
+  //
+  //  @include media("<tab") {
+  //    display: block;
+  //  }
+  //}
 }
 
 .sample-doc__item {
@@ -1969,6 +1987,10 @@ $tabs-radius: 0.6rem;
   border-spacing: 0;
   table-layout: fixed;
 
+  thead tr {
+    background: $bg-color-results;
+  }
+
   td, th {
     vertical-align: top;
 
@@ -2177,7 +2199,7 @@ $tabs-radius: 0.6rem;
 
   // td-valid
   .td-valid {
-    text-align: right;
+    //text-align: right;
     //width: 5rem;
     width: 4rem;
     white-space: nowrap;
@@ -2189,7 +2211,8 @@ $tabs-radius: 0.6rem;
     display: block;
     width: 12px;
     height: 12px;
-    margin: 0 0 0 auto;
+    //margin: 0 0 0 auto;
+    margin: 2px 0 0;
     border-radius: 50%;
     background: #ecebed;
   }
@@ -2205,7 +2228,8 @@ $tabs-radius: 0.6rem;
       display: block;
       width: 12px;
       height: 12px;
-      margin: 0 0 0 auto;
+      //margin: 0 0 0 auto;
+      margin: 2px 0 0;
       border-radius: 50%;
       background: $mark-color;
     }
