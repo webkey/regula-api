@@ -3766,6 +3766,12 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   }
 }
 
+.tabs-panel:nth-child(2) .tabs-panel__space,
+.tabs-panel:nth-child(3) .tabs-panel__space {
+  overflow-y: auto;
+  max-height: 100rem;
+}
+
 .tabs-panel__title {
   display: block;
   font-size: 1.2rem;
