@@ -4154,6 +4154,14 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   background: #ff2b51;
 }
 
+.table .confirm {
+  color: #28a745;
+}
+
+.table .td-valid.confirm::before {
+  background: #28a745;
+}
+
 .badge {
   position: absolute;
   min-width: 14px;

@@ -2242,6 +2242,16 @@ $tabs-radius: 0.6rem;
       background: $mark-color;
     }
   }
+
+  .confirm {
+    color: $form-success-color;
+  }
+
+  .td-valid.confirm {
+    &::before {
+      background: $form-success-color;
+    }
+  }
 }
 
 .badge {
