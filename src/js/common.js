@@ -746,37 +746,37 @@ function togglePopups() {
   }
 
   // Link popup
-  var $openLink = $('.popup-link-open-js');
-  var $popupLink = $('.popup-link-js');
-  var $linkFirstInput = $('input:first', $popupLink);
-
-  if ($openLink.length) {
-    $openLink.switchClass({
-      switchClassTo: $popupLink,
-      removeEl: $('.popup-def-close-js'),
-      cssScrollFixed: true,
-      removeOutsideClick: true,
-      modifiers: {
-        activeClass: 'is-open'
-      },
-      afterAdd: function () {
-        setTimeout(function () {
-          $linkFirstInput.focus();
-        }, 60);
-      },
-      afterRemove: function () {
-        $html.add($popupLink).addClass('is-animation-hide');
-
-        setTimeout(function () {
-          $linkFirstInput.blur();
-        }, 60);
-
-        setTimeout(function () {
-          $html.add($popupLink).removeClass('is-animation-hide');
-        }, 400);
-      }
-    });
-  }
+  // var $openLink = $('.popup-link-open-js');
+  // var $popupLink = $('.popup-link-js');
+  // var $linkFirstInput = $('input:first', $popupLink);
+  //
+  // if ($openLink.length) {
+  //   $openLink.switchClass({
+  //     switchClassTo: $popupLink,
+  //     removeEl: $('.popup-def-close-js'),
+  //     cssScrollFixed: true,
+  //     removeOutsideClick: true,
+  //     modifiers: {
+  //       activeClass: 'is-open'
+  //     },
+  //     afterAdd: function () {
+  //       setTimeout(function () {
+  //         $linkFirstInput.focus();
+  //       }, 60);
+  //     },
+  //     afterRemove: function () {
+  //       $html.add($popupLink).addClass('is-animation-hide');
+  //
+  //       setTimeout(function () {
+  //         $linkFirstInput.blur();
+  //       }, 60);
+  //
+  //       setTimeout(function () {
+  //         $html.add($popupLink).removeClass('is-animation-hide');
+  //       }, 400);
+  //     }
+  //   });
+  // }
 }
 
 /**

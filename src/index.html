@@ -83,21 +83,37 @@
     <div class="doc-lad layout-page layout-page-spaces">
       <div class="d-container">
         <div class="d-prev">
-          <div class="d-orig-images">
-            <h3 class="d-orig-images__title">Original image</h3>
-            <div class="orig-images orig-images-js">
-              <div class="orig-images__figure">
-                <img id="orig-image" src="img/scan-orig-01.jpg" alt="image description" />
-                <div class="scan-frames">
-                  <img id="scan-frames" src="img/scan-frames.png" alt="image description" />
+          <div class="d-get-doc hide-after-result">
+            <div class="d-controls controls">
+              <h3 class="d-controls__title">Use your own image</h3>
+              <div class="d-controls__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
+              <div class="d-controls__content">
+                <div class="controls__row_lg">
+                  <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
+                </div>
+                <div class="controls__group">
+                  <div class="controls__row">
+                    <span class="controls__upload popup-rules-open-js">
+                <span class="btn-def">Upload</span>
+                    <em>or drag and drop</em>
+                    <input type="file" name="browse">
+                    </span>
+                  </div>
+                  <div class="controls__row">
+                    <form action="#" method="post" class="form-url form-validate-js">
+                      <input class="form-url__field form-def" placeholder="Use image URL" name="url" type="text" required>
+                      <span class="form-url__error-feedback">Error</span>
+                      <button class="form-url__submit btn-def">Go</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="d-get-doc hide-after-result">
+            <!--<div class="d-orig-images">
+            <h3 class="d-orig-images__title">Original image</h3>
+          </div>-->
             <div class="d-sample-doc">
               <h3 class="d-sample-doc__title">Choose a sample image</h3>
-              <div class="d-sample-doc__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
               <div class="swiper-container sample-doc sample-doc-slider-js" id="sample-doc">
                 <div class="swiper-wrapper">
                   <a href="#" class="swiper-slide sample-doc__item active" style="background-image:url(img/scan-orig-01.jpg);" data-frames="img/scan-frames.png"></a>
@@ -122,20 +138,6 @@
                 <input type="checkbox" name="checkbox">
                 <span>Compress image to accelerate processing</span>
               </label>
-              </div>
-            </div>
-            <div class="d-controls controls">
-              <div class="controls__list">
-                <div class="controls__item">
-                  <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
-                </div>
-                <div class="controls__item">
-                  <span class="controls__btn btn-alt popup-rules-open-js">
-              Browse<br> files
-              <input type="file" name="browse">
-            </span>
-                  <a href="#" class="controls__btn btn-alt popup-link-open-js">URL</a>
-                </div>
               </div>
             </div>
           </div>
@@ -199,6 +201,33 @@
                   </div>
                 </div>
                 <div class="table-container">
+                  <table class="table m-simple m-simple_scan">
+                    <tbody>
+                      <tr>
+                        <td class="td-label"></td>
+                        <td>
+                          <div class="m-simple-images same-photos">
+                            <div class="orig-images orig-images-js">
+                              <div class="orig-images__figure">
+                                <img id="orig-image" src="img/scan-orig-01.jpg" alt="image description" />
+                                <div class="scan-frames">
+                                  <img id="scan-frames" src="img/scan-frames.png" alt="image description" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="orig-images orig-images-js">
+                              <div class="orig-images__figure">
+                                <img src="img/scan-orig-01.jpg" alt="image description" />
+                                <div class="scan-frames">
+                                  <img src="img/scan-frames.png" alt="image description" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                   <table class="table m-simple m-simple_title">
                     <tbody>
                       <tr>
@@ -255,10 +284,10 @@
                           <div class="u-wrap"></div>
                         </td>
                         <td>
-                          <div class="u-wrap">I897794789</div>
+                          <div class="u-wrap"><em class="icon-warning"></em></div>
                         </td>
                         <td>
-                          <div class="u-wrap">I897794789</div>
+                          <div class="u-wrap"><em class="icon-confirm"></em></div>
                         </td>
                         <td class="td-valid"></td>
                       </tr>
