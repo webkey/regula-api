@@ -229,7 +229,7 @@ function sliderPhotos() {
 function checkSettings() {
   var $set = $('.settings-js');
 
-  $(':checkbox', $set).on('change', function () {
+  $(':checkbox').on('change', function () {
     var $curCheck = $(this);
 
     // Найти аналогичные чекбоксы по аттрибуту "name"
@@ -243,19 +243,22 @@ function checkSettings() {
 
     $ch.not(':disabled').trigger('click');
 
-    var $container = $ch.closest($set);
+    var $container = $ch.closest('.settings-js');
     var $chAll = $container.find(':checkbox').not('.all-param-js');
 
     if ($ch.hasClass('all-param-js')) {
-      $chAll.not(':disabled').filter(':checked').prop('checked', false);
+      $chAll.not(':disabled').prop('checked', $ch.prop('checked'));
     } else {
-      $container.find('.all-param-js').not(':disabled').prop('checked', false);
+      $container.find('.all-param-js').not(':disabled').prop('checked', $chAll.length === $chAll.filter(':checked').length);
     }
   }
 
   // Проверить не отмечен ли пункт "Все параметры".
-  // Еcли да, то запустить функцию для этого чекбокса.
-  checkParam.call($('.all-param-js:checked'));
+  // Если да, то запустить функцию для этого чекбокса.
+  checkParam.call($('.all-param-js:checked', $set));
+
+  // Запустить функцию для остальных чекбоксов.
+  checkParam.call($(':checkbox:checked:not(.all-param-js)', $set));
 }
 
 /**
