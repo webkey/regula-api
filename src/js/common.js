@@ -234,6 +234,7 @@ function checkSettings() {
 
     // Найти аналогичные чекбоксы по аттрибуту "name"
     var $check = $set.find(':checkbox').filter('[name=' +$curCheck.attr('name')+ ']');
+    $check.not(':disabled').prop('checked', $curCheck.is(':checked'));
 
     checkParam.call($check);
   });
@@ -241,7 +242,7 @@ function checkSettings() {
   function checkParam() {
     var $ch = $(this);
 
-    $ch.not(':disabled').trigger('click');
+    // $ch.not(':disabled').trigger('click');
 
     var $container = $ch.closest('.settings-js');
     var $chAll = $container.find(':checkbox').not('.all-param-js');

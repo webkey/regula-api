@@ -17,38 +17,65 @@
   <div class="doc-lad layout-page layout-page-spaces">
     <div class="d-container">
       <div class="d-prev">
-        <div class="d-get-doc hide-after-result">
-
-          <div class="d-controls controls">
-            <h3 class="d-controls__title">Use your own image</h3>
-            <div class="d-controls__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
-            <div class="d-controls__content">
-              <div class="controls__row_lg">
-                <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
+        <div class="d-controls controls hide-after-result">
+          <h3 class="d-controls__title">Use your own image</h3>
+          <div class="d-controls__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
+          <div class="d-controls__content">
+            <div class="controls__row_lg">
+              <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
+            </div>
+            <div class="controls__group">
+              <div class="controls__row">
+                <span class="controls__upload popup-rules-open-js">
+                  <span class="btn-def">Upload</span>
+                  <em>or drag and drop</em>
+                  <input type="file" name="browse">
+                </span>
+                <div class="dropzone">
+                  <div class="dropzone__icon"></div>
+                  <div class="dropzone__title">Drop files here</div>
+                </div>
               </div>
-              <div class="controls__group">
-                <div class="controls__row">
-              <span class="controls__upload popup-rules-open-js">
-                <span class="btn-def">Upload</span>
-                <em>or drag and drop</em>
-                <input type="file" name="browse">
-              </span>
-                </div>
-                <div class="controls__row">
-                  <form action="#" method="post" class="form-url form-validate-js">
-                    <input class="form-url__field form-def" placeholder="Use image URL" name="url" type="text" required>
-                    <span class="form-url__error-feedback">Error</span>
-                    <button class="form-url__submit btn-def">Go</button>
-                  </form>
-                </div>
+              <div class="controls__row">
+                <form action="#" method="post" class="form-url form-validate-js">
+                  <input class="form-url__field form-def" placeholder="Use image URL" name="url" type="text" required>
+                  <span class="form-url__error-feedback">Error</span>
+                  <button class="form-url__submit btn-def">Go</button>
+                </form>
               </div>
             </div>
           </div>
+        </div>
 
-          <!--<div class="d-orig-images">
-            <h3 class="d-orig-images__title">Original image</h3>
-          </div>-->
+        <div class="d-orig-images">
+          <h3 class="d-orig-images__title">Original image</h3>
+          <div class="u-files">
+            <div class="u-files__list">
+              <div class="u-files__item">
+                @@include("_tpl_u-file.html", {
+                "imgSrc": "img/temp/img_640_01.jpg"
+                })
+              </div>
+              <div class="u-files__item">
+                @@include("_tpl_u-file.html", {
+                "imgSrc": "img/temp/img_640_02.jpg"
+                })
+              </div>
+              <div class="u-files__item">
+                @@include("_tpl_u-file.html", {
+                "imgSrc": "img/temp/img_320_01.jpg"
+                })
+              </div>
+              <div class="u-files__item">
+                @@include("_tpl_u-file.html", {
+                "imgSrc": "img/scan-orig-01.jpg"
+                })
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="d-get-doc hide-after-result">
           <div class="d-sample-doc">
             <h3 class="d-sample-doc__title">Choose a sample image</h3>
             <div class="swiper-container sample-doc sample-doc-slider-js" id="sample-doc">
@@ -65,21 +92,6 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
-          <!--<div class="d-agree agree">
-            <div class="agree__item">
-              <label class="form-radiocheck">
-                <input type="checkbox" name="checkbox" class="agree-check-js" checked>
-                <span>Аgree <a href="#" target="_blank">to the rules</a> for the possibility of using your image</span>
-              </label>
-            </div>
-            <div class="agree__item">
-              <label class="form-radiocheck">
-                <input type="checkbox" name="checkbox">
-                <span>Compress image to accelerate processing</span>
-              </label>
-            </div>
-          </div>-->
         </div>
 
         <div class="d-settings settings settings-js">
