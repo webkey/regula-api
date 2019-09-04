@@ -196,7 +196,7 @@
   </div>
 </div>
 
-<div class="popup-def popup-link-js">
+<!--<div class="popup-def popup-link-js">
   <div class="popup-def__frame">
     <div class="popup-def__holder">
       <div class="popup-def__content layout-page-spaces" data-swc-prevent-remove>
@@ -227,20 +227,66 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
-<div class="popup-rules popup-rules-js" id="popup-rules">
-  <div class="popup-rules__frame">
-    <div class="popup-rules__holder">
-      <div class="popup-rules__content">
-        <div class="popup-rules__text">
-          <p>Please accept <a href="#" target="_blank">the rules</a> and conditions for data processing</p>
-        </div>
-        <div class="popup-rules__buttons">
-          <button class="btn-def popup-rules__btn js-popup-rules-agree">I AGREE</button>
+<div class="popup-def popup-rules-js" id="popup-rules">
+  <div class="popup-def__frame">
+    <div class="popup-def__holder">
+      <div class="popup-def__content layout-page-spaces" data-swc-prevent-remove>
+        <div class="popup-def__align_narrow">
+          <div class="popup-rules__setting settings-js">
+            <h3 class="settings__label">Select parameters</h3>
+            <div class="settings__group">
+              <div class="settings__item settings__item_head">
+                <label class="form-switcher">
+                  <input type="checkbox" name="all-parameters" class="all-param-js">
+                  <span>All parameters</span>
+                </label>
+              </div>
+              <!--<hr>-->
+              <div class="settings__item">
+                <label class="form-switcher">
+                  <input type="checkbox" name="do-mrz" checked>
+                  <span>Do MRZ</span>
+                </label>
+              </div>
+              <div class="settings__item">
+                <label class="form-switcher">
+                  <input type="checkbox" name="do-visual-text">
+                  <span>Do Visual Text</span>
+                </label>
+              </div>
+              <div class="settings__item">
+                <label class="form-switcher">
+                  <input type="checkbox" name="do-graphic-fields">
+                  <span>Do Graphic Fields</span>
+                </label>
+              </div>
+              <div class="settings__item">
+                <label class="form-switcher">
+                  <input type="checkbox" name="do-barcodes">
+                  <span>Do Barcodes</span>
+                </label>
+              </div>
+              <div class="settings__item">
+                <label class="form-switcher">
+                  <input type="checkbox" name="do-compress-images">
+                  <span>Do Compress Images</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="popup-rules__text">
+            <p>Please accept <a href="#" target="_blank">the rules and conditions</a> for data processing</p>
+          </div>
+
+          <div class="popup-rules__buttons">
+            <button class="btn-def popup-rules__btn js-popup-rules-agree">I AGREE</button>
+          </div>
         </div>
 
-        <a href="#" class="popup-rules__close popup-rules-close-js" title="Close popup">
+        <a href="#" class="popup-def-close popup-rules-close-js" title="Close popup">
           @@include("includes/svg/icon-close.svg")
         </a>
       </div>

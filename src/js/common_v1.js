@@ -230,31 +230,25 @@ function checkSettings() {
   var $set = $('.settings-js');
 
   $(':checkbox', $set).on('change', function () {
-    var $curCheck = $(this);
-
-    // Найти аналогичные чекбоксы по аттрибуту "name"
-    var $check = $set.find(':checkbox').filter('[name=' +$curCheck.attr('name')+ ']');
-
-    checkParam.call($check);
+    checkParam.call(this);
   });
 
   function checkParam() {
     var $ch = $(this);
-
-    $ch.not(':disabled').trigger('click');
-
     var $container = $ch.closest($set);
     var $chAll = $container.find(':checkbox').not('.all-param-js');
 
     if ($ch.hasClass('all-param-js')) {
       $chAll.not(':disabled').filter(':checked').prop('checked', false);
-    } else {
-      $container.find('.all-param-js').not(':disabled').prop('checked', false);
+
+      return;
     }
+
+    $container.find('.all-param-js').not(':disabled').prop('checked', false);
   }
 
   // Проверить не отмечен ли пункт "Все параметры".
-  // Еcли да, то запустить функцию для этого чекбокса.
+  // Еclи да, то запустить функцию для этого чекбокса.
   checkParam.call($('.all-param-js:checked'));
 }
 
@@ -799,22 +793,22 @@ function saveAgree(val) {
 function acceptRules() {
   var $html = $('html');
 
-  // var $agreeCheck = $('.agree-check-js');
-  //
-  // toggleAgree($agreeCheck);
-  //
-  // $agreeCheck.on('change', function () {
-  //   var $thisCh = $(this);
-  //   toggleAgree($thisCh);
-  // });
-  //
-  // function toggleAgree(el) {
-  //   if (el.prop('checked')) {
-  //     saveAgree(true);
-  //   } else {
-  //     localStorage.removeItem('rules');
-  //   }
-  // }
+  var $agreeCheck = $('.agree-check-js');
+
+  toggleAgree($agreeCheck);
+
+  $agreeCheck.on('change', function () {
+    var $thisCh = $(this);
+    toggleAgree($thisCh);
+  });
+
+  function toggleAgree(el) {
+    if (el.prop('checked')) {
+      saveAgree(true);
+    } else {
+      localStorage.removeItem('rules');
+    }
+  }
 
   var $rulesPopupOpen = $('.popup-rules-open-js'),
       $rulesPopup = $('.popup-rules-js'),
@@ -841,8 +835,8 @@ function acceptRules() {
     });
 
     // Close popup by OVERLAY
-    $rulesPopup.on('click', function (e) {
-      if ($(e.target).closest('[data-swc-prevent-remove]').length) {
+    $html.on('click', function (e) {
+      if ($(e.target).closest('.popup-rules__content').length) {
         return;
       }
 
@@ -850,6 +844,7 @@ function acceptRules() {
         closeRulesPopup();
       }
     });
+
   }
 
   var $rulesPopupClose = $('.popup-rules-close-js');
@@ -867,7 +862,7 @@ function acceptRules() {
   if($rulesPopupAgree.length){
     $rulesPopupAgree.on('click', function(e) {
       saveAgree(true);
-      // $agreeCheck.prop('checked', true);
+      $agreeCheck.prop('checked', true);
 
       closeRulesPopup();
       e.preventDefault();
@@ -883,12 +878,6 @@ function acceptRules() {
   }
 
   function closeRulesPopup() {
-    // $html.add($rulesPopup).addClass('is-animation-hide');
-    //
-    // setTimeout(function () {
-    //   $html.add($rulesPopup).removeClass('is-animation-hide');
-    // }, 400);
-
     $rulesPopup.removeClass('is-open');
     $html.removeClass('css-scroll-fixed');
   }
