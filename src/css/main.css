@@ -3556,6 +3556,11 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   height: 100%;
   opacity: 0.01;
   cursor: pointer;
+  z-index: 5;
+}
+
+.controls__upload:hover > span::after {
+  opacity: 0;
 }
 
 .form-url {

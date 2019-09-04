@@ -1823,6 +1823,13 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
     height: 100%;
     opacity: 0.01;
     cursor: pointer;
+    z-index: 5;
+  }
+
+  &:hover {
+    & > span::after {
+      opacity: 0;
+    }
   }
 }
 
