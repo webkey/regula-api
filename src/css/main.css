@@ -4984,6 +4984,19 @@ input.form-url__field.placeholder {
       justify-content: center;
   -ms-flex-direction: column;
       flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  will-change: opacity, visibility;
+  transition-property: opacity, visibility;
+  transition-duration: 0.05s;
+  transition-timing-function: ease-in-out;
+}
+
+.dropzone.show {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 @media (max-width: 991px) {

@@ -3066,6 +3066,25 @@ $tabs-radius: 0.6rem;
   justify-content: center;
   flex-direction: column;
 
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  // transition
+  $prop: opacity, visibility;
+  will-change: $prop;
+  transition: {
+    property: $prop;
+    duration: 0.05s;
+    timing-function: ease-in-out;
+  }
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
   @include media('<tab') {
     display: none;
   }
