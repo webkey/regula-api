@@ -486,18 +486,23 @@
   z-index: 9998;
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 
   // transition
   will-change: opacity;
-  transition: opacity $animation-speed;
+  transition: opacity $animation-speed, visibility $animation-speed;
 
   &:not(.open-only-mob).is-open {
     opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
 
   &.open-only-mob.is-open {
     @include media('<tab') {
       opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
     }
   }
 }
@@ -2926,6 +2931,7 @@ $tabs-radius: 0.6rem;
 }
 
 .advantage p {
+  max-width: 100%;
   margin-bottom: 2.6rem;
 
   &:last-child {
@@ -2969,12 +2975,11 @@ $tabs-radius: 0.6rem;
 
 .advantages__item {
   display: flex;
+  align-self: stretch;
   align-items: flex-start;
-  flex-grow: 1;
-  flex-shrink: 0;
   $width: 50%;
-  flex-basis: $width;
   max-width: $width;
+  flex: 0 1 $width;
   padding: 0 4rem 4.4rem;
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -2988,6 +2993,11 @@ $tabs-radius: 0.6rem;
   @include media("<mob") {
     max-width: none;
     padding: 0 0 3.5rem;
+  }
+
+  * {
+
+    max-width: 100%;
   }
 }
 

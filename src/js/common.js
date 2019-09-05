@@ -794,10 +794,10 @@ function togglePopups() {
  */
 function saveAgree(val) {
   if(typeof val !== 'undefined'){
-    window.localStorage.setItem('rules', val);
+    window.sessionStorage.setItem('rules', val);
     return val;
   }
-  return window.localStorage.getItem('rules');
+  return window.sessionStorage.getItem('rules');
 }
 
 function acceptRules() {
