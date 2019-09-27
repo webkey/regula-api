@@ -787,6 +787,36 @@ function togglePopups() {
   //     }
   //   });
   // }
+
+
+  // Distribute popup
+  var $openInfo = $('.btn-info-js');
+
+  $.each($openInfo, function () {
+    var $curOpenInfo = $(this);
+    console.log("$curOpenInfo: ", $curOpenInfo);
+    var $popupInfo = $($curOpenInfo.attr('href'));
+
+    console.log("$popupInfo: ", $popupInfo);
+
+    $curOpenInfo.switchClass({
+      switchClassTo: $popupInfo,
+      removeEl: $('.popup-def-close-js'),
+      cssScrollFixed: true,
+      removeOutsideClick: true,
+      modifiers: {
+        activeClass: 'is-open'
+      },
+      afterRemove: function () {
+        $html.add($curOpenInfo).addClass('is-animation-hide');
+
+        setTimeout(function () {
+          $html.add($curOpenInfo).removeClass('is-animation-hide');
+        }, 400);
+      }
+    });
+
+  })
 }
 
 /**

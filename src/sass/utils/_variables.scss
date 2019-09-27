@@ -279,7 +279,11 @@ $layout-text-space: 2rem 3rem !default;
 
 // ---------------------------------------
 // Максимальная ширина элементов выходящих за пределы текста
-$layout-flood-width: 110rem !default;
+//$layout-flood-width: 110rem !default;
+$layout-flood-width: 80rem !default;
+
+// ---------------------------------------
+$layout-wide-width: 128rem !default;
 
 // ---------------------------------------
 // Внутренние отступы

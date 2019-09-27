@@ -80,7 +80,15 @@ body {
 
 // Выравнивание элементов выходящих за пределы текста
 .layout-flood {
-  max-width: $layout-text-width;
+  max-width: $layout-flood-width;
+  box-sizing: content-box;
+
+  @include push-auto;
+}
+
+// Выравнивание элементов выходящих за пределы текста
+.layout-wide {
+  max-width: $layout-wide-width;
   box-sizing: content-box;
 
   @include push-auto;

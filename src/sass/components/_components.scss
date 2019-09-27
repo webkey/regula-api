@@ -1466,7 +1466,7 @@
 
 /* d-container */
 .d-container {
-  display: flex;
+  //display: flex;
   padding-top: 6rem;
   margin-bottom: 8.1rem;
 
@@ -1584,7 +1584,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
       transform: none !important;
       height: auto;
       width: auto;
-      margin: 0 -1.4rem -1.4rem 0;
+      margin: 0 -1rem -1rem 0;
       //height: auto;
       //width: auto;
     }
@@ -1607,17 +1607,8 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 
 .sample-doc__item {
   //height: 100%;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: cover;
-  border-radius: 0.6rem;
-  opacity: 0.6;
+  //opacity: 0.6;
   transition: box-shadow $animation-speed, opacity $animation-speed;
-  cursor: pointer;
-
-  //@include media("<tab") {
-  //  height: 21rem;
-  //}
 
   @include media(">=mob") {
     transform: none !important;
@@ -1625,18 +1616,12 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
     height: auto;
     //height: auto;
 
-    margin: 0 1.4rem 1.4rem 0 !important;
+    margin: 0 1rem 1rem 0 !important;
     flex-grow: 0;
     flex-shrink: 1;
-    $width: calc(50% - 1.4rem);
+    $width: calc(33.33% - 1rem);
     flex-basis: $width;
     max-width: $width;
-
-    &::before {
-      content: "";
-      display: block;
-      @include ratio(164, 102);
-    }
   }
 
   @include media("<mob") {
@@ -1644,25 +1629,78 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
     opacity: 1;
     width: 28rem;
     box-shadow: 0 0.4rem 1rem rgba(110, 86, 176, 0.25);
+  }
+
+  &.flip {
+    $space: 0 1.8rem 1.2rem 0;
+    z-index: 1;
+    padding: $space;
 
     &::before {
       content: "";
-      display: block;
-      @include ratio(339, 210);
+      position: absolute;
+      top: nth($space, 3);
+      left: nth($space, 2);
+      height: calc(100% - #{nth($space, 3)});
+      width: calc(100% - #{nth($space, 2)});
+      border-radius: 6px;
+      background: #848f9b;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "+ backside";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 98px;
+      height: 36px;
+      padding: 1.7rem 1.6rem 0 0;
+      @include font-bold;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: -0.02em;
+      text-align: right;
+      color: rgba(black, 0.8);
+      background-image: url(../../img/corner.png);
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      z-index: 3;
     }
   }
+}
 
-  &.active {
+.sample-doc__item-bg {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 0.6rem;
+
+  &::before {
+    content: "";
+    display: block;
+    @include ratio(164, 102);
+
+    //@include media('<mob') {
+    //  @include ratio(339, 210);
+    //}
+  }
+}
+
+// Active
+.sample-doc__item.active {
+  .sample-doc__item-bg {
     opacity: 1;
 
     @include media(">=tab") {
       box-shadow: inset 0 0 0 0.2rem black;
     }
   }
+}
 
-  .no-touchevents &:hover {
-    opacity: 1;
-  }
+// Hover
+.no-touchevents .sample-doc__item:hover {
+  opacity: 1;
 }
 
 /* doc-scan end */
@@ -1691,7 +1729,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 }
 
 .controls__row {
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
 
   &:last-child {
     margin-bottom: 0;
@@ -1699,7 +1737,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 }
 
 .controls__row_lg {
-  margin: 0 0 3.5rem;
+  margin: 0 0 1rem;
 
   &:last-child {
     margin-bottom: 0;
@@ -1904,7 +1942,8 @@ input.form-url__field {
 
 .settings__label {
   @include font-bold;
-  margin-bottom: 2.1rem;
+  //margin-bottom: 2.1rem;
+  margin-bottom: 2.4rem;
   font-size: 1.6rem;
   line-height: 1.61;
   color: $title-color;
@@ -1953,6 +1992,29 @@ input.form-url__field {
   }
 }
 /* settings end */
+
+/* popup cols */
+.popup-cols {
+  display: flex;
+  align-items: flex-start;
+}
+
+.popup-cols__col {
+  $width: 50%;
+  flex: 0 1 $width;
+  max-width: $width;
+  padding: 0 2rem;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+/* popup cols end */
 
 /* tabs */
 .tabs {
@@ -2056,8 +2118,8 @@ $tabs-radius: 0.6rem;
   //overflow: hidden; // Может поломать макет на некоторых браузерах
   min-height: 10rem;
   z-index: 2;
-  //background-color: $bg-color-results;
-  background-color: white;
+  background-color: $bg-color-results;
+  //background-color: white;
   border-radius: $tabs-radius;
   //box-shadow: 0 9px 18px rgba(22, 31, 45, 0.05);
   box-shadow: 0 10px 9px rgba(22, 31, 45, 0.05);
@@ -2130,7 +2192,8 @@ $tabs-radius: 0.6rem;
 /* sensor */
 .sensor {
   overflow: hidden;
-  margin-bottom: -0.4rem;
+  //margin-bottom: -0.4rem;
+  margin-bottom: 1rem;
   padding: 2.6rem #{nth($table-space, 2)} 0;
   background-color: $bg-color-results;
 
@@ -2181,7 +2244,12 @@ $tabs-radius: 0.6rem;
 
 /* table */
 .table-container {
-  background-color: #fff;
+  //background-color: #fff;
+  background-color: $bg-color-results;
+
+  display: flex;
+  align-items: flex-start;
+  padding: 0 2rem 2rem;
 
   @include media(">=tab") {
     .show-preloader & {
@@ -2202,6 +2270,23 @@ $tabs-radius: 0.6rem;
   }
 }
 
+.table-container__col {
+  $space: 5rem;
+  $width: 34rem + $space;
+
+  &:first-child {
+    flex: 1 0 $width;
+    max-width: $width;
+    padding-right: $space;
+  }
+
+  &:last-child {
+    $width: calc(100% - #{$width});
+    flex: 1 0 $width;
+    max-width: $width;
+  }
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -2218,7 +2303,8 @@ $tabs-radius: 0.6rem;
     &:first-child {
       //width: 20rem;
       width: 16rem;
-      padding-left: #{nth($table-space, 4)};
+      //padding-left: #{nth($table-space, 4)};
+      padding-left: 0;
 
       @include media('<lap') {
         width: 15rem;
@@ -2241,6 +2327,8 @@ $tabs-radius: 0.6rem;
     }
 
     &:last-child {
+      padding-right: 0;
+
       @include media('<tab') {
         padding-right: nth($layout-page-space, 2);
       }
@@ -2256,6 +2344,7 @@ $tabs-radius: 0.6rem;
   }
 
   th {
+    position: relative;
     padding: 1.6rem #{nth($table-space, 2)} 1.6rem 0;
     @include font-bold;
     font-size: 1.4rem;
@@ -2299,8 +2388,9 @@ $tabs-radius: 0.6rem;
     padding: #{nth($table-space, 1)} #{nth($table-space, 2)} #{nth($table-space, 3)} 0;
     font-size: 1.4rem;
     line-height: 1.7rem;
-    background-color: #fff;
-    border-top: 1px solid #f2f3f5;
+    background-color: $bg-color-results;
+    //border-top: 1px solid #f2f3f5;
+    border-top: 1px solid rgba(black, 0.1);
 
     //overflow-wrap: break-word;
     //word-break: break-all;
@@ -2362,12 +2452,25 @@ $tabs-radius: 0.6rem;
   &.m-simple {
     width: 100%;
     margin: 0;
+    display: block;
+
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    tr {
+      margin-bottom: 1rem;
+    }
 
     td {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      background-color: $bg-color-results;
-      border-bottom: 1px solid rgba(#d7dfe8, 0.8);
+      //padding-top: 2rem;
+      //padding-bott;om: 2rem;
+      padding: 0 0 2rem;
+      //background-color: $bg-color-results;
+      //border-bottom: 1px solid rgba(#d7dfe8, 0.8);
+      border: none;
 
       &:first-child {
         @include font-bold;
@@ -2396,21 +2499,23 @@ $tabs-radius: 0.6rem;
       align-items: flex-start;
 
       &.same-photos {
-        float: left;
+        //float: left;
         width: 100%;
-        margin: 0 -1.5rem -1.5rem 0;
+        //margin: 0 -1.5rem -1.5rem 0;
 
         @include media('<mob') {
           display: block;
         }
 
-        .orig-images {
+        .orig-images a{
           flex-grow: 0;
           flex-shrink: 1;
-          $width: calc(50% - 1.5rem);
+          //$width: calc(50% - 1.5rem);
+          $width: 100%;
           flex-basis: $width;
           max-width: $width;
-          margin: 0 1.5rem 1.5rem 0;
+          //margin: 0 1.5rem 1.5rem 0;
+          margin-bottom: 1rem;
 
           @include media('<mob') {
             max-width: 100%;
@@ -2420,6 +2525,8 @@ $tabs-radius: 0.6rem;
     }
 
     &.m-simple_title {
+      padding-top: 1.6rem;
+
       &, tbody, tr, td {
         @include media("<mob") {
           display: block;
@@ -2451,8 +2558,8 @@ $tabs-radius: 0.6rem;
 
     &.m-simple_scan {
       td {
-        border: none;
-        padding-bottom: 0;
+        //border: none;
+        //padding-bottom: 0;
 
         @include media('<tab') {
           padding-top: 0;
@@ -3033,11 +3140,14 @@ $tabs-radius: 0.6rem;
 
 /* d-prev */
 .d-prev {
-  flex-shrink: 0;
-  $width: 33.9rem + 4.7;
-  flex-basis: $width;
-  max-width: $width;
-  padding-right: 4.7rem;
+  //flex-shrink: 0;
+  //$width: 33.9rem + 4.7;
+  //flex-basis: $width;
+  //max-width: $width;
+  //padding-right: 4.7rem;
+
+  display: flex;
+  align-items: flex-start;
 
   @include media("<tab") {
     margin-bottom: 7.7rem;
@@ -3144,6 +3254,9 @@ $tabs-radius: 0.6rem;
 }
 
 .u-files__figure {
+  border-radius: 6px;
+  overflow: hidden;
+
   & > img {
     max-width: 100%;
   }
@@ -3153,7 +3266,7 @@ $tabs-radius: 0.6rem;
   position: absolute;
   top: 0;
   right: 0;
-  $size: 3.6rem;
+  $size: 3.2rem;
   height: $size;
   width: $size;
   font-size: 0;
@@ -3161,7 +3274,7 @@ $tabs-radius: 0.6rem;
   background-repeat: no-repeat;
   background-position: 50%;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTMuOTI5IDEuMTc4ODVMOC45NDExOCA2LjIxNDUyTDMuOTQyNzcgMS4xMTA4TDMuOTQyNzggMS4xMTA4TDMuOTQwNzkgMS4xMDg3OUMzLjE1MDgxIDAuMzExMjI4IDEuODQ5NDEgMC4yNzk4NjkgMS4wOTE4NyAxLjExODFDMC4zMTM1MyAxLjkxMzc4IDAuMjg1OTgxIDMuMjExNDYgMS4xMDk2IDMuOTcwODdMNi4xMDYxMyA5LjAxNTM2TDEuMTAxMDQgMTQuMDY4NUMwLjMxMzU1MyAxNC44NjM1IDAuMjgyNzQ1IDE2LjE2ODkgMS4xMTAyNSAxNi45MzEyQzEuNTIyNzMgMTcuMzQyNSAyLjAyMDkgMTcuNSAyLjU1MTMzIDE3LjVDMy4wODU3MiAxNy41IDMuNTg3MzYgMTcuMzQwMiA0LjAwMTYzIDE2LjkyMTlMOSAxMS44NzU2TDEzLjk5ODQgMTYuOTIxOUMxNC40MTI2IDE3LjM0MDIgMTQuOTE0MyAxNy41IDE1LjQ0ODcgMTcuNUMxNS45ODMxIDE3LjUgMTYuNDg0NyAxNy4zNDAyIDE2Ljg5OSAxNi45MjE5QzE3LjY4NzMgMTYuMTI2IDE3LjcxNzMgMTQuODE4NyAxNi44ODcgMTQuMDU2N0wxMS43NzgyIDkuMDcwNzZMMTYuNzc3MyA0LjAyMzY1QzE3LjU2NDggMy4yMjg2IDE3LjU5NTYgMS45MjMyNSAxNi43NjgxIDEuMTYwOTVDMTUuOTc3NCAwLjM3MjYyNiAxNC42ODM3IDAuMzQ0NTU5IDEzLjkyOSAxLjE3ODg1WiIgZmlsbD0id2hpdGUiIHN0cm9rZT0iYmxhY2siLz48L3N2Zz4=);
-  background-size: 1.8rem;
+  background-size: 1.4rem;
   cursor: pointer;
 }
 
@@ -3201,7 +3314,7 @@ $tabs-radius: 0.6rem;
 // document orig images
 .d-orig-images {
   margin-bottom: 2.9rem;
-  padding: 0.5rem 0 0;
+  //padding: 0.5rem 0 0;
 
   @include media("<tab") {
     display: none;
@@ -3244,12 +3357,13 @@ $tabs-radius: 0.6rem;
   font-size: 1.6rem;
   line-height: 2.6rem;
   margin-bottom: 1.3rem;
+  //margin-bottom: 2.2rem;
   color: $title-color;
 
-  display: none;
+  //display: none;
 
   @include media("<tab") {
-    display: block;
+    //display: block;
     font-size: 1.4rem;
     line-height: 2.0rem;
     color: $text-color-muted;
@@ -3262,7 +3376,8 @@ $tabs-radius: 0.6rem;
 }
 
 .d-get-doc {
-  margin-bottom: 4.9rem;
+  //margin-bottom: 4.9rem;
+  flex: 1 1 auto;
 
   @include media("<tab") {
     margin-bottom: 9rem;
@@ -3290,7 +3405,8 @@ $tabs-radius: 0.6rem;
   @include font-bold;
   font-size: 1.6rem;
   line-height: 2.6rem;
-  margin-bottom: 1.3rem;
+  //margin-bottom: 1.3rem;
+  margin-bottom: 2.2rem;
   color: $title-color;
 
   @include media("<tab") {
@@ -3321,6 +3437,12 @@ $tabs-radius: 0.6rem;
 }
 
 .d-settings {
+  $space-left: 4.5rem;
+  $width: 19rem + $space-left;
+  flex: 1 0 $width;
+  max-width: $width;
+  padding-left: $space-left;
+
   @include media("<tab") {
     display: none;
     flex-grow: 1;
@@ -3363,6 +3485,12 @@ $tabs-radius: 0.6rem;
 //}
 
 .d-controls {
+  $space-right: 4.5rem;
+  $width: 24rem + $space-right;
+  flex: 1 0 $width;
+  max-width: $width;
+  padding-right: $space-right;
+
   margin-bottom: 4rem;
 
   @include media("<tab") {
@@ -3377,6 +3505,12 @@ $tabs-radius: 0.6rem;
 }
 
 .d-controls__content {
+  margin-bottom: 1.3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @include media("<tab") {
     max-width: 36rem;
     margin-left: auto;
@@ -3388,13 +3522,13 @@ $tabs-radius: 0.6rem;
 
 /* d-details */
 .d-details {
-  flex-shrink: 0;
-  $width: calc(100% - 33.9rem - 4.7rem);
-  flex-basis: $width;
-  max-width: $width;
+  //flex-shrink: 0;
+  //$width: calc(100% - 33.9rem - 4.7rem);
+  //flex-basis: $width;
+  //max-width: $width;
 
   @include media("<tab") {
-    max-width: none;
+    //max-width: none;
 
     // hide
     position: fixed;
@@ -3458,3 +3592,27 @@ $tabs-radius: 0.6rem;
 //  transform: translate3d(0, 0, 0);
 //  width: 48rem;
 //}
+
+.btn-info {
+  display: inline-block;
+  $size: 16px;
+  height: $size;
+  width: $size;
+  cursor: pointer;
+  background-color: rgba(#7a839e, 0.3);
+  @include font-normal;
+  font-style: normal;
+  font-size: 13px;
+  line-height: $size;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  transition: background-color $animation-speed;
+  border-radius: $size;
+
+  th & {
+    position: absolute;
+    right: 8px;
+    top: 18px;
+  }
+}

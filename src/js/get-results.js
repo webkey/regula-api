@@ -18,7 +18,7 @@ $(document).ready(function () {
   $sampleDoc.on('click', function (e) {
     var $thisDoc = $(this);
 
-    var src = $thisDoc.css('background-image');
+    var src = $thisDoc.find('.sample-doc__item-bg').css('background-image');
     src = src.replace('url(','').replace(')','').replace(/\"/gi, "");
     var frames = $thisDoc.attr('data-frames') || "./img/empty.png";
 
