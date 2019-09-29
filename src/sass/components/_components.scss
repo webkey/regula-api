@@ -821,6 +821,14 @@
   @include media("<lap") {
     column-gap: 6em;
   }
+
+  @include media("<tab") {
+    column-gap: 4em;
+  }
+
+  @include media("<mob") {
+    column-gap: 2em;
+  }
 }
 
 .support__item {
@@ -896,6 +904,7 @@
     left: auto;
     top: auto;
     height: auto;
+    background: none;
     //margin-top: 2rem;
 
     .show-preloader & {
@@ -1553,9 +1562,9 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   @include media("<tab") {
     //height: auto;
     //padding: 0.6rem 0 1.9rem; // Shadow
-    max-width: 41.6rem;
-    margin-left: auto;
-    margin-right: auto;
+    //max-width: 41.6rem;
+    //margin-left: auto;
+    //margin-right: auto;
     //margin: -0.6rem -#{nth($layout-page-space, 2)} 0;
   }
 
@@ -1567,7 +1576,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   @include media("<mob") {
     height: auto;
     max-width: none;
-    padding: 0.6rem 0 1.9rem; // Shadow
+    padding: 0.6rem 0 2.6rem; // Shadow
     margin-left: -#{nth($layout-page-space--mob, 2)};
     margin-right: -#{nth($layout-page-space--mob, 2)};
   }
@@ -1626,9 +1635,8 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 
   @include media("<mob") {
     height: auto;
-    opacity: 1;
+    //opacity: 1;
     width: 28rem;
-    box-shadow: 0 0.4rem 1rem rgba(110, 86, 176, 0.25);
   }
 
   &.flip {
@@ -1675,6 +1683,10 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   background-position: 50%;
   background-size: cover;
   border-radius: 0.6rem;
+
+  @include media('<mob') {
+    box-shadow: 0 0.4rem 1rem rgba(110, 86, 176, 0.25);
+  }
 
   &::before {
     content: "";
@@ -1739,22 +1751,51 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 .controls__row_lg {
   margin: 0 0 1rem;
 
+  @include media('<tab') {
+    $width: 50%;
+    flex: 1 0 $width;
+    max-width: 50%;
+    padding-right: 5.8%;
+    margin-bottom: 2rem;
+  }
+
+  @include media('<mob') {
+    max-width: none;
+    padding-right: 0;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
 }
 
 .controls__group {
-  @include media('<tab', '>=mob') {
-    display: flex;
-    margin: 0 -1.5rem;
+  @include media('<tab') {
+    //display: flex;
+    //margin: 0 -1.5rem;
+    $width: 50%;
+    flex: 1 0 $width;
+    max-width: 50%;
+    padding-left: 5.8%;
+  }
+
+  @include media('<mob') {
+    max-width: none;
+    padding-left: 0;
   }
 
   .controls__row {
-    @include media('<tab', '>=mob') {
-      flex-grow: 1;
-      //flex-shrink: 0;
-      padding: 0 1.5rem;
+    //@include media('<tab', '>=mob') {
+    //  flex-grow: 1;
+    //  //flex-shrink: 0;
+    //  padding: 0 1.5rem;
+    //}
+    @include media('<tab') {
+      margin-bottom: 2rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
@@ -1792,6 +1833,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   padding: 1rem 1.5rem;
 
   @include media("<mob") {
+    @include font-bold;
     font-size: 1.8rem;
     line-height: 2.0rem;
   }
@@ -1799,6 +1841,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   .icon-photo {
     width: 19px;
     height: 16px;
+    flex-shrink: 0;
   }
 
   br {
@@ -1840,11 +1883,16 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
     line-height: 2.5rem;
     padding: 1rem 1.5rem;
     height: 4.5rem;
+
+    @include media('<mob') {
+      @include font-bold;
+      font-size: 1.8rem;
+    }
   }
 
   & > em {
     font-style: normal;
-    padding: 0 2rem;
+    padding: 0 0 0 1rem;
     font-size: 1.4rem;
     line-height: 1.6rem;
     color: $text-color-muted;
@@ -1903,6 +1951,10 @@ input.form-url__field {
   font-size: 1.4rem;
   line-height: 1.9rem;
   border-radius: 0 8px 8px 0;
+
+  @include media('<mob') {
+    font-size: 1.8rem;
+  }
 }
 
 .form-url__error-feedback {
@@ -1997,6 +2049,10 @@ input.form-url__field {
 .popup-cols {
   display: flex;
   align-items: flex-start;
+
+  @include media('<mob') {
+    display: block;
+  }
 }
 
 .popup-cols__col {
@@ -2005,8 +2061,18 @@ input.form-url__field {
   max-width: $width;
   padding: 0 2rem;
 
+  @include media('<mob') {
+    max-width: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
   &:first-child {
     padding-left: 0;
+
+    @include media('<mob') {
+      margin-top: 0;
+    }
   }
 
   &:last-child {
@@ -2042,14 +2108,17 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<mob") {
+    position: relative;
+    z-index: 5;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     float: none;
     margin-bottom: 0;
-    padding-left: #{nth($layout-page-space--mob, 2)};
-    padding-right: #{nth($layout-page-space--mob, 2)};
-    border-bottom: 1px solid rgba(#d7dfe8, 0.8);
+    //padding-left: #{nth($layout-page-space--mob, 2)};
+    //padding-right: #{nth($layout-page-space--mob, 2)};
+    padding: 0;
+    //border-bottom: 1px solid rgba(#d7dfe8, 0.8);
 
     &::after {
       content: none;
@@ -2071,17 +2140,20 @@ $tabs-radius: 0.6rem;
     text-decoration: none;
     border-radius: $tabs-radius;
     box-shadow: 0 9px 18px rgba(22, 31, 45, 0.0);
-
     transition: color $animation-speed, box-shadow $animation-speed;
 
     @include media("<mob") {
       width: auto;
-      padding: 0.8rem 0;
+      padding: 0.7rem 2.5rem 0.6rem;
+      @include font-bold;
       font-size: 1.6rem;
       line-height: 2.6rem;
       color: rgba($text-color, 0.5);
-      box-shadow: inset 0 -3px 0 transparent;
-      border-radius: 0;
+      border: solid transparent;
+      border-width: 1px 1px 0 1px;
+      //box-shadow: inset 0 -3px 0 transparent;
+      border-radius: 6px 6px 0 0;
+      box-shadow: 0 1px 0 #ebecf2;
     }
 
     &.current {
@@ -2091,17 +2163,33 @@ $tabs-radius: 0.6rem;
       cursor: default;
       pointer-events: none;
 
-      &:first-child {
-        background-color: $bg-color-results;
-      }
-
       @include media("<mob") {
         color: $text-color;
-        box-shadow: inset 0 -3px 0 $base-color;
+        //box-shadow: inset 0 -3px 0 $base-color;
+        background-color: white;
+        //border-color: rgba(#e1e3eb, 0.5);
+        border-color: #ebecf2;
+        box-shadow: none;
+      }
 
-        &, &:first-child {
-          background: none;
+      &:first-child {
+        @include media('<mob') {
+          background-color: $bg-color-results;
         }
+      }
+    }
+
+    &:first-child {
+      @include media('<mob') {
+        border-top-left-radius: 0;
+        border-left-width: 0;
+      }
+    }
+
+    &:last-child {
+      @include media('<mob') {
+        border-top-right-radius: 0;
+        border-right-width: 0;
       }
     }
 
@@ -2133,17 +2221,24 @@ $tabs-radius: 0.6rem;
   }
 }
 
+.tabs-panel {
+  background-color: white;
+
+  &:first-child {
+    background-color: $bg-color-results;
+  }
+
+  .show-preloader & {
+    overflow: hidden;
+  }
+}
+
 .tabs-panel__space {
   padding: 2.4rem 1.9rem;
 
   @include media(">=tab") {
     .show-preloader & {
-      position: absolute;
-      overflow: hidden;
-      opacity: 0;
-      height: 0;
-      pointer-events: none;
-      //transform: translate(150%, 0);
+      @include hide-for-preloader;
     }
   }
 }
@@ -2153,6 +2248,11 @@ $tabs-radius: 0.6rem;
   .tabs-panel__space {
     overflow-y: auto;
     max-height: 100rem;
+
+    @include media('<mob') {
+      overflow: visible;
+      max-height: none;
+    }
   }
 }
 
@@ -2185,6 +2285,10 @@ $tabs-radius: 0.6rem;
     word-wrap: break-word;
     white-space: pre;
     white-space: pre-wrap;
+
+    @include media('<mob') {
+      padding: 0;
+    }
   }
 }
 /* s-code end */
@@ -2195,10 +2299,15 @@ $tabs-radius: 0.6rem;
   //margin-bottom: -0.4rem;
   margin-bottom: 1rem;
   padding: 2.6rem #{nth($table-space, 2)} 0;
-  background-color: $bg-color-results;
+  //background-color: $bg-color-results;
+
+  @include media(">=tab") {
+    @include hide-for-preloader;
+  }
 
   @include media("<tab") {
-    padding: 1.5rem #{nth($layout-page-space, 2)} 3.3rem;
+    //padding: 1.5rem #{nth($layout-page-space, 2)} 3.3rem;
+    padding: 1.5rem #{nth($layout-page-space, 2)} 0;
     margin-bottom: 0;
   }
 
@@ -2208,7 +2317,8 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<mob") {
-    padding: 3.3rem #{nth($layout-page-space--mob, 2)};
+    //padding: 3.3rem #{nth($layout-page-space--mob, 2)};
+    padding: 3.3rem #{nth($layout-page-space--mob, 2)} 1rem;
     margin-bottom: 0;
   }
 }
@@ -2253,16 +2363,15 @@ $tabs-radius: 0.6rem;
 
   @include media(">=tab") {
     .show-preloader & {
-      overflow: hidden;
-      opacity: 0;
-      height: 0;
-      pointer-events: none;
-      transform: translate(150%, 0);
+      @include hide-for-preloader;
     }
   }
 
   @include media("<tab") {
-    padding-bottom: 8rem;
+    display: block;
+    background-color: #fff;
+
+    padding: 0 0 8rem;
   }
 
   @include media("<mob") {
@@ -2271,19 +2380,21 @@ $tabs-radius: 0.6rem;
 }
 
 .table-container__col {
-  $space: 5rem;
-  $width: 34rem + $space;
+  @include media('>=tab') {
+    $space: 5rem;
+    $width: 34rem + $space;
 
-  &:first-child {
-    flex: 1 0 $width;
-    max-width: $width;
-    padding-right: $space;
-  }
+    &:first-child {
+      flex: 1 0 $width;
+      max-width: $width;
+      padding-right: $space;
+    }
 
-  &:last-child {
-    $width: calc(100% - #{$width});
-    flex: 1 0 $width;
-    max-width: $width;
+    &:last-child {
+      $width: calc(100% - #{$width});
+      flex: 1 0 $width;
+      max-width: $width;
+    }
   }
 }
 
@@ -2353,6 +2464,10 @@ $tabs-radius: 0.6rem;
     color: $text-color-muted;
     background: $bg-color-results;
 
+    &.has-btn-info {
+      padding-right: 2.8rem;
+    }
+
     & > span {
       overflow-wrap: break-word;
       word-break: break-all;
@@ -2388,13 +2503,18 @@ $tabs-radius: 0.6rem;
     padding: #{nth($table-space, 1)} #{nth($table-space, 2)} #{nth($table-space, 3)} 0;
     font-size: 1.4rem;
     line-height: 1.7rem;
-    background-color: $bg-color-results;
+    //background-color: $bg-color-results;
+    background-color: transparent;
     //border-top: 1px solid #f2f3f5;
     border-top: 1px solid rgba(black, 0.1);
 
     //overflow-wrap: break-word;
     //word-break: break-all;
     //word-break: break-word;
+
+    @include media('<tab') {
+      background-color: #fff;
+    }
 
     .icon-warning {
       margin-top: 3px;
@@ -2452,25 +2572,37 @@ $tabs-radius: 0.6rem;
   &.m-simple {
     width: 100%;
     margin: 0;
-    display: block;
 
+    &,
     tbody,
     tr,
     td {
-      display: block;
+      @include media('>=tab') {
+        display: block;
+      }
     }
 
     tr {
       margin-bottom: 1rem;
+
+      @include media('<mob') {
+        margin-bottom: 0;
+      }
     }
 
     td {
-      //padding-top: 2rem;
-      //padding-bott;om: 2rem;
-      padding: 0 0 2rem;
-      //background-color: $bg-color-results;
-      //border-bottom: 1px solid rgba(#d7dfe8, 0.8);
       border: none;
+      background-color: $bg-color-results;
+
+      @include media('>=tab') {
+        padding: 0 0 2rem;
+      }
+
+      @include media('<tab') {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(#d7dfe8, 0.8);
+      }
 
       &:first-child {
         @include font-bold;
@@ -2527,6 +2659,10 @@ $tabs-radius: 0.6rem;
     &.m-simple_title {
       padding-top: 1.6rem;
 
+      @include media('<mob') {
+        padding-top: 0;
+      }
+
       &, tbody, tr, td {
         @include media("<mob") {
           display: block;
@@ -2542,7 +2678,9 @@ $tabs-radius: 0.6rem;
         &.td-label {
           @include media("<mob") {
             border: none;
-            padding-bottom: 0.6rem;
+            //padding-bottom: 0.6rem;
+            padding-bottom: 0;
+            margin-bottom: -1rem;
           }
         }
 
@@ -2557,27 +2695,43 @@ $tabs-radius: 0.6rem;
     }
 
     &.m-simple_scan {
+      &, tbody, tr, td {
+        @include media('<mob') {
+          display: block;
+        }
+      }
+
       td {
         //border: none;
         //padding-bottom: 0;
 
-        @include media('<tab') {
-          padding-top: 0;
-        }
+        //@include media('<tab') {
+        //  padding-top: 0;
+        //}
 
         @include media("<mob") {
-          padding: 0 #{nth($layout-page-space--mob, 2)} 1.6rem;
+          width: auto;
+          max-width: none;
+          padding: 2rem #{nth($layout-page-space--mob, 2)} 3rem;
+          border-bottom: 0;
+        }
+
+        &:first-child {
+          @include media('<mob') {
+            padding-bottom: 0;
+            margin-bottom: -1rem;
+          }
         }
 
         img {
           width: auto;
         }
 
-        &.td-label {
-          @include media("<mob") {
-            display: none;
-          }
-        }
+        //&.td-label {
+        //  @include media("<mob") {
+        //    display: block;
+        //  }
+        //}
       }
     }
   }
@@ -2678,8 +2832,9 @@ $tabs-radius: 0.6rem;
   position: sticky;
   top: 0;
   background-color: $bg-color-results;
-  box-shadow: inset 0 -1px 0 rgba(#d7dfe8, 0.8);
-  height: 5rem;
+  //box-shadow: inset 0 -1px 0 rgba(#d7dfe8, 0.8);
+  //height: 5rem;
+  height: 4rem;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
 
@@ -2691,52 +2846,63 @@ $tabs-radius: 0.6rem;
 }
 
 .table-tabs__inner {
+  position: relative;
+  z-index: 5;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  height: 5rem;
+  //padding: 0 #{nth($layout-page-space--mob, 2)};
+  //height: 5rem;
+  height: 4rem;
   width: 100%;
-  padding: 0 #{nth($layout-page-space--mob, 2)};
-  font-size: 1.4rem;
+  line-height: 3.9rem; // 4rem - 1px (бордер)
   color: #000;
 
-  .touchevents & {
-    height: 5rem;
-  }
+  //.touchevents & {
+  //  height: 4rem;
+  //}
 }
 
 .table-tabs__item {
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
-  margin-left: 1rem;
-  line-height: 5rem;
+  //margin-left: 1rem;
+  padding: 0 1.5rem;
+  //line-height: 5rem;
+  font-size: 1.4rem;
+  color: rgba(black, 0.5);
   white-space: nowrap;
   cursor: pointer;
   text-align: center;
+  border: solid transparent;
+  border-width: 1px 1px 0 1px;
+  box-shadow: inset 0 -1px 0 #ebecf2;
+  border-radius: 6px 6px 0 0;
+  transition: color $animation-speed, background-color $animation-speed, box-shadow $animation-speed;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  transition: box-shadow $animation-speed;
-  box-shadow: inset 0 -3px 0 transparent;
-
-  &:first-child {
-    margin-left: 0;
-  }
+  //transition: box-shadow $animation-speed;
+  //box-shadow: inset 0 -3px 0 transparent;
 
   &.m-active {
-    font-size: 1.4rem;
+    color: #000;
+    border-color: #ebecf2;
+    background-color: white;
+    box-shadow: inset 0 0 0 transparent;
+    //font-size: 1.4rem;
 
-    $colors: #6e56b0, #9b85cc, #60e1c9, #6e56b0, #9b85cc, #60e1c9, #6e56b0;
-
-    @for $i from 1 through length($colors) {
-      &:nth-child(#{$i}) {
-        box-shadow: inset 0 -3px 0 nth($colors, $i);
-      }
-    }
-
-    &.td-valid {
-      box-shadow: inset 0 -3px 0 #fc3d60;
-    }
+    //$colors: #6e56b0, #9b85cc, #60e1c9, #6e56b0, #9b85cc, #60e1c9, #6e56b0;
+    //
+    //@for $i from 1 through length($colors) {
+    //  &:nth-child(#{$i}) {
+    //    box-shadow: inset 0 -3px 0 nth($colors, $i);
+    //  }
+    //}
+    //
+    //&.td-valid {
+    //  box-shadow: inset 0 -3px 0 #fc3d60;
+    //}
   }
 
   .badge {
@@ -3148,11 +3314,14 @@ $tabs-radius: 0.6rem;
 
   display: flex;
   align-items: flex-start;
+  margin-bottom: 6rem; // + 4rem у дочерних элементов
 
   @include media("<tab") {
-    margin-bottom: 7.7rem;
-    padding-right: 0;
-    max-width: none;
+    display: block;
+    //margin-bottom: 7.7rem;
+    margin-bottom: 10rem;
+    //padding-right: 0;
+    //max-width: none;
   }
 
   @include media("<mob") {
@@ -3319,12 +3488,12 @@ $tabs-radius: 0.6rem;
   @include media("<tab") {
     display: none;
     flex-shrink: 0;
-    $width: 46%;
+    //$width: 46%;
     //$width: 30.4rem;
-    flex-basis: $width;
-    max-width: $width;
+    //flex-basis: $width;
+    //max-width: $width;
     margin: 0;
-    padding-right: #{round-float(nth($layout-page-space, 2) / 2, 1)};
+    //padding-right: #{round-float(nth($layout-page-space, 2) / 2, 1)};
   }
 
   .show-results & {
@@ -3378,10 +3547,7 @@ $tabs-radius: 0.6rem;
 .d-get-doc {
   //margin-bottom: 4.9rem;
   flex: 1 1 auto;
-
-  @include media("<tab") {
-    margin-bottom: 9rem;
-  }
+  margin-bottom: 4rem;
 
   &:last-child {
     margin-bottom: 0;
@@ -3442,11 +3608,10 @@ $tabs-radius: 0.6rem;
   flex: 1 0 $width;
   max-width: $width;
   padding-left: $space-left;
+  margin-bottom: 4rem;
 
   @include media("<tab") {
     display: none;
-    flex-grow: 1;
-    flex-shrink: 0;
     //$width: 50%;
     //flex-basis: $width;
     //max-width: $width;
@@ -3484,20 +3649,28 @@ $tabs-radius: 0.6rem;
 //  }
 //}
 
-.d-controls {
+.d-load {
   $space-right: 4.5rem;
   $width: 24rem + $space-right;
   flex: 1 0 $width;
   max-width: $width;
   padding-right: $space-right;
-
   margin-bottom: 4rem;
 
   @include media("<tab") {
-    max-width: 42.4rem;
-    margin-left: auto;
-    margin-right: auto;
+    //max-width: 42.4rem;
+    max-width: 76.8rem;
+    margin: 0 auto 4rem;
+    padding-right: 0;
   }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.d-controls {
+  margin-bottom: 1.3rem;
 
   &:last-child {
     margin-bottom: 0;
@@ -3512,9 +3685,17 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab") {
-    max-width: 36rem;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0;
+    //max-width: 36rem;
+    //margin-left: auto;
+    //margin-right: auto;
+  }
+
+  @include media('<mob') {
+    display: block;
   }
 }
 
@@ -3527,22 +3708,18 @@ $tabs-radius: 0.6rem;
   //flex-basis: $width;
   //max-width: $width;
 
-  @include media("<tab") {
-    //max-width: none;
+  // Скрыть до обработки документа
+  position: fixed;
+  opacity: 0;
+  width: 100%;
+  transform: translate(100%, 0);
 
-    // hide
-    position: fixed;
-    width: 100%;
-    opacity: 0;
-    transform: translate(100%, 0);
-
-    .show-results & {
-      // show
-      position: relative;
-      width: auto;
-      opacity: 1;
-      transform: none;
-    }
+  // Показать после обработки документа
+  .show-results & {
+    position: relative;
+    opacity: 1;
+    width: auto;
+    transform: none;
   }
 
   .d-container & {
@@ -3609,6 +3786,10 @@ $tabs-radius: 0.6rem;
   text-align: center;
   transition: background-color $animation-speed;
   border-radius: $size;
+
+  @include media('<mob') {
+    margin-left: 5px;
+  }
 
   th & {
     position: absolute;

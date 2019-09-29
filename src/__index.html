@@ -17,31 +17,33 @@
   <div class="doc-lad">
     <div class="d-container">
       <div class="d-prev layout-wide layout-page-spaces">
-        <div class="d-controls controls hide-after-result">
-          <h3 class="d-controls__title">Use your own image</h3>
-          <div class="d-controls__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
-          <div class="d-controls__content">
-            <div class="controls__row_lg">
-              <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
-            </div>
-            <div class="controls__group">
-              <div class="controls__row">
+        <div class="d-load">
+          <div class="d-controls controls hide-after-result">
+            <h3 class="d-controls__title">Use your own image</h3>
+            <div class="d-controls__title_alt">Here you can check our service by taking a picture of your document, browsing one or using our sample</div>
+            <div class="d-controls__content">
+              <div class="controls__row_lg">
+                <a href="#" class="controls__btn btn-def popup-rules-open-js"><i class="icon-photo"></i><span>Take a picture</span></a>
+              </div>
+              <div class="controls__group">
+                <div class="controls__row">
                 <span class="controls__upload popup-rules-open-js">
                   <span class="btn-def">Upload</span>
                   <em>or drag and drop</em>
                   <input type="file" name="browse">
                 </span>
-                <div class="dropzone">
-                  <div class="dropzone__icon"></div>
-                  <div class="dropzone__title">Drop files here</div>
+                  <div class="dropzone">
+                    <div class="dropzone__icon"></div>
+                    <div class="dropzone__title">Drop files here</div>
+                  </div>
                 </div>
-              </div>
-              <div class="controls__row">
-                <form action="#" method="post" class="form-url form-validate-js">
-                  <input class="form-url__field form-def" placeholder="Use image URL" name="url" type="text" required>
-                  <span class="form-url__error-feedback">Error</span>
-                  <button class="form-url__submit btn-def">Go</button>
-                </form>
+                <div class="controls__row">
+                  <form action="#" method="post" class="form-url form-validate-js">
+                    <input class="form-url__field form-def" placeholder="Use image URL" name="url" type="text" required>
+                    <span class="form-url__error-feedback">Error</span>
+                    <button class="form-url__submit btn-def">Go</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -70,25 +72,25 @@
             <h3 class="d-sample-doc__title">Choose a sample image</h3>
             <div class="swiper-container sample-doc sample-doc-slider-js" id="sample-doc">
               <div class="swiper-wrapper">
-                <a href="#" class="swiper-slide sample-doc__item active">
+                <a href="#" class="swiper-slide sample-doc__item" data-frames="img/scan-frames.png">
                   @@include("_tpl_sample-doc-el.html", {
                   "img": "img/scan-orig-02.jpg",
                   "flip": "true"
                   })
                 </a>
-                <a href="#" class="swiper-slide sample-doc__item">
+                <a href="#" class="swiper-slide sample-doc__item" data-frames="img/scan-frames.png">
                   @@include("_tpl_sample-doc-el.html", {
                   "img": "img/scan-orig-01.jpg",
                   "flip": "true"
                   })
                 </a>
-                <a href="#" class="swiper-slide sample-doc__item">
+                <a href="#" class="swiper-slide sample-doc__item" data-frames="img/scan-frames.png">
                   @@include("_tpl_sample-doc-el.html", {
                   "img": "img/scan-orig-03.jpg",
                   "flip": "true"
                   })
                 </a>
-                <a href="#" class="swiper-slide sample-doc__item flip">
+                <a href="#" class="swiper-slide sample-doc__item flip" data-frames="img/scan-frames.png">
                   @@include("_tpl_sample-doc-el.html", {
                   "img": "img/scan-orig-02.jpg",
                   "flip": "true"
@@ -100,7 +102,7 @@
                   "flip": "true"
                   })
                 </a>
-                <a href="#" class="swiper-slide sample-doc__item">
+                <a href="#" class="swiper-slide sample-doc__item" data-frames="img/scan-frames.png">
                   @@include("_tpl_sample-doc-el.html", {
                   "img": "img/scan-orig-03.jpg",
                   "flip": "true"
@@ -111,8 +113,6 @@
             </div>
           </div>
         </div>
-
-
 
         <div class="d-settings settings settings-js">
           <h3 class="settings__label">Select parameters</h3>
@@ -232,8 +232,8 @@
                     <thead>
                       <tr>
                         <th>Field type</th>
-                        <th class="th-mrz"><span>MRZ</span><a href="#mrz" class="btn-info btn-info-js">?</a></th>
-                        <th class="th-barcode"><span>Barcode</span><a href="#barcode" class="btn-info btn-info-js">?</a></th>
+                        <th class="th-mrz has-btn-info"><span>MRZ</span><a href="#mrz" class="btn-info btn-info-js">?</a></th>
+                        <th class="th-barcode has-btn-info"><span>Barcode</span><a href="#barcode" class="btn-info btn-info-js">?</a></th>
                         <th class="th-visual"><span>Visual zone</span></th>
                         <th><span>Title name 1</span></th>
                         <th style="opacity: 0"><span>Title name 2</span></th>

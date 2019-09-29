@@ -7,8 +7,8 @@
 // slider pagination
 // =================
 
-$swp-size: 0.6rem 0.6rem;
-$swp-space: 0.6rem 0.3rem 0;
+$swp-size: 0.8rem 0.8rem;
+$swp-space: 0.6rem 0.3rem 0.2rem;
 //--------------------------
 
 .swiper-pagination {
@@ -17,7 +17,6 @@ $swp-space: 0.6rem 0.3rem 0;
 }
 
 .swiper-pagination-bullet {
-
   display: inline-block;
   vertical-align: top;
   height: nth($swp-size, 1);
@@ -27,11 +26,12 @@ $swp-space: 0.6rem 0.3rem 0;
   margin: $swp-space;
   opacity: 1;
   pointer-events: auto;
-  background: #fff;
+  background: $base-color;
+  box-shadow: 0 0 0 0 transparent;
   outline: none;
 
   // transition
-  transition: background-color $animation-speed;
+  transition: background-color $animation-speed, box-shadow $animation-speed;
 
   // hover
   &:not(.swiper-pagination-bullet-active):hover {
@@ -40,7 +40,8 @@ $swp-space: 0.6rem 0.3rem 0;
 
   &.swiper-pagination-bullet-active {
     cursor: default;
-    background-color: #000;
+    background-color: white;
+    box-shadow: 0 0 0 1px black;
   }
 }
 

@@ -794,10 +794,7 @@ function togglePopups() {
 
   $.each($openInfo, function () {
     var $curOpenInfo = $(this);
-    console.log("$curOpenInfo: ", $curOpenInfo);
     var $popupInfo = $($curOpenInfo.attr('href'));
-
-    console.log("$popupInfo: ", $popupInfo);
 
     $curOpenInfo.switchClass({
       switchClassTo: $popupInfo,
