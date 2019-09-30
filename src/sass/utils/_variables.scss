@@ -13,9 +13,9 @@ $breakpoints: (
     "desk-s": 1600px,
     "lap-l": 1440px,
     "lap": 1366px,
-    "lap-s": 1280px,
-    "net": 1200px,
-    "tab": 992px,
+    //"lap-s": 1280px,
+    //"net": 1200px,
+    "tab": 1280px,
     "tab-s": 768px,
     "mob": 640px,
     "mob-s": 480px,
@@ -263,9 +263,12 @@ $layout-page-min-width: 32rem !default;
 // Максимальная ширина сайта
 //$layout-page-max-width: 115.2rem !default; // Full width
 $layout-page-max-width: 106rem !default;
+$layout-page-max-width--tab: 76.8rem !default;
+//$layout-page-max-width: 128rem !default;
 // Отступы для всего сайта
-$layout-page-space: 6rem 4.8rem !default;
-$layout-page-space--tab: 4rem 3rem !default;
+$layout-page-space: 6rem 5rem !default;
+$layout-page-space--tab: 4rem 5rem !default;
+$layout-page-space--tab-s: 4rem 3rem !default;
 $layout-page-space--mob: 3rem 2rem !default;
 
 // ---------------------------------------
@@ -274,6 +277,7 @@ $layout-popup-width: 105.6rem !default;
 // ---------------------------------------
 // Максимальная ширина текстового блока
 $layout-text-width: 80rem !default;
+$layout-text-width--tab: 76.8rem !default;
 // Отступы у текствого блока
 $layout-text-space: 2rem 3rem !default;
 
@@ -281,9 +285,11 @@ $layout-text-space: 2rem 3rem !default;
 // Максимальная ширина элементов выходящих за пределы текста
 //$layout-flood-width: 110rem !default;
 $layout-flood-width: 80rem !default;
+$layout-flood-width--tab: 76.8rem !default;
 
 // ---------------------------------------
 $layout-wide-width: 128rem !default;
+$layout-wide-width--tab: 76.8rem !default;
 
 // ---------------------------------------
 // Внутренние отступы

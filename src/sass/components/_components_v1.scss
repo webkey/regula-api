@@ -1406,8 +1406,8 @@
     display: none;
 
     @include media("<tab-s") {
-      margin-left: -#{nth($layout-page-space--tab, 2)};
-      margin-right: -#{nth($layout-page-space--tab, 2)};
+      margin-left: -#{nth($layout-page-space--tab-s, 2)};
+      margin-right: -#{nth($layout-page-space--tab-s, 2)};
     }
 
     @include media("<mob") {
@@ -1943,8 +1943,8 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab-s") {
-    padding-left: #{nth($layout-page-space--tab, 2)};
-    padding-right: #{nth($layout-page-space--tab, 2)};
+    padding-left: #{nth($layout-page-space--tab-s, 2)};
+    padding-right: #{nth($layout-page-space--tab-s, 2)};
   }
 
   @include media("<mob") {
@@ -2108,8 +2108,8 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab-s") {
-    padding-left: #{nth($layout-page-space--tab, 2)};
-    padding-right: #{nth($layout-page-space--tab, 2)};
+    padding-left: #{nth($layout-page-space--tab-s, 2)};
+    padding-right: #{nth($layout-page-space--tab-s, 2)};
   }
 
   @include media("<mob") {
@@ -2199,7 +2199,7 @@ $tabs-radius: 0.6rem;
 
       @include media("<tab-s") {
         width: 20rem;
-        padding-left: nth($layout-page-space--tab, 2);
+        padding-left: nth($layout-page-space--tab-s, 2);
       }
 
       @include media("<mob") {
@@ -2214,7 +2214,7 @@ $tabs-radius: 0.6rem;
       }
 
       @include media("<tab-s") {
-        padding-right: nth($layout-page-space--tab, 2);
+        padding-right: nth($layout-page-space--tab-s, 2);
       }
 
       @include media("<mob") {
@@ -2780,10 +2780,10 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab-s") {
-    padding-left: #{nth($layout-page-space--tab, 2)};
-    padding-right: #{nth($layout-page-space--tab, 2)};
-    margin-left: -#{nth($layout-page-space--tab, 2)};
-    margin-right: -#{nth($layout-page-space--tab, 2)};
+    padding-left: #{nth($layout-page-space--tab-s, 2)};
+    padding-right: #{nth($layout-page-space--tab-s, 2)};
+    margin-left: -#{nth($layout-page-space--tab-s, 2)};
+    margin-right: -#{nth($layout-page-space--tab-s, 2)};
   }
 
   @include media("<mob") {
@@ -3048,7 +3048,7 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab-s") {
-    padding-right: #{round-float(nth($layout-page-space--tab, 2) / 2, 1)};
+    padding-right: #{round-float(nth($layout-page-space--tab-s, 2) / 2, 1)};
   }
 
   @include media("<mob") {
@@ -3161,7 +3161,7 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab-s") {
-    padding-left: #{round-float(nth($layout-page-space--tab, 2) / 2, 1)};
+    padding-left: #{round-float(nth($layout-page-space--tab-s, 2) / 2, 1)};
   }
 
   @include media("<mob") {
@@ -3239,8 +3239,8 @@ $tabs-radius: 0.6rem;
     }
 
     @include media("<tab-s") {
-      margin-left: -#{nth($layout-page-space--tab, 2)};
-      margin-right: -#{nth($layout-page-space--tab, 2)};
+      margin-left: -#{nth($layout-page-space--tab-s, 2)};
+      margin-right: -#{nth($layout-page-space--tab-s, 2)};
     }
 
     @include media("<mob") {

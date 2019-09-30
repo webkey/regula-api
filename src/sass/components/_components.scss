@@ -61,6 +61,7 @@
     opacity: 0;
     height: 0;
     transform: translate(150%, 0);
+    padding: 0;
   }
 }
 
@@ -1353,7 +1354,8 @@
   margin: 0 auto;
   width: 54.8rem;
   max-width: 100%;
-  padding: 6.5rem 0 6.4rem;
+  //padding: 6.5rem 0 6.4rem;
+  padding: 6.1rem 0 3.4rem;
   font-size: 1.8rem;
   line-height: 2.5rem;
   color: $title-color;
@@ -1443,9 +1445,14 @@
     margin: 0 -#{nth($layout-page-space, 2)};
     display: none;
 
-    @include media("<tab-s") {
+    @include media("<tab") {
       margin-left: -#{nth($layout-page-space--tab, 2)};
       margin-right: -#{nth($layout-page-space--tab, 2)};
+    }
+
+    @include media("<tab-s") {
+      margin-left: -#{nth($layout-page-space--tab-s, 2)};
+      margin-right: -#{nth($layout-page-space--tab-s, 2)};
     }
 
     @include media("<mob") {
@@ -1476,8 +1483,10 @@
 /* d-container */
 .d-container {
   //display: flex;
-  padding-top: 6rem;
-  margin-bottom: 8.1rem;
+  //padding-top: 6rem;
+  padding-top: 3.6rem;
+  //margin-bottom: 8.1rem;
+  margin-bottom: 5.5rem;
 
   @include media("<tab") {
     padding-top: 5.9rem;
@@ -1491,7 +1500,7 @@
 
   .show-results & {
     @include media("<tab") {
-      padding-top: 2.3rem;
+      padding-top: 2.2rem;
     }
   }
 }
@@ -1636,7 +1645,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   @include media("<mob") {
     height: auto;
     //opacity: 1;
-    width: 28rem;
+    width: 26rem;
   }
 
   &.flip {
@@ -1683,6 +1692,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   background-position: 50%;
   background-size: cover;
   border-radius: 0.6rem;
+  transition: box-shadow $animation-speed;
 
   @include media('<mob') {
     box-shadow: 0 0.4rem 1rem rgba(110, 86, 176, 0.25);
@@ -1700,9 +1710,10 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 }
 
 // Active
-.sample-doc__item.active {
+.sample-doc__item.active,
+.sample-doc__item:hover {
   .sample-doc__item-bg {
-    opacity: 1;
+    //opacity: 1;
 
     @include media(">=tab") {
       box-shadow: inset 0 0 0 0.2rem black;
@@ -1762,6 +1773,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   @include media('<mob') {
     max-width: none;
     padding-right: 0;
+    margin-bottom: 3rem;
   }
 
   &:last-child {
@@ -1827,15 +1839,20 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 4.5rem;
+  //height: 4.5rem;
+  height: 4rem;
+  @include font-bold;
   font-size: 1.6rem;
-  line-height: 2.5rem;
-  padding: 1rem 1.5rem;
+  line-height: 2.4rem;
+  padding: 0.8rem 1.5rem;
+
+  @include media('<tab') {
+    height: 4.5rem;
+    line-height: 2.9rem;
+  }
 
   @include media("<mob") {
-    @include font-bold;
     font-size: 1.8rem;
-    line-height: 2.0rem;
   }
 
   .icon-photo {
@@ -1858,6 +1875,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   align-items: center;
 
   @include media("<mob") {
+    display: block;
     font-size: 1.8rem;
     line-height: 2.0rem;
   }
@@ -1866,9 +1884,6 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   & > em {
     flex-shrink: 1;
     flex-grow: 0;
-    $width: 50%;
-    flex-basis: $width;
-    max-width: $width;
 
     @include media("<tab") {
       $width: 100%;
@@ -1879,25 +1894,50 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
   }
 
   & > span {
-    font-size: 1.4rem;
-    line-height: 2.5rem;
-    padding: 1rem 1.5rem;
-    height: 4.5rem;
+    $width: 10rem;
+    flex-basis: $width;
+    max-width: $width;
+    @include font-bold;
+    font-size: 1.6rem;
+    //line-height: 2.5rem;
+    line-height: 2.4rem;
+    //padding: 1rem 1.5rem;
+    padding: 0.8rem 1.5rem;
+    //height: 4.5rem;
+    height: 4rem;
+
+    @include media('<tab') {
+      height: 4.5rem;
+      line-height: 2.9rem;
+      $width: 17rem;
+      flex-basis: $width;
+      max-width: $width;
+    }
 
     @include media('<mob') {
-      @include font-bold;
       font-size: 1.8rem;
+      width: 100%;
+      max-width: none;
     }
   }
 
   & > em {
+    $width: calc(100% - 10rem);
+    flex-basis: $width;
+    max-width: $width;
     font-style: normal;
     padding: 0 0 0 1rem;
     font-size: 1.4rem;
     line-height: 1.6rem;
     color: $text-color-muted;
 
-    @include media("<tab") {
+    @include media('<tab') {
+      $width: calc(100% - 17rem);
+      flex-basis: $width;
+      max-width: $width;
+    }
+
+    @include media("<mob") {
       display: none;
     }
   }
@@ -1930,10 +1970,16 @@ input.form-url__field {
   border-color: #7a839e;
   border-radius: 8px;
   margin: 0;
-  height: 45px;
-  padding: 12px 68px 12px 10px;
+  //height: 45px;
+  height: 40px;
+  padding: 10px 68px 10px 10px;
   font-size: 1.4rem;
-  line-height: 1.9rem;
+  line-height: 1.8rem;
+
+  @include media('<mob') {
+    height: 45px;
+    line-height: 2.3rem;
+  }
 
   @include placeholder {
     color: #7a839e;
@@ -1944,16 +1990,24 @@ input.form-url__field {
   position: absolute;
   top: 0;
   right: 0;
-  height: 45px;
+  //height: 45px;
+  height: 40px;
   width: 60px;
   padding: 8px 10px;
   @include font-bold;
-  font-size: 1.4rem;
-  line-height: 1.9rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
   border-radius: 0 8px 8px 0;
 
+  @include media('<tab') {
+    width: 70px;
+  }
+
   @include media('<mob') {
+    width: 60px;
+    height: 45px;
     font-size: 1.8rem;
+    line-height: 2.9rem;
   }
 }
 
@@ -1978,16 +2032,19 @@ input.form-url__field {
   position: relative;
 
   hr {
-    margin: 0 0 3.2rem;
-    border-color: #fff;
+    //margin: 0 0 3.2rem;
+    margin: 0 0 2.3rem;
+    //border-color: #fff;
+    border-color: rgba(black, 0.1);
 
     @include media("<tab") {
-      margin-bottom: 2.3rem;
+      margin-bottom: 2.4rem;
+      border-color: #fff;
     }
 
     @include media("<mob") {
       border-color: #dde3ec;
-      margin-bottom: 2.6rem;
+      margin-bottom: 2.8rem;
     }
   }
 }
@@ -1995,7 +2052,7 @@ input.form-url__field {
 .settings__label {
   @include font-bold;
   //margin-bottom: 2.1rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2.7rem;
   font-size: 1.6rem;
   line-height: 1.61;
   color: $title-color;
@@ -2004,23 +2061,24 @@ input.form-url__field {
     font-size: 1.4rem;
     line-height: 2.0rem;
     color: $text-color-muted;
-    margin-bottom: 2.1rem;
+    margin-bottom: 2.4rem;
   }
 
   @include media("<mob") {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.8rem;
   }
 }
 
 .settings__item {
-  margin-bottom: 2.8rem;
+  //margin-bottom: 2.8rem;
+  margin-bottom: 2.6rem;
 
   @include media("<tab") {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.9rem;
   }
 
   @include media("<mob") {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   &:last-child {
@@ -2037,10 +2095,11 @@ input.form-url__field {
 }
 
 .settings__item_head {
-  margin-bottom: 2.9rem;
+  //margin-bottom: 2.9rem;
+  margin-bottom: 2.4rem;
 
   @include media("<tab") {
-    margin-bottom: 2.1rem;
+    margin-bottom: 2.4rem;
   }
 }
 /* settings end */
@@ -2049,6 +2108,15 @@ input.form-url__field {
 .popup-cols {
   display: flex;
   align-items: flex-start;
+  margin: 0 -7rem;
+  padding: 2.8rem 0;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+
+  @include media('<tab') {
+    margin: 0;
+    padding: 0;
+  }
 
   @include media('<mob') {
     display: block;
@@ -2059,7 +2127,11 @@ input.form-url__field {
   $width: 50%;
   flex: 0 1 $width;
   max-width: $width;
-  padding: 0 2rem;
+  padding: 0 4rem;
+
+  @include media('<tab') {
+    padding: 0 2rem;
+  }
 
   @include media('<mob') {
     max-width: none;
@@ -2077,6 +2149,24 @@ input.form-url__field {
 
   &:last-child {
     padding-right: 0;
+    padding-top: 0.3rem;
+
+    @include media('<mob') {
+      padding-top: 0;
+    }
+  }
+
+  p {
+    margin-bottom: 2.4rem;
+
+    &:first-child {
+      font-size: 2.0rem;
+      line-height: 2.4rem;
+
+      strong {
+        @include font-black;
+      }
+    }
   }
 }
 
@@ -2102,9 +2192,14 @@ $tabs-radius: 0.6rem;
     padding: 0 #{nth($layout-page-space, 2)};
   }
 
-  @include media("<tab-s") {
+  @include media("<tab") {
     padding-left: #{nth($layout-page-space--tab, 2)};
     padding-right: #{nth($layout-page-space--tab, 2)};
+  }
+
+  @include media("<tab-s") {
+    padding-left: #{nth($layout-page-space--tab-s, 2)};
+    padding-right: #{nth($layout-page-space--tab-s, 2)};
   }
 
   @include media("<mob") {
@@ -2112,11 +2207,13 @@ $tabs-radius: 0.6rem;
     z-index: 5;
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
+    //justify-content: space-between;
+    justify-content: flex-start;
     float: none;
     margin-bottom: 0;
     //padding-left: #{nth($layout-page-space--mob, 2)};
     //padding-right: #{nth($layout-page-space--mob, 2)};
+    box-shadow: inset 0 -1px 0 #ebecf2;
     padding: 0;
     //border-bottom: 1px solid rgba(#d7dfe8, 0.8);
 
@@ -2142,6 +2239,10 @@ $tabs-radius: 0.6rem;
     box-shadow: 0 9px 18px rgba(22, 31, 45, 0.0);
     transition: color $animation-speed, box-shadow $animation-speed;
 
+    @include media('<tab') {
+      padding: 0.8rem 1.6rem 2.3rem;
+    }
+
     @include media("<mob") {
       width: auto;
       padding: 0.7rem 2.5rem 0.6rem;
@@ -2153,45 +2254,42 @@ $tabs-radius: 0.6rem;
       border-width: 1px 1px 0 1px;
       //box-shadow: inset 0 -3px 0 transparent;
       border-radius: 6px 6px 0 0;
-      box-shadow: 0 1px 0 #ebecf2;
+      box-shadow: inset 0 -1px 0 #ebecf2;
     }
 
     &.current {
-      background-color: white;
       color: $text-color;
       box-shadow: 0 9px 18px rgba(22, 31, 45, 0.05);
       cursor: default;
       pointer-events: none;
+      background-color: white;
 
       @include media("<mob") {
         color: $text-color;
         //box-shadow: inset 0 -3px 0 $base-color;
-        background-color: white;
         //border-color: rgba(#e1e3eb, 0.5);
         border-color: #ebecf2;
         box-shadow: none;
       }
 
       &:first-child {
-        @include media('<mob') {
-          background-color: $bg-color-results;
-        }
+        background-color: $bg-color-results;
       }
     }
 
-    &:first-child {
-      @include media('<mob') {
-        border-top-left-radius: 0;
-        border-left-width: 0;
-      }
-    }
-
-    &:last-child {
-      @include media('<mob') {
-        border-top-right-radius: 0;
-        border-right-width: 0;
-      }
-    }
+    //&:first-child {
+    //  @include media('<mob') {
+    //    border-top-left-radius: 0;
+    //    border-left-width: 0;
+    //  }
+    //}
+    //
+    //&:last-child {
+    //  @include media('<mob') {
+    //    border-top-right-radius: 0;
+    //    border-right-width: 0;
+    //  }
+    //}
 
     .no-touchevents &:hover {
       color: $highlight-color--hover;
@@ -2223,9 +2321,12 @@ $tabs-radius: 0.6rem;
 
 .tabs-panel {
   background-color: white;
+  border-radius: 0 6px 6px 6px;
+  padding: 24px 0;
 
   &:first-child {
     background-color: $bg-color-results;
+    padding: 6px 0;
   }
 
   .show-preloader & {
@@ -2234,10 +2335,10 @@ $tabs-radius: 0.6rem;
 }
 
 .tabs-panel__space {
-  padding: 2.4rem 1.9rem;
+  padding: 0 1.9rem 2.4rem;
 
-  @include media(">=tab") {
-    .show-preloader & {
+  .show-preloader & {
+    @include media(">=tab") {
       @include hide-for-preloader;
     }
   }
@@ -2297,28 +2398,31 @@ $tabs-radius: 0.6rem;
 .sensor {
   overflow: hidden;
   //margin-bottom: -0.4rem;
-  margin-bottom: 1rem;
-  padding: 2.6rem #{nth($table-space, 2)} 0;
+  //margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
+  padding: 1.8rem #{nth($table-space, 2)} 0;
   //background-color: $bg-color-results;
 
-  @include media(">=tab") {
-    @include hide-for-preloader;
+  .show-preloader & {
+    @include media(">=tab") {
+      @include hide-for-preloader;
+    }
   }
 
   @include media("<tab") {
     //padding: 1.5rem #{nth($layout-page-space, 2)} 3.3rem;
-    padding: 1.5rem #{nth($layout-page-space, 2)} 0;
+    padding: 1.7rem #{nth($layout-page-space--tab, 2)} 0;
     margin-bottom: 0;
   }
 
   @include media("<tab-s") {
-    padding-left: #{nth($layout-page-space--tab, 2)};
-    padding-right: #{nth($layout-page-space--tab, 2)};
+    padding-left: #{nth($layout-page-space--tab-s, 2)};
+    padding-right: #{nth($layout-page-space--tab-s, 2)};
   }
 
   @include media("<mob") {
     //padding: 3.3rem #{nth($layout-page-space--mob, 2)};
-    padding: 3.3rem #{nth($layout-page-space--mob, 2)} 1rem;
+    padding: 2.8rem #{nth($layout-page-space--mob, 2)} 0.8rem;
     margin-bottom: 0;
   }
 }
@@ -2327,7 +2431,7 @@ $tabs-radius: 0.6rem;
   font-size: 1.2rem;
   line-height: 1.7rem;
   color: $text-color-muted;
-  margin-left: -4.2rem;
+  margin-left: -3.4rem;
   @include clear;
 
   @include media("<mob") {
@@ -2337,7 +2441,7 @@ $tabs-radius: 0.6rem;
 
 .sensor__item {
   float: left;
-  margin: 0 0 0.5rem 4.2rem;
+  margin: 0 0 0.5rem 3.4rem;
 
   & > strong {
     @include font-bold;
@@ -2361,8 +2465,8 @@ $tabs-radius: 0.6rem;
   align-items: flex-start;
   padding: 0 2rem 2rem;
 
-  @include media(">=tab") {
-    .show-preloader & {
+  .show-preloader & {
+    @include media(">=tab") {
       @include hide-for-preloader;
     }
   }
@@ -2426,9 +2530,13 @@ $tabs-radius: 0.6rem;
         padding-left: nth($layout-page-space, 2);
       }
 
+      @include media("<tab") {
+        padding-left: nth($layout-page-space--tab, 2);
+      }
+
       @include media("<tab-s") {
         width: 20rem;
-        padding-left: nth($layout-page-space--tab, 2);
+        padding-left: nth($layout-page-space--tab-s, 2);
       }
 
       @include media("<mob") {
@@ -2444,8 +2552,12 @@ $tabs-radius: 0.6rem;
         padding-right: nth($layout-page-space, 2);
       }
 
-      @include media("<tab-s") {
+      @include media("<tab") {
         padding-right: nth($layout-page-space--tab, 2);
+      }
+
+      @include media("<tab-s") {
+        padding-right: nth($layout-page-space--tab-s, 2);
       }
 
       @include media("<mob") {
@@ -2459,7 +2571,8 @@ $tabs-radius: 0.6rem;
     padding: 1.6rem #{nth($table-space, 2)} 1.6rem 0;
     @include font-bold;
     font-size: 1.4rem;
-    line-height: 1.8rem;
+    //line-height: 1.8rem;
+    line-height: 1.4rem;
     text-align: left;
     color: $text-color-muted;
     background: $bg-color-results;
@@ -2469,6 +2582,7 @@ $tabs-radius: 0.6rem;
     }
 
     & > span {
+      position: relative;
       overflow-wrap: break-word;
       word-break: break-all;
       word-break: break-word;
@@ -2516,12 +2630,20 @@ $tabs-radius: 0.6rem;
       background-color: #fff;
     }
 
-    .icon-warning {
-      margin-top: 3px;
-    }
+    //.icon-warning {
+    //  margin-top: 3px;
+    //}
 
-    .icon-confirm {
-      margin-top: 2px;
+    //.icon-confirm {
+    //  margin-top: 2px;
+    //}
+  }
+
+  tr:first-child {
+    td {
+      @include media('>=tab') {
+        padding-top: 0;
+      }
     }
   }
 
@@ -2583,7 +2705,7 @@ $tabs-radius: 0.6rem;
     }
 
     tr {
-      margin-bottom: 1rem;
+      margin-bottom: 2.1rem;
 
       @include media('<mob') {
         margin-bottom: 0;
@@ -2595,19 +2717,29 @@ $tabs-radius: 0.6rem;
       background-color: $bg-color-results;
 
       @include media('>=tab') {
-        padding: 0 0 2rem;
+        padding: 0 0 1.8rem;
+        width: auto;
       }
 
       @include media('<tab') {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 2.2rem;
+        padding-bottom: 1.7rem;
         border-bottom: 1px solid rgba(#d7dfe8, 0.8);
+      }
+
+      @include media('<mob') {
+        padding-top: 1.6rem;
+        padding-bottom: 1.9rem;
       }
 
       &:first-child {
         @include font-bold;
         color: $text-color-muted;
         border-top: 0;
+
+        @include media('>=tab') {
+          padding-bottom: 1.7rem;
+        }
       }
 
       h2 {
@@ -2620,7 +2752,7 @@ $tabs-radius: 0.6rem;
 
       img {
         border-radius: 8px;
-        width: 20rem;
+        //width: 20rem;
         max-width: 100%;
       }
     }
@@ -2676,11 +2808,15 @@ $tabs-radius: 0.6rem;
         }
 
         &.td-label {
+          @include media('>=tab') {
+            min-height: 4.5rem;
+          }
+
           @include media("<mob") {
             border: none;
             //padding-bottom: 0.6rem;
             padding-bottom: 0;
-            margin-bottom: -1rem;
+            margin-bottom: -0.9rem;
           }
         }
 
@@ -2756,7 +2892,7 @@ $tabs-radius: 0.6rem;
     $size: 16px;
     width: $size;
     height: $size;
-    margin: 3px 0 0;
+    //margin: 3px 0 0;
     //margin: 0 0 0 auto;
     //border-radius: 50%;
     //background: #ecebed;
@@ -2857,6 +2993,7 @@ $tabs-radius: 0.6rem;
   width: 100%;
   line-height: 3.9rem; // 4rem - 1px (бордер)
   color: #000;
+  box-shadow: inset 0 -1px 0 #ebecf2;
 
   //.touchevents & {
   //  height: 4rem;
@@ -3079,16 +3216,16 @@ $tabs-radius: 0.6rem;
 
   @include media("<tab") {
     padding: 5.2rem 4.8rem 7rem;
-    margin: 0 -#{nth($layout-page-space, 2)} 6.6rem;
+    margin: 0 -#{nth($layout-page-space--tab, 2)} 6.6rem;
     font-size: 3.0rem;
     line-height: 4.8rem;
   }
 
   @include media("<tab-s") {
-    padding-left: #{nth($layout-page-space--tab, 2)};
-    padding-right: #{nth($layout-page-space--tab, 2)};
-    margin-left: -#{nth($layout-page-space--tab, 2)};
-    margin-right: -#{nth($layout-page-space--tab, 2)};
+    padding-left: #{nth($layout-page-space--tab-s, 2)};
+    padding-right: #{nth($layout-page-space--tab-s, 2)};
+    margin-left: -#{nth($layout-page-space--tab-s, 2)};
+    margin-right: -#{nth($layout-page-space--tab-s, 2)};
   }
 
   @include media("<mob") {
@@ -3314,29 +3451,33 @@ $tabs-radius: 0.6rem;
 
   display: flex;
   align-items: flex-start;
-  margin-bottom: 6rem; // + 4rem у дочерних элементов
+  //margin-bottom: 6rem; // + 4rem у дочерних элементов
 
   @include media("<tab") {
     display: block;
     //margin-bottom: 7.7rem;
-    margin-bottom: 10rem;
+    margin-bottom: 9.2rem;
     //padding-right: 0;
     //max-width: none;
   }
 
   @include media("<mob") {
-    margin-bottom: 3rem;
+    margin-bottom: 7.4rem;
   }
 
   .show-results & {
+    padding-bottom: 6rem; // + 4rem у дочерних элементов
+
     @include media("<tab") {
-      margin-bottom: 7.7rem;
+      margin-bottom: 0;
+      padding-bottom: 8.5rem;
       display: flex;
     }
 
     @include media("<mob") {
       display: block;
-      margin-bottom: 6rem;
+      margin-bottom: 0;
+      padding-bottom: 4.5rem;
     }
   }
 }
@@ -3423,11 +3564,29 @@ $tabs-radius: 0.6rem;
 }
 
 .u-files__figure {
-  border-radius: 6px;
+  //border-radius: 6px;
   overflow: hidden;
+  //background-color: #848f9b;
+  height: 12.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media('<tab') {
+    height: auto;
+  }
 
   & > img {
     max-width: 100%;
+    max-height: 100%;
+
+    @supports (object-fit: contain) {
+      @include object-fit(contain);
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+    }
   }
 }
 
@@ -3452,30 +3611,35 @@ $tabs-radius: 0.6rem;
 /* uploaded files list */
 .u-files {
   margin-bottom: 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .u-files__list {
-  margin: 0 -0.7rem -1.4rem;
+  margin: 0 -1rem -2rem;
   display: flex;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
   align-items: flex-start;
 
   @include media('<mob-xxs') {
-    display: block;
+    flex-wrap: wrap;
+    //display: block;
   }
 }
 
 .u-files__item {
-  padding: 0 0.7rem 1.4rem;
-  $width: 50%;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: $width;
-  max-width: $width;
+  padding: 0 1rem 2rem;
+  //$width: 50%;
+  //flex-grow: 0;
+  //flex-shrink: 1;
+  //flex-basis: $width;
+  //max-width: $width;
 
-  @include media('<mob-xxs') {
-    max-width: none;
-  }
+  //@include media('<mob-xxs') {
+  //  max-width: none;
+  //}
 }
 
 /* uploaded files list end */
@@ -3503,8 +3667,12 @@ $tabs-radius: 0.6rem;
     }
   }
 
-  @include media("<tab-s") {
+  @include media("<tab") {
     padding-right: #{round-float(nth($layout-page-space--tab, 2) / 2, 1)};
+  }
+
+  @include media("<tab-s") {
+    padding-right: #{round-float(nth($layout-page-space--tab-s, 2) / 2, 1)};
   }
 
   @include media("<mob") {
@@ -3529,14 +3697,14 @@ $tabs-radius: 0.6rem;
   //margin-bottom: 2.2rem;
   color: $title-color;
 
-  //display: none;
+  display: none;
 
   @include media("<tab") {
-    //display: block;
+    display: block;
     font-size: 1.4rem;
     line-height: 2.0rem;
     color: $text-color-muted;
-    margin-bottom: 2.4rem;
+    margin-bottom: 2rem;
   }
 
   @include media("<mob") {
@@ -3568,7 +3736,9 @@ $tabs-radius: 0.6rem;
 
 .d-controls__title,
 .d-sample-doc__title {
-  @include font-bold;
+  //@include font-bold;
+  @include font-normal;
+  font-weight: normal;
   font-size: 1.6rem;
   line-height: 2.6rem;
   //margin-bottom: 1.3rem;
@@ -3577,6 +3747,21 @@ $tabs-radius: 0.6rem;
 
   @include media("<tab") {
     display: none;
+  }
+}
+
+.d-sample-doc__title {
+  @include media("<tab") {
+    display: block;
+    text-align: center;
+    margin-bottom: 1.3rem;
+  }
+
+  @include media('<mob') {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    text-align: left;
+    margin-bottom: 1rem;
   }
 }
 
@@ -3593,12 +3778,13 @@ $tabs-radius: 0.6rem;
 
   @include media("<tab") {
     display: block;
+    margin-bottom: 3.5rem;
   }
 
   @include media("<mob") {
     font-size: 1.4rem;
     text-align: left;
-    margin-bottom: 1.7rem;
+    margin-bottom: 2.7rem;
   }
 }
 
@@ -3612,11 +3798,12 @@ $tabs-radius: 0.6rem;
 
   @include media("<tab") {
     display: none;
-    //$width: 50%;
-    //flex-basis: $width;
-    //max-width: $width;
+    $width: 50%;
+    flex-basis: $width;
+    max-width: $width;
     margin: 0;
-    padding-left: #{round-float(nth($layout-page-space, 2) / 2, 1)};
+    //padding-left: #{round-float(nth($layout-page-space, 2) / 2, 1)};
+    padding-left: 1.6rem;
   }
 
   .show-results & {
@@ -3626,7 +3813,7 @@ $tabs-radius: 0.6rem;
   }
 
   @include media("<tab-s") {
-    padding-left: #{round-float(nth($layout-page-space--tab, 2) / 2, 1)};
+    padding-left: #{round-float(nth($layout-page-space--tab-s, 2) / 2, 1)};
   }
 
   @include media("<mob") {
@@ -3658,10 +3845,27 @@ $tabs-radius: 0.6rem;
   margin-bottom: 4rem;
 
   @include media("<tab") {
-    //max-width: 42.4rem;
-    max-width: 76.8rem;
-    margin: 0 auto 4rem;
+    flex-basis: auto;
+    max-width: none;
+    //margin: 0 0 3.7rem;
+    margin-bottom: 0;
     padding-right: 0;
+  }
+
+  @include media('<mob') {
+    margin-bottom: 3.8rem;
+  }
+
+  .show-results & {
+    @include media("<tab") {
+      $width: 50%;
+      flex: 1 0 $width;
+      max-width: $width;
+    }
+
+    @include media('<mob') {
+      max-width: none;
+    }
   }
 
   &:last-child {
@@ -3712,7 +3916,8 @@ $tabs-radius: 0.6rem;
   position: fixed;
   opacity: 0;
   width: 100%;
-  transform: translate(100%, 0);
+  //transform: translate(100%, 0);
+  transform: translate(9999px, 9999px);
 
   // Показать после обработки документа
   .show-results & {
@@ -3724,18 +3929,20 @@ $tabs-radius: 0.6rem;
 
   .d-container & {
     @include media("<tab") {
-      margin: 0 -#{nth($layout-page-space, 2)};
+      //margin: 0 -#{nth($layout-page-space--tab, 2)};
+      padding: 0;
+      max-width: none;
     }
 
-    @include media("<tab-s") {
-      margin-left: -#{nth($layout-page-space--tab, 2)};
-      margin-right: -#{nth($layout-page-space--tab, 2)};
-    }
-
-    @include media("<mob") {
-      margin-left: -#{nth($layout-page-space--mob, 2)};
-      margin-right: -#{nth($layout-page-space--mob, 2)};
-    }
+    //@include media("<tab-s") {
+    //  margin-left: -#{nth($layout-page-space--tab-s, 2)};
+    //  margin-right: -#{nth($layout-page-space--tab-s, 2)};
+    //}
+    //
+    //@include media("<mob") {
+    //  margin-left: -#{nth($layout-page-space--mob, 2)};
+    //  margin-right: -#{nth($layout-page-space--mob, 2)};
+    //}
   }
 
 }
@@ -3794,6 +4001,6 @@ $tabs-radius: 0.6rem;
   th & {
     position: absolute;
     right: 8px;
-    top: 18px;
+    top: 16px;
   }
 }

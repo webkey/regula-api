@@ -103,3 +103,7 @@ img {
   //  max-width: none;
   //}
 }
+
+strong, b {
+  @include font-bold;
+}

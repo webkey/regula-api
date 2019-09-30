@@ -263,6 +263,24 @@ function checkSettings() {
 }
 
 /**
+ * !Position tabs
+ */
+function positionTabs() {
+  $('.table-container').on('click', '.table-tabs__item', function () {
+    console.log("1: ", 1);
+    var $this = $(this);
+    function scrollPosition() {
+    	if (!$this.is(':animated')) {
+        var $container = $('.table-tabs');
+        console.log("$this.innerWidth(): ", $this.innerWidth());
+        $container.stop().animate({scrollLeft: $this.position().left - window.innerWidth / 2 + $this.innerWidth() / 2}, 300);
+    	}
+    }
+    scrollPosition();
+  });
+}
+
+/**
  * !Tabs
  */
 function tabs() {
@@ -934,6 +952,7 @@ $(document).ready(function () {
   placeholderInit();
   sliderPhotos();
   checkSettings();
+  positionTabs();
   tabs();
   togglePopups();
   acceptRules();

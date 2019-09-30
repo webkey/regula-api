@@ -44,8 +44,12 @@ body {
   .layout-page-spaces {
     @include padding-horizontal(nth($layout-page-space, 2));
 
-    @include media("<tab-s") {
+    @include media("<tab") {
       @include padding-horizontal(nth($layout-page-space--tab, 2));
+    }
+
+    @include media("<tab-s") {
+      @include padding-horizontal(nth($layout-page-space--tab-s, 2));
     }
 
     @include media("<mob") {
@@ -61,6 +65,11 @@ body {
   box-sizing: content-box;
 
   @include push-auto;
+
+  @include media('<tab') {
+    box-sizing: border-box;
+    max-width: $layout-page-max-width--tab;
+  }
 }
 
 // Отступы по бокам текстовых элементов
@@ -76,22 +85,35 @@ body {
   box-sizing: content-box;
 
   @include push-auto;
+
+  @include media('<tab') {
+    max-width: $layout-text-width--tab;
+    box-sizing: border-box;
+  }
 }
 
 // Выравнивание элементов выходящих за пределы текста
 .layout-flood {
   max-width: $layout-flood-width;
-  box-sizing: content-box;
+  //box-sizing: content-box;
 
   @include push-auto;
+
+  @include media('<tab') {
+    max-width: $layout-flood-width--tab;
+  }
 }
 
 // Выравнивание элементов выходящих за пределы текста
 .layout-wide {
   max-width: $layout-wide-width;
-  box-sizing: content-box;
+  //box-sizing: content-box;
 
   @include push-auto;
+
+  @include media('<tab') {
+    max-width: $layout-wide-width--tab;
+  }
 }
 
 // Прижать футер к низу страницы
