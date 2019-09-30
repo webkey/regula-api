@@ -4440,42 +4440,28 @@ input.form-url__field.placeholder {
   padding-right: 2.8rem;
 }
 
-.table th > span {
+.table th > div {
+  display: inline-block;
+  vertical-align: top;
   position: relative;
   overflow-wrap: break-word;
   word-break: break-all;
   word-break: break-word;
 }
 
-.table th:nth-child(2) > span {
+.table th:nth-child(2) > div > span {
   box-shadow: 0 2px 0 #6e56b0;
 }
 
-.table th:nth-child(3) > span {
+.table th:nth-child(3) > div > span {
   box-shadow: 0 2px 0 #9b85cc;
 }
 
-.table th:nth-child(4) > span {
+.table th:nth-child(4) > div > span {
   box-shadow: 0 2px 0 #60e1c9;
 }
 
-.table th:nth-child(5) > span {
-  box-shadow: 0 2px 0 #6e56b0;
-}
-
-.table th:nth-child(6) > span {
-  box-shadow: 0 2px 0 #9b85cc;
-}
-
-.table th:nth-child(7) > span {
-  box-shadow: 0 2px 0 #60e1c9;
-}
-
-.table th:nth-child(8) > span {
-  box-shadow: 0 2px 0 #6e56b0;
-}
-
-.table th.td-valid > span:not(.badge) {
+.table th.td-valid > div > span:not(.badge) {
   box-shadow: 0 2px 0 #ff2b51;
 }
 
@@ -5866,8 +5852,9 @@ input.form-url__field.placeholder {
 
 th .btn-info {
   position: absolute;
-  right: 8px;
-  top: 16px;
+  left: 100%;
+  top: -1px;
+  margin-left: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
