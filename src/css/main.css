@@ -4613,6 +4613,7 @@ input.form-url__field.placeholder {
 
 .table.m-simple td img {
   border-radius: 8px;
+  width: 20rem;
   max-width: 100%;
 }
 
@@ -4721,6 +4722,7 @@ input.form-url__field.placeholder {
 
 .table.m-simple.m-simple_scan td img {
   width: auto;
+  max-width: 100%;
 }
 
 .table .td-label {
