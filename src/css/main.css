@@ -5792,6 +5792,16 @@ input.form-url__field.placeholder {
       transform: translate(9999px, 9999px);
 }
 
+@media (min-width: 1280px) {
+  .show-preloader .d-details {
+    position: relative;
+    opacity: 1;
+    width: auto;
+    -ms-transform: none;
+        transform: none;
+  }
+}
+
 .show-results .d-details {
   position: relative;
   opacity: 1;

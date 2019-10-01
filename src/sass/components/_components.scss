@@ -3917,17 +3917,21 @@ $tabs-radius: 0.6rem;
 
 /* d-details */
 .d-details {
-  //flex-shrink: 0;
-  //$width: calc(100% - 33.9rem - 4.7rem);
-  //flex-basis: $width;
-  //max-width: $width;
-
   // Скрыть до обработки документа
   position: fixed;
   opacity: 0;
   width: 100%;
-  //transform: translate(100%, 0);
   transform: translate(9999px, 9999px);
+
+  // Показать до обработки документа
+  .show-preloader & {
+    @include media('>=tab') {
+      position: relative;
+      opacity: 1;
+      width: auto;
+      transform: none;
+    }
+  }
 
   // Показать после обработки документа
   .show-results & {
@@ -3939,20 +3943,9 @@ $tabs-radius: 0.6rem;
 
   .d-container & {
     @include media("<tab") {
-      //margin: 0 -#{nth($layout-page-space--tab, 2)};
       padding: 0;
       max-width: none;
     }
-
-    //@include media("<tab-s") {
-    //  margin-left: -#{nth($layout-page-space--tab-s, 2)};
-    //  margin-right: -#{nth($layout-page-space--tab-s, 2)};
-    //}
-    //
-    //@include media("<mob") {
-    //  margin-left: -#{nth($layout-page-space--mob, 2)};
-    //  margin-right: -#{nth($layout-page-space--mob, 2)};
-    //}
   }
 
 }
