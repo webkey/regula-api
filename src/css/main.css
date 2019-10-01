@@ -2667,6 +2667,13 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   padding-top: 100%;
 }
 
+@media (min-width: 1280px) {
+  .tabs-panel .preloader::before {
+    height: 0;
+    padding-top: 56.25%;
+  }
+}
+
 .preloader .spin {
   display: block;
   position: absolute;
@@ -4221,19 +4228,6 @@ input.form-url__field.placeholder {
   padding: 1.8rem 1.2em 0;
 }
 
-@media (min-width: 1280px) {
-  .show-preloader .sensor {
-    overflow: hidden;
-    opacity: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-    pointer-events: none;
-    -ms-transform: translate(150%, 0);
-        transform: translate(150%, 0);
-  }
-}
-
 @media (max-width: 1279px) {
   .sensor {
     padding: 1.7rem 5rem 0;
@@ -4497,6 +4491,7 @@ input.form-url__field.placeholder {
   position: sticky;
   top: 6rem;
   table-layout: fixed;
+  z-index: 2;
 }
 
 @media (max-width: 1279px) {

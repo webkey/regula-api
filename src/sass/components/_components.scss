@@ -917,7 +917,11 @@
     &::before {
       content: "";
       display: block;
-      @include ratio(1, 1)
+      @include ratio(1, 1);
+
+      @include media('>=tab') {
+        @include ratio(16, 9);
+      }
     }
   }
 
@@ -2403,11 +2407,11 @@ $tabs-radius: 0.6rem;
   padding: 1.8rem #{nth($table-space, 2)} 0;
   //background-color: $bg-color-results;
 
-  .show-preloader & {
-    @include media(">=tab") {
-      @include hide-for-preloader;
-    }
-  }
+  //.show-preloader & {
+  //  @include media(">=tab") {
+  //    @include hide-for-preloader;
+  //  }
+  //}
 
   @include media("<tab") {
     //padding: 1.5rem #{nth($layout-page-space, 2)} 3.3rem;
@@ -2664,6 +2668,7 @@ $tabs-radius: 0.6rem;
     position: sticky;
     top: $header-height;
     table-layout: fixed;
+    z-index: 2;
 
     @include media("<tab") {
       top: 0;

@@ -804,9 +804,8 @@ function togglePopups() {
   //   });
   // }
 
-
-  // Distribute popup
-  var $openInfo = $('.btn-info-js');
+  // Info popup
+  var $openInfo = $('.m-sticky-head .btn-info-js');
 
   $.each($openInfo, function () {
     var $curOpenInfo = $(this);
@@ -828,8 +827,17 @@ function togglePopups() {
         }, 400);
       }
     });
+  });
 
-  })
+  $('.table-container').on('click', '.m-sticky .btn-info-js, .mobile-tables .btn-info-js', function (e) {
+    var $curOpener = $(this);
+    var $targetOpenInfo = $openInfo.filter('[href="' + $curOpener.attr("href") + '"]');
+
+    $targetOpenInfo.switchClass('add');
+
+    e.stopPropagation();
+    e.preventDefault();
+  });
 }
 
 /**
