@@ -27,6 +27,12 @@ $(document).ready(function () {
     $sampleDoc.removeClass('active');
     $thisDoc.addClass('active');
 
+    /* Подскролл к блоку с результатами */
+    if (window.innerWidth >= 1280) {
+      var $docsContainer = $('.d-get-doc');
+      $('html,body').stop().animate({scrollTop: $docsContainer.offset().top + $docsContainer.innerHeight() + 20}, 300);
+    }
+
     /**
      * 1) Показываем прелоадер
      * 2) Добавляем класс show-results на html
