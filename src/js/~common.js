@@ -82,65 +82,51 @@ function getResultsData() {
   var result = [];
   var results = document.querySelector('.js-data-table');
   var validIndex = -1;
-  if (results) {
-    var heads = Array.from(results.querySelectorAll('thead > tr:first-child > th')).filter(function (el) {
-      var style = window.getComputedStyle(el);
-      return (style.display !== 'none' && style.opacity !== "0");
-    });
-    [].forEach.call(heads, function (head, ind) {
+  if(results) {
+    var heads = results.querySelectorAll('thead > tr:first-child > th');
+    [].forEach.call(heads, function(head, ind) {
       result.push({
         label: head.innerHTML,
         class: head.getAttribute('class'),
         data: []
       });
-      if (head.className.indexOf('td-valid') !== -1) {
+      if(head.className.indexOf('td-valid') !== -1) {
         validIndex = ind;
       }
     });
     var rows = results.querySelectorAll('tbody > tr');
-    [].forEach.call(rows, function (row, ind) {
+    [].forEach.call(rows, function(row, ind) {
       var label = row.querySelector('.td-label').innerHTML;
-      var columns = Array.from(row.querySelectorAll('td')).filter(function (el) {
-        var style = window.getComputedStyle(el);
-        return (style.display !== 'none' && style.opacity !== "0");
-      });
-      [].forEach.call(columns, function (td, tdi) {
+      [].forEach.call(row.querySelectorAll('td'), function(td, tdi) {
         var innerEl = td.querySelector('div.u-wrap');
         if (innerEl && innerEl.textContent === "") {
           return;
         }
-        if (tdi && td.innerHTML) {
+
+        if(tdi && td.innerHTML) {
           result[tdi].data.push({
             label: label,
             value: td.innerHTML,
             class: td.getAttribute('class'),
             isMarked: row.className.indexOf('row-marked') !== -1
           });
-        } else if (validIndex !== -1 && tdi === validIndex) {
-          result[tdi].data.push({
-            label: label,
-            value: "",
-            isMarked: row.className.indexOf('row-marked') !== -1,
-            tdValid: true
-          });
-        } else if (td.getAttribute('class').indexOf('td-valid Green') !== -1 || td.getAttribute('class').indexOf('td-valid Red') !== -1) {
-          result[tdi].data.push({
-            label: label,
-            value: "",
-            isMarked: td.getAttribute('class').indexOf('td-valid Red') !== -1,
-            tdValid: true
-          });
+          if(row.className.indexOf('row-marked') !== -1 && validIndex !== -1){
+            result[validIndex].data.push({
+              label: label,
+              value: td.innerHTML,
+              isMarked: true
+            });
+          }
         }
       });
     });
   }
   return result;
 }
-
 function buildMobileTable(data) {
   var all = document.createElement('div');
   all.className = 'mobile-tables';
-  if (data) {
+  if(data){
     data = data.filter(function (col, index) {
       return !index || col.data.length;
     });
@@ -148,41 +134,41 @@ function buildMobileTable(data) {
     var wrapTabsInner = document.createElement('div');
     wrapTabs.className = 'table-tabs';
     wrapTabsInner.className = 'table-tabs__inner';
-    wrapTabsInner.innerHTML = data.map(function (tbl, tblInd) {
-      if (!tblInd) {
-        return '';
-      }
+    wrapTabsInner.innerHTML = data.map(function(tbl, tblInd) {
+      if(!tblInd) { return ''; }
       var itemClass = tblInd === 1 ? ' m-active' : '';
       var copyClass = tbl.class || "";
-      return '<div class="table-tabs__item' + itemClass + ' ' + copyClass + '">' + tbl.label + '</div>';
+      return '<div class="table-tabs__item'+itemClass+' '+copyClass+'">'+tbl.label+'</div>';
     }).join('');
+
     wrapTabs.appendChild(wrapTabsInner);
     all.appendChild(wrapTabs);
-    data.forEach(function (tbl, tblInd) {
-      if (tblInd) {
+
+    data.forEach(function(tbl, tblInd) {
+      if(tblInd){
         var table = document.createElement('table');
         var itemClass = tblInd === 1 ? ' m-active' : '';
         table.className = 'table' + itemClass;
-        table.innerHTML = '<tbody>' + tbl.data.map(function (row) {
+        table.innerHTML = '<tbody>' + tbl.data.map(function(row) {
           var rowClass = row.isMarked ? 'row-marked' : '';
-          var tdClass = row.tdValid ? 'td-valid' : '';
-          return '<tr class="' + rowClass + '"><td class="td-label">' + row.label + '</td><td class="' + tdClass + '">' + row.value + '</td></tr>';
+          return '<tr class="'+rowClass+'"><td class="td-label">'+row.label+'</td><td>'+row.value+'</td></tr>';
         }).join('') + '</tbody>';
         all.appendChild(table);
       }
     });
+
     try {
-      [].forEach.call(all.querySelectorAll('.table-tabs__item'), function (tab, tabInd) {
-        tab.addEventListener('click', function () {
+      [].forEach.call(all.querySelectorAll('.table-tabs__item'), function(tab, tabInd) {
+        tab.addEventListener('click', function() {
           all.querySelector('.table-tabs__item.m-active').classList.remove('m-active');
           all.querySelector('.table.m-active').classList.remove('m-active');
           all.querySelectorAll('.table')[tabInd].classList.add('m-active');
           tab.classList.add('m-active');
         });
       });
-    } catch (e) {
-    }
+    } catch(e){}
   }
+
   return all;
 }
 
@@ -296,62 +282,40 @@ function positionTabs() {
  * !Tabs
  */
 function tabs() {
-  var $tabs = $('.tabs-js'),
-      $tabsThumbs = $('.tabs-thumbs-js'),
-      $tabsThumb = $('.tabs-thumb-js');
+  var $tabs = $('.tabs-js');
+  var $tabsThumb = $('.tabs-thumb-js');
 
   if ($tabs.length) {
-    $.each($tabsThumbs, function () {
-      var $thumbWithCurClass = $(this).find($tabsThumb).filter('.current').first();
-      var $curThumb = ($thumbWithCurClass.length) ? $thumbWithCurClass : $tabsThumb.eq(0);
+    var $thumbWithCurClass = $tabsThumb.filter('.current').first();
+    var $curThumb = ($thumbWithCurClass.length) ? $thumbWithCurClass : $tabsThumb.eq(0);
 
-      toggleTabs.call($curThumb);
-    });
-
-    $.each($tabsThumb, function () {
-      var $curThumb = $(this);
-      var curAnchor = $curThumb.attr('href');
-      var $curPanel = $(curAnchor);
-      // Create tabs panel for mobile devices
-      // $curPanel.wrapInner('<div class="tabs-panel-mob tabs-panel-mob-js"></div>');
-
-      // Create tabs thumb for mobile devices
-      $curPanel.prepend($('<a href="'+ curAnchor +'" class="tabs-thumb-mob tabs-thumb-mob-js"><span>'+ $curThumb.text() +'</span><em>&gt;</em></a>'));
-
-      if($curThumb.hasClass('current')) {
-        $('.tabs-thumb-mob-js').filter('[href="'+ curAnchor +'"]').addClass('current');
-      }
-    })
+    toggleTabs.call($curThumb);
   }
 
-  $tabs.on('click', '.tabs-thumb-js, .tabs-thumb-mob-js', function (e) {
+
+  $tabsThumb.on('click', function (e) {
     e.preventDefault();
-
-    var $curThumb = $(this);
-    if ($curThumb.closest('.nested-tabs-js').length && $curThumb.hasClass('current')) {
-      var anchor = $(this).attr('href');
-      var $panel = $(anchor);
-      var $thumb = $('[href="'+ anchor +'"]');
-
-      $thumb.add($panel).removeClass('current');
-
-      return;
-    }
-
     toggleTabs.call(this, e);
   });
 
   function toggleTabs() {
-    var anchor = $(this).attr('href');
+    var $thumb = $(this);
+    var $curTabs = $thumb.closest('.tabs-js');
 
-    var $panel = $(anchor);
-    var $thumb = $('[href="'+ anchor +'"]');
+    // if ($thumb.hasClass('current')) {
+    //   return;
+    // }
 
-    $thumb.add($panel).addClass('current');
+    $tabsThumb.removeClass('current');
 
-    $thumb.add($panel).siblings().removeClass('current');
+    $thumb.addClass('current');
 
-    $panel.siblings().children('.tabs-thumb-mob-js').removeClass('current');
+    $curTabs
+        .find('.tabs-panels-js > div')
+        .removeClass('current')
+        .end()
+        .find($thumb.attr('href'))
+        .addClass('current');
   }
 }
 
