@@ -5047,6 +5047,10 @@ input.form-url__field.placeholder {
   margin: 8px 0 0 -3px;
 }
 
+.table-tabs__item br {
+  display: none;
+}
+
 /* table end */
 /* follow-mob */
 .follow-mob {
