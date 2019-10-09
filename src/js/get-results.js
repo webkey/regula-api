@@ -8,7 +8,8 @@ $(document).ready(function () {
    * прокрутить страницу до таблици результатов
    */
   function goToResult(value) {
-    $('.doc-lad').scrollTop(value);
+    // $('.doc-lad').scrollTop(value);
+    $('html, body').scrollTop(value);
   }
 
   /**

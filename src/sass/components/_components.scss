@@ -1306,11 +1306,11 @@
     padding-bottom: 1.6rem;
   }
 
-  .show-results & {
-    @include media("<tab") {
-      display: none;
-    }
-  }
+  //.show-results & {
+  //  @include media("<tab") {
+  //    display: none;
+  //  }
+  //}
 }
 
 .copyright {
@@ -1328,12 +1328,12 @@
     padding-top: $header-height--mob;
   }
 
-  .show-results & {
-    @include media("<tab") {
-      overflow: hidden;
-      height: 100%;
-    }
-  }
+  //.show-results & {
+  //  @include media("<tab") {
+  //    overflow: hidden;
+  //    height: 100%;
+  //  }
+  //}
 }
 
 /* entry */
@@ -1453,16 +1453,16 @@
   }
 
   .show-results & {
-    @include media("<tab") {
-      height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-
-      .footer {
-        display: block;
-      }
-    }
+    //@include media("<tab") {
+    //  height: 100%;
+    //  overflow-x: hidden;
+    //  overflow-y: auto;
+    //  -webkit-overflow-scrolling: touch;
+    //
+    //  .footer {
+    //    display: block;
+    //  }
+    //}
 
     @include media("<mob") {
       background-color: #fff;
@@ -2869,9 +2869,10 @@ $tabs-radius: 0.6rem;
     table-layout: fixed;
     z-index: 2;
 
-    @include media("<tab") {
-      top: 0;
-    }
+    // show-results
+    //@include media("<tab") {
+    //  top: 0;
+    //}
 
     @include media("<mob") {
       top: $header-height--mob;
@@ -3176,7 +3177,9 @@ $tabs-radius: 0.6rem;
 
 .table-tabs {
   position: sticky;
-  top: 0;
+  //top: 0;
+  //show-results
+  top: $header-height--mob;
   background-color: $bg-color-results;
   //box-shadow: inset 0 -1px 0 rgba(#d7dfe8, 0.8);
   //height: 5rem;
@@ -4061,12 +4064,12 @@ $tabs-radius: 0.6rem;
     flex-basis: auto;
     max-width: none;
     //margin: 0 0 3.7rem;
-    margin-bottom: 0;
+    //margin-bottom: 0;
     padding-right: 0;
   }
 
   @include media('<mob') {
-    margin-bottom: 3.8rem;
+    margin-bottom: 3.5rem;
   }
 
   .show-results & {

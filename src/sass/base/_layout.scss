@@ -31,11 +31,11 @@ body {
     @include font-size($font-size--mob, $line-height--mob);
   }
 
-  .show-results & {
-    @include media("<tab") {
-      overflow: hidden;
-    }
-  }
+  //.show-results & {
+  //  @include media("<tab") {
+  //    overflow: hidden;
+  //  }
+  //}
 }
 
 // Отступы по бокам страницы
@@ -118,21 +118,21 @@ body {
 
 // Прижать футер к низу страницы
 // На html, body необходимо задать высоту 100% (Задано в reset.sass)
-/* Footer at bottom */
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  flex-shrink: 0;
-}
-
-.main {
-  flex-shrink: 0;
-}
-
-.footer {
-  flex-shrink: 0;
-  margin-top: auto;
-}
+///* Footer at bottom */
+//body {
+//  display: flex;
+//  flex-direction: column;
+//}
+//
+//.header {
+//  flex-shrink: 0;
+//}
+//
+//.main {
+//  flex-shrink: 0;
+//}
+//
+//.footer {
+//  flex-shrink: 0;
+//  margin-top: auto;
+//}

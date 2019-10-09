@@ -436,12 +436,6 @@ body {
   }
 }
 
-@media (max-width: 1279px) {
-  .show-results body {
-    overflow: hidden;
-  }
-}
-
 .layout-page-spaces {
   padding-right: 5rem;
   padding-left: 5rem;
@@ -523,30 +517,6 @@ body {
   .layout-wide {
     max-width: 76.8rem;
   }
-}
-
-/* Footer at bottom */
-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-}
-
-.header {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-.main {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-.footer {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  margin-top: auto;
 }
 
 /* ==================================== */
@@ -3099,12 +3069,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   }
 }
 
-@media (max-width: 1279px) {
-  .show-results .footer {
-    display: none;
-  }
-}
-
 .copyright {
   text-align: center;
 }
@@ -3120,13 +3084,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 @media (max-width: 639px) {
   .main {
     padding-top: 4.8rem;
-  }
-}
-
-@media (max-width: 1279px) {
-  .show-results .main {
-    overflow: hidden;
-    height: 100%;
   }
 }
 
@@ -3251,18 +3208,6 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
   .doc-lad .footer {
     margin-left: -2rem;
     margin-right: -2rem;
-  }
-}
-
-@media (max-width: 1279px) {
-  .show-results .doc-lad {
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .show-results .doc-lad .footer {
-    display: block;
   }
 }
 
@@ -4686,12 +4631,6 @@ input.form-url__field.placeholder {
   z-index: 2;
 }
 
-@media (max-width: 1279px) {
-  .table.m-sticky {
-    top: 0;
-  }
-}
-
 @media (max-width: 639px) {
   .table.m-sticky {
     top: 4.8rem;
@@ -4981,7 +4920,7 @@ input.form-url__field.placeholder {
 .table-tabs {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 4.8rem;
   background-color: #f5f6fa;
   height: 4rem;
   overflow: hidden;
@@ -5914,14 +5853,13 @@ input.form-url__field.placeholder {
     -ms-flex-preferred-size: auto;
         flex-basis: auto;
     max-width: none;
-    margin-bottom: 0;
     padding-right: 0;
   }
 }
 
 @media (max-width: 639px) {
   .d-load {
-    margin-bottom: 3.8rem;
+    margin-bottom: 3.5rem;
   }
 }
 
