@@ -52,9 +52,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
     stickyTable.insertAdjacentElement('beforebegin', cloneTable);
 
-    cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+    // cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+    stickyTable.style.marginTop = -cloneTable.offsetHeight + 'px';
     window.addEventListener('resize', function () {
-      cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+      // cloneTable.style.marginBottom = -cloneTable.offsetHeight + 'px';
+      stickyTable.style.marginTop = -cloneTable.offsetHeight + 'px';
     });
 
     syncTableWidth(stickyTable, cloneTable);

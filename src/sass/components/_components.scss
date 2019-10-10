@@ -1617,6 +1617,7 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
 .sample-doc__item {
   //height: 100%;
   //opacity: 0.6;
+  display: block;
   transition: box-shadow $animation-speed, opacity $animation-speed;
 
   @include media(">=mob") {
@@ -1625,11 +1626,14 @@ $orig-img-space: 0.6rem 1rem 1.4rem;
     height: auto;
     //height: auto;
 
+    //padding: 0 1rem 1rem 0;
     margin: 0 1rem 1rem 0 !important;
-    flex-grow: 0;
-    flex-shrink: 1;
+    //flex-grow: 0;
+    //flex-shrink: 1;
     $width: calc(33.33% - 1rem);
-    flex-basis: $width;
+    //$width: 33.33%;
+    flex: 1 0 #{$width};
+    //flex-basis: $width;
     max-width: $width;
   }
 

@@ -3328,6 +3328,7 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
 }
 
 .sample-doc__item {
+  display: block;
   transition: box-shadow 0.35s, opacity 0.35s;
 }
 
@@ -3338,12 +3339,8 @@ form .success + .select-arrow + .success-feedback + .error-feedback {
     width: auto !important;
     height: auto;
     margin: 0 1rem 1rem 0 !important;
-    -ms-flex-positive: 0;
-        flex-grow: 0;
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
-    -ms-flex-preferred-size: calc(33.33% - 1rem);
-        flex-basis: calc(33.33% - 1rem);
+    -ms-flex: 1 0 calc(33.33% - 1rem);
+        flex: 1 0 calc(33.33% - 1rem);
     max-width: calc(33.33% - 1rem);
   }
 }
@@ -4581,15 +4578,15 @@ input.form-url__field.placeholder {
 }
 
 .table th:nth-child(2) > div > span {
-  box-shadow: 0 2px 0 #3C9BF3;
+  box-shadow: 0 2px 0 #3c9bf3;
 }
 
 .table th:nth-child(3) > div > span {
-  box-shadow: 0 2px 0 #9166EE;
+  box-shadow: 0 2px 0 #9166ee;
 }
 
 .table th:nth-child(4) > div > span {
-  box-shadow: 0 2px 0 #60e1c9;
+  box-shadow: 0 2px 0 #51e0c6;
 }
 
 .table th.td-valid > div > span:not(.badge) {
