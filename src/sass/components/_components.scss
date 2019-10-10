@@ -2805,8 +2805,8 @@ $tabs-radius: 0.6rem;
     //  box-shadow: 0 2px 0 #51e0c6;
     //}
 
-    //$colors: #6e56b0, #9b85cc, #60e1c9, #6e56b0, #9b85cc, #60e1c9, #6e56b0;
-    $colors: #6e56b0, #9b85cc, #60e1c9;
+    //$colors: #6e56b0, #9b85cc, #60e1c9;
+    $colors: #3c9bf3, #9166ee, #51e0c6;
 
     @for $i from 1 through length($colors) {
       &:nth-child(#{$i + 1}) > div > span {
