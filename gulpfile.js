@@ -242,7 +242,10 @@ gulp.task('sassCompilationForDist', function () {
       ], {
         cascade: true
       }))
-      .pipe(removeEmptyLines())
+      // .pipe(removeEmptyLines())
+      .pipe(gulp.dest(path.dist + '/css'))
+      .pipe(cssnano())
+      .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(path.dist + '/css'))
 });
 
